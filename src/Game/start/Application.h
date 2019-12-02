@@ -6,12 +6,12 @@
 #define MY_OWN_GAME_APPLICATION_H
 
 #include <SFML/Graphics.hpp>
-#include "../states/State.h"
-#include "../states/MainMenuState.h"
+
+
 
 class Application {
 private:
-    std::stack<State*> states;
+    //std::stack<State*> states;
 
     float win_size_x,win_size_y;
     std::vector<sf::VideoMode> video_modes;
