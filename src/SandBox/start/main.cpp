@@ -59,7 +59,6 @@ int main()
 int main()
 
 {
-    Application app;
-    app.run();
+
 
 }

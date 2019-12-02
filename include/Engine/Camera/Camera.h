@@ -5,10 +5,12 @@
 #ifndef MY_OWN_GAME_CAMERA_H
 #define MY_OWN_GAME_CAMERA_H
 
+namespace Engine {
 
-class Camera {
+    class Camera {
 
-};
+    };
 
+}
 
 #endif //MY_OWN_GAME_CAMERA_H
