@@ -8,6 +8,12 @@
 #include <SFML/Graphics.hpp>
 #include <stack>
 
+
+enum GlobalVariables
+{
+    GRID_SIZE,
+};
+
 class State
 {
 private:

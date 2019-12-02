@@ -5,15 +5,29 @@
 #ifndef MY_OWN_GAME_APPLICATION_H
 #define MY_OWN_GAME_APPLICATION_H
 
+#include <SFML/Graphics.hpp>
+#include "../states/State.h"
+#include "../states/MainMenuState.h"
 
 class Application {
 private:
-    float winSizeX,winSizeY;
+    std::stack<State*> states;
 
-    const char* winTitle;
+    float win_size_x,win_size_y;
+    std::vector<sf::VideoMode> video_modes;
+    bool vertical_sync_enable;
+    unsigned int frame_rate_limit;
+    const char* win_title;
 
-    sf::RenderWindow * window;
+    sf::RenderWindow *window;
 
+    sf::Event main_event;
+    sf::Clock clock;
+    float delta_time;
+
+
+    void init_window();
+    void init_states();
 public:
     Application();
 

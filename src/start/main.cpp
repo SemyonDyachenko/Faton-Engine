@@ -1,4 +1,4 @@
-#include "../../lib/imgui/imgui.h"
+/*#include "../../lib/imgui/imgui.h"
 #include "../../lib/imgui/imgui-SFML.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -47,4 +47,19 @@ int main()
     }
 
     ImGui::SFML::Shutdown();
+}*/
+
+
+#include <iostream>
+#include "Application.h"
+
+
+
+
+int main()
+
+{
+    Application app;
+    app.run();
+
 }
