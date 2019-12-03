@@ -6,6 +6,7 @@
 #define MY_OWN_GAME_RENDERER2D_H
 
 #include "../Camera/Camera.h"
+#include "RendererAPI.h"
 
 namespace Engine {
 
@@ -16,11 +17,28 @@ namespace Engine {
 
         static void Init();
 
-        static void BeginScene(Engine::Camera& camera);
-        static void ENdScene();
+        static void createScene(Engine::Camera& camera);
+        static void endScene();
 
 
 
+    };
+
+    class RenderCommand
+    {
+    private:
+        static RendererAPI *m_RendererAPI;
+    public:
+        static void Init()
+        {
+            m_RendererAPI->Init();
+        }
+
+        static void Clear()
+        {
+            m_RendererAPI->Clear();
+
+        }
     };
 
 }

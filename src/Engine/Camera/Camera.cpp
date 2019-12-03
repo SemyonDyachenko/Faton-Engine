@@ -8,17 +8,26 @@
 namespace Engine{
 
 
-    Camera::Camera(float left, float right, float top, float bottom) {
-
+    Camera::Camera(float x, float y) {
+        this->position.x = x;
+        this->position.y = y;
     }
 
     const Math::Vector2<float> Camera::GetPosition() const {
-        return Math::Vector2<float>();
+        return this->position;
     }
 
     void Camera::SetPosition(const Math::Vector2<float> position)
     {
         this->position.x = position.x;
         this->position.y = position.y;
+    }
+
+    void Camera::SetZoom(float zoomFactor) {
+        this->zoomFactor = zoomFactor;
+    }
+
+    Camera::~Camera() {
+
     }
 }

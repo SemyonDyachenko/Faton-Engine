@@ -8,7 +8,6 @@
 
 
 class RendererAPI {
-
 public:
     enum class API
     {
@@ -19,6 +18,12 @@ public:
         DIRECTX = 0
     };
 
+private:
+    static API m_API;
+public:
+
+
+
 
     virtual void Init() = 0;
     virtual void Clear() = 0;
@@ -26,12 +31,11 @@ public:
 
 
 
-    static API getAPI();
+    inline static API getAPI();
 
 
 
-private:
-    static API m_API;
+
 };
 
 

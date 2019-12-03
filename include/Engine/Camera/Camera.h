@@ -5,27 +5,28 @@
 #ifndef MY_OWN_GAME_CAMERA_H
 #define MY_OWN_GAME_CAMERA_H
 
-#include "../Math/Vector2.h"
+#include "../Math/Vector2.hpp"
 
 namespace Engine {
 
     class Camera {
     private:
         float rotation;
-        Math::Vector2<float> position;
+        float zoomFactor;
+        Math::Vector2<float> position= {0.0f,0.0f};
 
 
 
     public:
-        Camera(float left,float right,float top,float bottom);
+        Camera(float x,float y);
 
         const Math::Vector2<float> GetPosition() const;
 
         void SetPosition(const Math::Vector2<float> position);
 
+        void SetZoom(float zoomFactor);
 
-
-        const
+        virtual ~Camera();
     };
 
 }

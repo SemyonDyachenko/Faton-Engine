@@ -20,11 +20,11 @@ namespace Engine
 
     }
 
-    void Renderer2D::BeginScene(Engine::Camera &camera) {
+    void Renderer2D::createScene(Engine::Camera &camera) {
 
     }
 
-    void Renderer2D::ENdScene() {
+    void Renderer2D::endScene() {
 
     }
 }
