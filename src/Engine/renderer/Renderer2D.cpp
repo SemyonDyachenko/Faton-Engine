@@ -8,4 +8,23 @@
 namespace Engine
 {
 
+    Renderer2D::Renderer2D() {
+
+    }
+
+    Renderer2D::~Renderer2D() {
+
+    }
+
+    void Renderer2D::Init() {
+
+    }
+
+    void Renderer2D::BeginScene(Engine::Camera &camera) {
+
+    }
+
+    void Renderer2D::ENdScene() {
+
+    }
 }

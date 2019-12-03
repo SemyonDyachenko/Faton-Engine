@@ -3,3 +3,7 @@
 //
 
 #include "../../../include/Engine/renderer/RendererAPI.h"
+
+RendererAPI::API RendererAPI::getAPI() {
+    return m_API;
+}

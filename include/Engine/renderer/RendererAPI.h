@@ -6,6 +6,7 @@
 #define MY_OWN_GAME_RENDERERAPI_H
 
 
+
 class RendererAPI {
 
 public:
@@ -18,13 +19,17 @@ public:
         DIRECTX = 0
     };
 
-    virtual void Init() = 0;
-    virtual void SetClearColor(const glm::vec4 color) = 0;
-    virtual void Clear() = 0;
 
-    static API getAPI() {
-        return m_API;
-    }
+    virtual void Init() = 0;
+    virtual void Clear() = 0;
+    virtual void Display() = 0;
+
+
+
+    static API getAPI();
+
+
+
 private:
     static API m_API;
 };

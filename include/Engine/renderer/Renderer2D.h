@@ -19,7 +19,7 @@ namespace Engine {
         static void BeginScene(Engine::Camera& camera);
         static void ENdScene();
 
-        static void clear();
+
 
     };
 
