@@ -7,6 +7,7 @@
 
 #include "../Camera/Camera.h"
 #include "RendererAPI.h"
+#include "../Core/Window.h"
 
 namespace Engine {
 
@@ -34,7 +35,7 @@ namespace Engine {
             m_RendererAPI->Init();
         }
 
-        static void Clear()
+        static void Clear(Window& window)
         {
             m_RendererAPI->Clear();
 

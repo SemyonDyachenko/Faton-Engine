@@ -25,10 +25,6 @@ namespace Engine {
             template<typename F>
             explicit Vector2(const Vector2<F>& vector);
 
-          //  template <typename U>
-           // explicit Vector2(const Vector2<U>& vector);
-
-
             virtual ~Vector2() = default;
 
             T x, y; // value x, value y
