@@ -1,6 +1,6 @@
 #MY_OWN_GAME
 
-IT's My Game Engine written in C++, and used SFM or OPENGL (while SFML) like GRAPHICS API.
+IT's My Game Engine who, I write now  in C++, and used SFM or OPENGL (while SFML) like GRAPHICS API.
 
 
 
