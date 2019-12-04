@@ -6,13 +6,12 @@
 #include "../../include/Engine/Core/Window.h"
 
 
-void SFMLRendererAPI::Clear() {
+
+void SFMLRendererAPI::Init() {
 
 }
 
-
-
-void SFMLRendererAPI::Init() {
+void SFMLRendererAPI::Clear(Engine::Window &window) {
 
 }
 

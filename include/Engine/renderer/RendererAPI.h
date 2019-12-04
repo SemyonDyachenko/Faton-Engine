@@ -6,6 +6,7 @@
 #define MY_OWN_GAME_RENDERERAPI_H
 
 #include <iostream>
+#include "../Core/Window.h"
 
 namespace Engine {
 
@@ -15,8 +16,6 @@ namespace Engine {
             NONE = 0,
             OPENGL = 0,
             SFML = 1,
-            VULKAN = 0,
-            DIRECTX = 0
         };
 
     private:
@@ -26,7 +25,7 @@ namespace Engine {
 
         virtual void Init() = 0;
 
-        virtual void Clear() = 0;
+        virtual void Clear(Window & window) = 0;
 
 
         inline static API getAPI();

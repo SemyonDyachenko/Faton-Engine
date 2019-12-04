@@ -42,3 +42,7 @@ void SFMLWindow::Create() {
 sf::RenderWindow &SFMLWindow::GetWindow() const {
     return *this->window;
 }
+
+void SFMLWindow::Clear(float red, float green, float blue, float alpha) {
+this->window->clear(sf::Color (red,green,blue,alpha));
+}

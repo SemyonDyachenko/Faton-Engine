@@ -27,6 +27,7 @@ public:
 
     virtual ~SFMLWindow();
 
+    void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) override;
 
     float GetWidth() const override;
     float GetHeight() const override;
@@ -35,6 +36,9 @@ public:
     bool IsVerticalSyncEnable() const override;
 
     sf::RenderWindow &GetWindow() const;
+
+
+
 
     void Create() override;
 };

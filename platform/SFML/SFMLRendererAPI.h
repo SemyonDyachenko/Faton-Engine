@@ -6,6 +6,8 @@
 #define MY_OWN_GAME_SFML_RENDERER_API_H
 
 #include "../../include/Engine/renderer/RendererAPI.h"
+#include "../../include/Engine/Core/Window.h"
+#include "../Window/SFMLWindow.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -15,7 +17,7 @@ class SFMLRendererAPI : public Engine::RendererAPI
 public:
     virtual void Init() override;
 
-    virtual void Clear() override;
+    virtual void Clear(Engine::Window & window) override;
 
 };
 
