@@ -6,10 +6,11 @@
 #define MY_OWN_GAME_APPLICATION_H
 
 
+#include <X11/X.h>
 
 class Application {
 private:
-    //Window * window;
+    Window * window;
     bool is_run = true;
 
 

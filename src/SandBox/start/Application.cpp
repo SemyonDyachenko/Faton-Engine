@@ -2,7 +2,7 @@
 // Created by semyon on 01.12.2019.
 //
 
-#include "Application.h"
+#include "../../../include/SandBox/start/Application.h"
 
 Application::Application() {
 

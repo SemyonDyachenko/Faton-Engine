@@ -8,14 +8,15 @@
 #include "../../include/Engine/renderer/RendererAPI.h"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>>
+#include <SFML/System.hpp>
 
-class SFMLRendererAPI : public RendererAPI
+class SFMLRendererAPI : public Engine::RendererAPI
 {
 public:
     virtual void Init() override;
+
     virtual void Clear() override;
-    virtual void Display() override;
+
 };
 
 

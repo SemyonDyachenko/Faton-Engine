@@ -5,15 +5,14 @@
 #include "SFMLRendererAPI.h"
 #include "../../include/Engine/Core/Window.h"
 
-void SFMLRendererAPI::Clear(Engine::Window *window) {
-    window.
+
+void SFMLRendererAPI::Clear() {
+
 }
+
+
 
 void SFMLRendererAPI::Init() {
-
-}
-
-void SFMLRendererAPI::Display(Engine::Window * window) {
 
 }
 
