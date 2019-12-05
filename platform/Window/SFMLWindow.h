@@ -8,6 +8,7 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include "../../include/Engine/Core/Event.h"
 #include "../../include/Engine/Core/Window.h"
 
 
@@ -37,7 +38,11 @@ public:
 
     sf::RenderWindow &GetWindow() const;
 
+    bool PollEvent(Engine::Event & event) override;
 
+    void SetTitle(const char * title) override;
+
+    bool isOpen() const override;
 
 
     void Create() override;

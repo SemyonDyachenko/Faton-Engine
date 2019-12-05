@@ -6,7 +6,10 @@
 #define MY_OWN_GAME_RENDERERAPI_H
 
 #include <iostream>
+
 #include "../Core/Window.h"
+#include "../Core/Core.h"
+#include <memory>
 
 namespace Engine {
 
@@ -27,11 +30,12 @@ namespace Engine {
 
         virtual void Clear(Window & window) = 0;
 
+        virtual void Draw(Window & window) = 0;
+
 
         inline static API getAPI();
 
-       //static std::shared_ptr<RendererAPI> Create();
-
+        static std::unique_ptr<RendererAPI> Create();
 
     };
 

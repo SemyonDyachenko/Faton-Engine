@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <iostream>
+#include <memory>
 
 
 #ifdef _WIN32
@@ -22,4 +24,11 @@
 #error "Unknow platform is not support"
 
 #endif
+
+
+namespace Engine
+{
+
+}
+
 

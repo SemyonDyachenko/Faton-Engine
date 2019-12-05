@@ -1,12 +1,9 @@
 
 #include <iostream>
-
-#include "../../../include/Engine/Math/Vector2.hpp"
-
-using namespace Engine;
+#include "../../../include/Engine/renderer/Renderer2D.h"
+#include "../../../platform/Window/SFMLWindow.h"
 
 
-#define __linux__
 
 
 
@@ -17,4 +14,4 @@ int main()
 
 
  return 0;
-}
+ }

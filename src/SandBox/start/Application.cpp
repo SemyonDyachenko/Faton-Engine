@@ -4,6 +4,7 @@
 
 #include "../../../include/SandBox/start/Application.h"
 
+
 Application::Application() {
 
 }
@@ -13,11 +14,11 @@ Application::~Application() {
 }
 
 void Application::Update() {
-
+this->window.Update();
 }
 
 void Application::Render() {
-
+this->window->Create();
 }
 
 void Application::Run() {

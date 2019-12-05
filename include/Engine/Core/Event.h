@@ -7,8 +7,19 @@
 
 namespace Engine
 {
+    enum class EventType
+    {
+     NONE = 0,
+     WINDOW_CLOSE = 0,
+     KEY_PRESSED,
+     KEY_RELEASED,
+     MOUSE_BUTTON_PRESSED,
+     MOUSE_BUTTON_RELEASED,
+     MOUSE_SCROLL
+    };
 
     class Event {
+
     public:
         virtual ~Event() = default;
     };

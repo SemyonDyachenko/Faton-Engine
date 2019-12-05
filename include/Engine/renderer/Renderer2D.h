@@ -28,19 +28,29 @@ namespace Engine {
     class RenderCommand
     {
     private:
-        static RendererAPI *m_RendererAPI;
+        static std::unique_ptr<RendererAPI> m_RendererAPI;
     public:
+
         static void Init()
         {
+            m_RendererAPI->Create();
             m_RendererAPI->Init();
         }
 
         static void Clear(Window& window)
         {
-            m_RendererAPI->Clear();
+            m_RendererAPI->Clear(window);
 
         }
+
+        static void Draw(Window& window)
+        {
+            m_RendererAPI->Draw(window);
+        }
+
     };
+
+
 
 }
 

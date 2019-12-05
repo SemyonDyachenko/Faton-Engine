@@ -46,3 +46,15 @@ sf::RenderWindow &SFMLWindow::GetWindow() const {
 void SFMLWindow::Clear(float red, float green, float blue, float alpha) {
 this->window->clear(sf::Color (red,green,blue,alpha));
 }
+
+bool SFMLWindow::PollEvent(Engine::Event &event) {
+    return false;
+}
+
+bool SFMLWindow::isOpen() const {
+    return false;
+}
+
+void SFMLWindow::SetTitle(const char *title) {
+
+}
