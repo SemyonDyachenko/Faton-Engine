@@ -20,6 +20,8 @@ namespace Engine {
     public:
         Camera(float x,float y);
 
+        Camera(Engine::Math::Vector2<float> position);
+
         const Math::Vector2<float> GetPosition() const;
 
         void SetPosition(const Math::Vector2<float> position);

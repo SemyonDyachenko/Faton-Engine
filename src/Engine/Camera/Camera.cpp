@@ -13,6 +13,11 @@ namespace Engine{
         this->position.y = y;
     }
 
+    Camera::Camera(Engine::Math::Vector2<float> position) {
+        this->position.x = position.x;
+        this->position.y = position.y;
+    }
+
     const Math::Vector2<float> Camera::GetPosition() const {
         return this->position;
     }
@@ -30,4 +35,6 @@ namespace Engine{
     Camera::~Camera() {
 
     }
+
+
 }

@@ -8,6 +8,8 @@
 namespace Engine
 {
 
+    std::unique_ptr<RendererAPI> RenderCommand::m_RendererAPI = RendererAPI::Create();
+
     Renderer2D::Renderer2D() {
 
     }

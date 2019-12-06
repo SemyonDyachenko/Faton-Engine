@@ -33,7 +33,7 @@ namespace Engine {
 
         static void Init()
         {
-            m_RendererAPI->Create();
+
             m_RendererAPI->Init();
         }
 

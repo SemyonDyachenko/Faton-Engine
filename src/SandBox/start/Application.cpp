@@ -14,7 +14,7 @@ Application::~Application() {
 }
 
 void Application::Update() {
-this->window.Update();
+
 }
 
 void Application::Render() {

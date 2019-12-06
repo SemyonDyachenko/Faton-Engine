@@ -17,8 +17,8 @@ namespace Engine {
     public:
         enum class API {
             NONE = 0,
-            OPENGL = 0,
-            SFML = 1,
+            OPENGL = 1,
+            SFML = 2,
         };
 
     private:
