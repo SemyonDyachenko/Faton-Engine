@@ -12,10 +12,13 @@
 #include "../../include/Engine/Core/Window.h"
 
 
+
+#include <memory>
+
+
 class SFMLWindow : public Engine::Window {
 private:
-    sf::RenderWindow * window;
-
+    sf::Window * window;
 
     const char* title;
 
@@ -23,12 +26,14 @@ private:
 
     bool vertical_sync;
 
+
+    void Init();
 public:
     SFMLWindow(float window_width,float window_height,const char * window_title);
 
     virtual ~SFMLWindow();
 
-    void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) override;
+   // void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) override;
 
     float GetWidth() const override;
     float GetHeight() const override;
@@ -36,16 +41,13 @@ public:
     void SetVerticalSync(bool enabled) override;
     bool IsVerticalSyncEnable() const override;
 
-    sf::RenderWindow &GetWindow() const;
+    sf::Window &GetWindow() const;
 
     bool PollEvent(Engine::Event & event) override;
 
     void SetTitle(const char * title) override;
 
-    bool isOpen() const override;
 
-
-    void Create() override;
 };
 
 

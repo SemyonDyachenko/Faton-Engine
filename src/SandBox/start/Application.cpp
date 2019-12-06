@@ -6,7 +6,7 @@
 
 
 Application::Application() {
-
+this->window = Engine::Window::Create();
 }
 
 Application::~Application() {

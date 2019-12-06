@@ -6,6 +6,8 @@
 #define MY_OWN_GAME_WINDOW_H
 
 #include "Event.h"
+#include <memory>
+
 
 
 namespace Engine {
@@ -23,6 +25,7 @@ namespace Engine {
 
         virtual void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) = 0;
 
+        //virtual void Update() = 0;
 
         virtual bool PollEvent(Event& event) = 0;
 
@@ -32,7 +35,7 @@ namespace Engine {
         virtual bool isOpen() const = 0;
 
 
-        virtual void Create() = 0;
+        virtual std::unique_ptr<Window> Create();
     };
 
 }

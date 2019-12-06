@@ -13,8 +13,15 @@ this->width = window_width;
 this->height = window_height;
 }
 
-SFMLWindow::~SFMLWindow() {
 
+void SFMLWindow::Init() {
+
+}
+
+
+
+SFMLWindow::~SFMLWindow() {
+delete this->window;
 }
 
 
@@ -35,26 +42,22 @@ bool SFMLWindow::IsVerticalSyncEnable() const {
     return this->vertical_sync;
 }
 
-void SFMLWindow::Create() {
-    window->display();
+std::unique_ptr<Engine::Window> Engine::Window::Create() {
+    return std::unique_ptr<SFMLWindow>();
 }
 
-sf::RenderWindow &SFMLWindow::GetWindow() const {
+sf::Window &SFMLWindow::GetWindow() const {
     return *this->window;
 }
 
-void SFMLWindow::Clear(float red, float green, float blue, float alpha) {
-this->window->clear(sf::Color (red,green,blue,alpha));
-}
+
 
 bool SFMLWindow::PollEvent(Engine::Event &event) {
     return false;
-}
 
-bool SFMLWindow::isOpen() const {
-    return false;
 }
 
 void SFMLWindow::SetTitle(const char *title) {
 
 }
+
