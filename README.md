@@ -1,6 +1,6 @@
-#MY_OWN_GAME
+FATON GAME ENGINE
 
-IT's My Game Engine who, I write now  in C++, and used SFM or OPENGL (while SFML) like GRAPHICS API.
+IT's My Own Game Engine who, I write now  in C++, and used SFM or OPENGL (while SFML) like GRAPHICS API.
 
 
 
