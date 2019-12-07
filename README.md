@@ -9,8 +9,8 @@ file download_script.py used for download engine project on your computer. (04.1
 used as build system - cmake
 
 platforms:
-linux x64
-win32 x64
+linux x64,
+win32 x64,
 Apple Macintosh is not support.
 
 
