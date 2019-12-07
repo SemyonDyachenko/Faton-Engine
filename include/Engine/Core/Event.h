@@ -21,6 +21,9 @@ namespace Engine
     class Event {
 
     public:
+        EventType type;
+
+
         virtual ~Event() = default;
     };
 }

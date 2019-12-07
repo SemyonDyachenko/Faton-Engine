@@ -53,9 +53,14 @@ sf::Window &SFMLWindow::GetWindow() const {
 }
 
 
+void SFMLWindow::Clear(float red, float green, float blue, float alpha) {
+    window->clear(sf::Color(red,green,blue,alpha));
+}
+
+
 
 bool SFMLWindow::PollEvent(Engine::Event &event) {
-    return false;
+    return window->pollEvent();
 
 }
 
@@ -65,5 +70,13 @@ this->title = title;
 
 void SFMLWindow::Show() {
 this->window->display();
+}
+
+void SFMLWindow::Close() {
+this->window->close();
+}
+
+bool SFMLWindow::isOpen() const {
+    return window->isOpen();
 }
 

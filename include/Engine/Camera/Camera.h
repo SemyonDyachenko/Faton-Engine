@@ -6,14 +6,16 @@
 #define MY_OWN_GAME_CAMERA_H
 
 #include "../Math/Vector2.hpp"
+#include <memory>
 
 namespace Engine {
 
     class Camera {
     private:
-        float rotation;
+        float rotation = 0.0f;
         float zoomFactor;
         Math::Vector2<float> position= {0.0f,0.0f};
+
 
 
 
@@ -22,11 +24,11 @@ namespace Engine {
 
         Camera(Engine::Math::Vector2<float> position);
 
-        const Math::Vector2<float> GetPosition() const;
+        virtual const Math::Vector2<float> GetPosition() const;
 
-        void SetPosition(const Math::Vector2<float> position);
+        virtual void SetPosition(const Math::Vector2<float> position);
 
-        void SetZoom(float zoomFactor);
+        virtual void SetZoom(float zoomFactor);
 
         virtual ~Camera();
     };

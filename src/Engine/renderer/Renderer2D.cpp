@@ -30,5 +30,11 @@ namespace Engine
 
     }
 
+    void Renderer2D::DrawRect(Engine::Math::Vector2<float> &positions, Engine::Math::Vector2<float> &size,Engine::Math::Color3<float> &color3)
+    {
+       //return Engine::Sprite()
+
+    }
+
 
 }

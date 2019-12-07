@@ -6,6 +6,7 @@
 #define MY_OWN_GAME_SPRITE_H
 
 #include "../Math/Vector2.hpp"
+#include "../Math/Color3.hpp"
 
 namespace Engine
 {
@@ -14,6 +15,8 @@ namespace Engine
      virtual ~Sprite() = default;
 
      virtual void setTexture(const char* path) = 0;
+
+     virtual void SetFillColor(Engine::Math::Color3<float> color3)= 0;
 
      virtual Math::Vector2<float> GetPositions() const = 0;
 

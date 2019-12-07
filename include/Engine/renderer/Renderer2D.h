@@ -8,6 +8,7 @@
 #include "../Camera/Camera.h"
 #include "RendererAPI.h"
 #include "../Core/Window.h"
+#include "../Math/Color3.hpp"
 
 namespace Engine {
 
@@ -19,9 +20,10 @@ namespace Engine {
         static void Init();
 
         static void createScene(Engine::Camera& camera);
+
         static void endScene();
 
-
+        static void DrawRect(Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size,Engine::Math::Color3<float>& color3);
 
     };
 

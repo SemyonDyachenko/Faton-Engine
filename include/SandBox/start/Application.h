@@ -7,6 +7,11 @@
 
 
 #include "../../../include/Engine/Core/Window.h"
+#include "../../../include/Engine/renderer/Renderer2D.h"
+#include <SFML/System.hpp>
+
+
+
 
 
 class Application {
@@ -15,12 +20,15 @@ private:
     bool is_run = true;
 
 
+
 public:
     Application();
     virtual ~Application();
 
 
-    void PollEvent(Engine::Event & event);
+    void UpdateDeltaTime();
+
+
 
 
     void Update();
@@ -28,5 +36,6 @@ public:
     void Run();
 };
 
+Application* CreateApplication();
 
 #endif //MY_OWN_GAME_APPLICATION_H

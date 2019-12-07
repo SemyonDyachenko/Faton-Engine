@@ -18,7 +18,7 @@
 
 class SFMLWindow : public Engine::Window {
 private:
-    sf::Window * window;
+    sf::RenderWindow * window;
 
     const char* title;
 
@@ -33,7 +33,7 @@ public:
 
     virtual ~SFMLWindow();
 
-   // void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) override;
+    void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) override;
 
     float GetWidth() const override;
     float GetHeight() const override;
@@ -44,6 +44,10 @@ public:
     sf::Window &GetWindow() const;
 
     bool PollEvent(Engine::Event & event) override;
+
+    bool isOpen() const override;
+
+    void Close() override;
 
     void SetTitle(const char * title) override;
 
