@@ -35,7 +35,10 @@ namespace Engine {
         virtual bool isOpen() const = 0;
 
 
-        virtual std::unique_ptr<Window> Create();
+        static  std::unique_ptr<Window> Create();
+
+
+        virtual void Show() = 0;
     };
 
 }

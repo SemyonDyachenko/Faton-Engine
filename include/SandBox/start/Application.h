@@ -8,15 +8,19 @@
 
 #include "../../../include/Engine/Core/Window.h"
 
+
 class Application {
 private:
-    Engine::Window * window;
+    std::unique_ptr<Engine::Window> window;
     bool is_run = true;
 
 
 public:
     Application();
     virtual ~Application();
+
+
+    void PollEvent(Engine::Event & event);
 
 
     void Update();

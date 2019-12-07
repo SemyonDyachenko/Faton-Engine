@@ -4,19 +4,21 @@
 
 #include "SFMLWindow.h"
 
+void SFMLWindow::Init(float window_width, float window_height, const char *window_title) {
+    this->window = new sf::RenderWindow(sf::VideoMode(window_width,window_height),window_title);
+    this->window->setVerticalSyncEnabled(this->vertical_sync);
+    this->window->setFramerateLimit(120);
+
+    this->width = window_width;
+    this->height = window_height;
+}
+
+
 SFMLWindow::SFMLWindow(float window_width, float window_height, const char *window_title) {
-this->window = new sf::RenderWindow(sf::VideoMode(window_width,window_height),window_title);
-this->window->setVerticalSyncEnabled(this->vertical_sync);
-this->window->setFramerateLimit(120);
-
-this->width = window_width;
-this->height = window_height;
+this->Init(window_width,window_height,window_title);
 }
 
 
-void SFMLWindow::Init() {
-
-}
 
 
 
@@ -58,6 +60,10 @@ bool SFMLWindow::PollEvent(Engine::Event &event) {
 }
 
 void SFMLWindow::SetTitle(const char *title) {
+this->title = title;
+}
 
+void SFMLWindow::Show() {
+this->window->display();
 }
 

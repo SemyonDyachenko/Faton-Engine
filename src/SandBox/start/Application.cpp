@@ -6,7 +6,9 @@
 
 
 Application::Application() {
-this->window = Engine::Window::Create();
+    this->window = Engine::Window::Create();
+
+
 }
 
 Application::~Application() {
@@ -14,14 +16,21 @@ Application::~Application() {
 }
 
 void Application::Update() {
-
+while(window)
 }
 
 void Application::Render() {
-this->window->Create();
+
+this->window->Show();
 }
 
 void Application::Run() {
+this->Update();
+this->Render();
+}
+
+void Application::PollEvent(Engine::Event &event) {
 
 }
+
 

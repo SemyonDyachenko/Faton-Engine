@@ -27,7 +27,7 @@ private:
     bool vertical_sync;
 
 
-    void Init();
+    void Init(float window_width, float window_height, const char *window_title);
 public:
     SFMLWindow(float window_width,float window_height,const char * window_title);
 
@@ -46,6 +46,8 @@ public:
     bool PollEvent(Engine::Event & event) override;
 
     void SetTitle(const char * title) override;
+
+    void Show() override;
 
 
 };
