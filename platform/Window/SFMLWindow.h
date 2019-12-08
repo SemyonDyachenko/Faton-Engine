@@ -8,7 +8,7 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include "../../include/Engine/Core/Event.h"
+#include "../../include/Engine/Events/Event.h"
 #include "../../include/Engine/Core/Window.h"
 
 

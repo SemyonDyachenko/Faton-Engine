@@ -5,7 +5,7 @@
 #ifndef MY_OWN_GAME_WINDOW_H
 #define MY_OWN_GAME_WINDOW_H
 
-#include "Event.h"
+#include "../Events/Event.h"
 #include <memory>
 
 
@@ -27,7 +27,8 @@ namespace Engine {
 
         //virtual void Update() = 0;
 
-        virtual bool PollEvent(Event& event) = 0;
+
+        virtual bool PollEvent(T& event) = 0;
 
         virtual void SetTitle(const char * title) = 0;
 

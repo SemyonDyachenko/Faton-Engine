@@ -15,15 +15,52 @@ namespace Engine
         public:
             virtual ~Color3() = default;
 
-            Color3();
+
 
             T red;
             T green;
             T blue;
             T m_Alpha;
 
+            Color3() {
 
-            Color3(T red,T greeen,T blue,T m_Alpha);
+            }
+
+            Color3(T red,T green,T blue,T m_Alpha) {
+                this->red = red;
+                this->green = green;
+                this->blue = blue;
+                this->m_Alpha = m_Alpha;
+            }
+
+
+            inline T GetR() const {
+                return this->red;
+            }
+
+            inline T GetG() const {
+                return this->green;
+            }
+
+            inline T GetB() const {
+                return this->blue;
+            }
+
+            inline void SetR(T red) {
+                this->red = red;
+            }
+
+            inline void SetG(T green) {
+                this->green = green;
+            }
+
+            inline void SetB(T blue) {
+                this->blue = blue;
+            }
+
+            inline void SetAlphaRGB(T m_Alpha) {
+                this->m_Alpha = m_Alpha;
+            }
 
         };
     }

@@ -5,11 +5,13 @@
 #ifndef MY_OWN_GAME_BOXCOLLIDER2D_H
 #define MY_OWN_GAME_BOXCOLLIDER2D_H
 
+#include "Collider2D.h"
+
 namespace Engine {
 
     namespace Physics {
 
-        class BoxCollider2D {
+        class BoxCollider2D : public Engine::Physics::Collider2D {
 
         };
     }
