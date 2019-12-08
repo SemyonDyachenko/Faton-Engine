@@ -7,10 +7,11 @@
 
 #include "../Math/Vector2.hpp"
 #include "../Math/Color3.hpp"
+#include "Drawable.h"
 
 namespace Engine
 {
- class Sprite {
+ class Sprite : Engine::Drawable {
  public:
      virtual ~Sprite() = default;
 
@@ -21,7 +22,6 @@ namespace Engine
      virtual Math::Vector2<float> GetPositions() const = 0;
 
      virtual Math::Vector2<float> GetSize() const = 0;
-
 
 
  };

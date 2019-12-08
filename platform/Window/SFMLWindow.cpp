@@ -49,7 +49,7 @@ sf::Window &SFMLWindow::GetWindow() const {
 }
 
 
-void SFMLWindow::Clear(float red, float green, float blue, float alpha) {
+void SFMLWindow::Clear(float red, float green , float blue, float alpha) {
     window->clear(sf::Color(red,green,blue,alpha));
 }
 
@@ -64,7 +64,7 @@ bool SFMLWindow::PollEvent(Engine::Event &event) {
     if(sf_event.type == sf::Event::Closed)
     {
         window->close();
-        return -1;
+        return 0;
     }
     else {
         return this->window->pollEvent(sf_event);
@@ -81,6 +81,11 @@ this->window->display();
 
 void SFMLWindow::Close() {
 this->window->close();
+}
+
+void SFMLWindow::Draw() {
+    this->window.draw();
+
 }
 
 

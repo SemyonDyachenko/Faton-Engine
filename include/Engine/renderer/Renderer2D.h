@@ -25,6 +25,9 @@ namespace Engine {
 
         static void DrawRect(Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size,Engine::Math::Color3<float>& color3);
 
+
+        void Draw(Engine::Drawable)
+
     };
 
     class RenderCommand

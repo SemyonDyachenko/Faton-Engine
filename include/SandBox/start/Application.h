@@ -22,9 +22,13 @@ private:
     Engine::Event* event;
 
 
+    //time
+
+
 public:
     Application();
     virtual ~Application();
+
 
 
     void UpdateDeltaTime();

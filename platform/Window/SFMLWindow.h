@@ -35,7 +35,7 @@ public:
 
     virtual ~SFMLWindow();
 
-    void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) override;
+    void Clear(float red = 0,float green = 0,float blue = 0,float alpha =1) override;
 
     float GetWidth() const override;
     float GetHeight() const override;
@@ -54,6 +54,8 @@ public:
     void Close() override;
 
     void SetTitle(const char * title) override;
+
+    void Draw();
 
     void Show() override;
 

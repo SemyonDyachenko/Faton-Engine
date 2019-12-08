@@ -23,7 +23,7 @@ namespace Engine {
         virtual void SetVerticalSync(bool enabled) = 0;
         virtual bool IsVerticalSyncEnable() const= 0;
 
-        virtual void Clear(float red = 0,float green = 0,float blue = 0,float alpha =0) = 0;
+        virtual void Clear(float red = 0,float green = 0,float blue = 0,float alpha =1) = 0;
 
         //virtual void Update() = 0;
 

@@ -12,6 +12,6 @@ void SFMLRendererAPI::Init() {
 }
 
 void SFMLRendererAPI::Clear(Engine::Window &window) {
-
+window.Clear();
 }
 

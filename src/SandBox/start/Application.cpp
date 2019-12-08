@@ -32,12 +32,22 @@ void Application::Update() {
         while (window->PollEvent(*this->event)) {
             if(event->GetEventType() == Engine::EventType::WINDOW_CLOSE)
             {
-                //this->window->SetEventType(Engine::EventType::WINDOW_CLOSE);
+
             }
+
+
         }
-        this->window->Clear();
 
 
+        this->window->Clear(255,100,0,1);
+
+        sf::RectangleShape shape;
+        shape.setSize(sf::Vector2f(400,400));
+        shape.setPosition(300,400);
+        shape.setFillColor(sf::Color::Green);
+
+
+        shape.d
         this->window->Show();
     }
 }
