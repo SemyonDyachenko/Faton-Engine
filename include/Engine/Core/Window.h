@@ -28,7 +28,8 @@ namespace Engine {
         //virtual void Update() = 0;
 
 
-        virtual bool PollEvent(T& event) = 0;
+
+        virtual bool PollEvent(Event& event) = 0;
 
         virtual void SetTitle(const char * title) = 0;
 

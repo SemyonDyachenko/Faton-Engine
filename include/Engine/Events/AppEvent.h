@@ -11,12 +11,15 @@
 namespace Engine
 {
 class WindowCloseEvent : public Engine::Event{
-
+public:
         WindowCloseEvent() = default;
 
-        EVENT_CLASS_TYPE(WINDOW_CLOSE)
+        //EVENT_CLASS_TYPE(WINDOW_CLOSE)
 
-    };
+        EventType GetEventType() override;
+
+        const char* GetName() override;
+};
 
 
 }

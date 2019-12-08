@@ -3,12 +3,17 @@
 //
 
 #include "../../../include/SandBox/start/Application.h"
+#include "../../../platform/Window/SFMLWindow.h"
+#include "../../../platform/SFML/SFMLRendererAPI.h"
+#include "../../../include/Engine/Events/AppEvent.h"
 
 
 Application::Application() {
 
-this->window = Engine::Window::Create();
-
+    if(Engine::RendererAPI::Create() == std::unique_ptr<SFMLRendererAPI>())
+    {
+        this->window = new SFMLWindow(1920, 1080, "hello world");
+    }
 
 }
 
@@ -22,11 +27,18 @@ void Application::UpdateDeltaTime() {
 
 
 void Application::Update() {
+    this->event = new Engine::WindowCloseEvent();
     while(window->isOpen()) {
-        while (window->PollEvent()) {
-
+        while (window->PollEvent(*this->event)) {
+            if(event->GetEventType() == Engine::EventType::WINDOW_CLOSE)
+            {
+                //this->window->SetEventType(Engine::EventType::WINDOW_CLOSE);
+            }
         }
+        this->window->Clear();
 
+
+        this->window->Show();
     }
 }
 

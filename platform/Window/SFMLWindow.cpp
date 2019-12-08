@@ -2,6 +2,7 @@
 // Created by semyon on 03.12.2019.
 //
 
+#include <SFML/Window/Event.hpp>
 #include "SFMLWindow.h"
 
 void SFMLWindow::Init(float window_width, float window_height, const char *window_title) {
@@ -17,9 +18,6 @@ void SFMLWindow::Init(float window_width, float window_height, const char *windo
 SFMLWindow::SFMLWindow(float window_width, float window_height, const char *window_title) {
 this->Init(window_width,window_height,window_title);
 }
-
-
-
 
 
 SFMLWindow::~SFMLWindow() {
@@ -44,9 +42,7 @@ bool SFMLWindow::IsVerticalSyncEnable() const {
     return this->vertical_sync;
 }
 
-std::unique_ptr<Engine::Window> Engine::Window::Create() {
-    return std::unique_ptr<SFMLWindow>();
-}
+
 
 sf::Window &SFMLWindow::GetWindow() const {
     return *this->window;
@@ -57,11 +53,22 @@ void SFMLWindow::Clear(float red, float green, float blue, float alpha) {
     window->clear(sf::Color(red,green,blue,alpha));
 }
 
+bool SFMLWindow::isOpen() const {
+    return window->isOpen();
+}
 
 
 bool SFMLWindow::PollEvent(Engine::Event &event) {
-    return window->pollEvent();
+    sf::Event sf_event;
 
+    if(sf_event.type == sf::Event::Closed)
+    {
+        window->close();
+        return -1;
+    }
+    else {
+        return this->window->pollEvent(sf_event);
+    }
 }
 
 void SFMLWindow::SetTitle(const char *title) {
@@ -76,7 +83,4 @@ void SFMLWindow::Close() {
 this->window->close();
 }
 
-bool SFMLWindow::isOpen() const {
-    return window->isOpen();
-}
 

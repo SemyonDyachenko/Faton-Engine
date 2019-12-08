@@ -16,9 +16,10 @@
 
 class Application {
 private:
-    std::unique_ptr<Engine::Window> window;
+   Engine::Window* window;
     bool is_run = true;
 
+    Engine::Event* event;
 
 
 public:

@@ -20,6 +20,8 @@ class SFMLWindow : public Engine::Window {
 private:
     sf::RenderWindow * window;
 
+
+
     const char* title;
 
     float width,height;
@@ -44,6 +46,8 @@ public:
     sf::Window &GetWindow() const;
 
     bool PollEvent(Engine::Event & event) override;
+
+
 
     bool isOpen() const override;
 
