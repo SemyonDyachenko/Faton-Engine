@@ -47,7 +47,7 @@ void Application::Update() {
         shape.setFillColor(sf::Color::Green);
 
 
-        shape.d
+
         this->window->Show();
     }
 }

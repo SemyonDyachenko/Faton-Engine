@@ -11,9 +11,9 @@ namespace Engine {
 
     class Drawable {
     protected:
-        friend class Renderer2D;
-        
-        virtual void Draw(Renderer2D & renderer2D) const = 0;
+     //   friend class Renderer2D;
+
+//        virtual void Draw(Renderer2D & renderer2D) const = 0;
     public:
         virtual ~Drawable();
     };

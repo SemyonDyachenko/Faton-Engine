@@ -36,5 +36,13 @@ namespace Engine
 
     }
 
+ //   void Renderer2D::Draw(Engine::Drawable object) {
+//
+ //   }
+
+    //void Renderer2D::Draw(Engine::Drawable object) {
+   //     object.Draw();
+   // }
+
 
 }

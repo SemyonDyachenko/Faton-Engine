@@ -84,7 +84,7 @@ this->window->close();
 }
 
 void SFMLWindow::Draw() {
-    this->window.draw();
+    //this->window.draw();
 
 }
 

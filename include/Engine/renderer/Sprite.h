@@ -8,14 +8,23 @@
 #include "../Math/Vector2.hpp"
 #include "../Math/Color3.hpp"
 #include "Drawable.h"
+#include <memory>
+
+#define DEFAULT_SPRITE_WIDTH 100
+#define DEFAULT_SPRITE_HEIGHT 100
+#define DEFAULT_POSITION_X 10
+#define DEFAULT_POSITION_Y 10
+
 
 namespace Engine
 {
+
+
  class Sprite : Engine::Drawable {
  public:
      virtual ~Sprite() = default;
 
-     virtual void setTexture(const char* path) = 0;
+     virtual void SetTexture(const char* path) = 0;
 
      virtual void SetFillColor(Engine::Math::Color3<float> color3)= 0;
 
@@ -24,6 +33,7 @@ namespace Engine
      virtual Math::Vector2<float> GetSize() const = 0;
 
 
+     static std::unique_ptr<Sprite> Create();
  };
 
 };
