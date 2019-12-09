@@ -35,7 +35,7 @@ public:
 
     virtual ~SFMLWindow();
 
-    void Clear(float red = 0,float green = 0,float blue = 0,float alpha =1) override;
+    void Clear() override;
 
     float GetWidth() const override;
     float GetHeight() const override;

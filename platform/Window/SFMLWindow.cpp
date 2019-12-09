@@ -49,8 +49,8 @@ sf::Window &SFMLWindow::GetWindow() const {
 }
 
 
-void SFMLWindow::Clear(float red, float green , float blue, float alpha) {
-    window->clear(sf::Color(red,green,blue,alpha));
+void SFMLWindow::Clear() {
+    window->clear();
 }
 
 bool SFMLWindow::isOpen() const {

@@ -9,6 +9,7 @@
 #include "Core/Core.h"
 #include "Core/Window.h"
 #include "Core/EngineKeys.h"
+#include "Core/Timer.h"
 #include "Events/Event.h"
 #include "Events/AppEvent.h"
 #include "Math/Vector2.hpp"

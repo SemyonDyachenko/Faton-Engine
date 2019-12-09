@@ -36,10 +36,13 @@ void Application::Update() {
             }
 
 
+            this->window->Clear();
+
+
         }
 
 
-        this->window->Clear(255,100,0,1);
+
 
         sf::RectangleShape shape;
         shape.setSize(sf::Vector2f(400,400));
