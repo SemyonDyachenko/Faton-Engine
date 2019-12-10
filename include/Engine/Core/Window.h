@@ -6,6 +6,8 @@
 #define MY_OWN_GAME_WINDOW_H
 
 #include "../Events/Event.h"
+#include "../renderer/Drawable.h"
+
 #include <memory>
 
 
@@ -39,8 +41,9 @@ namespace Engine {
 
         virtual void Close() =  0;
 
-        static  std::unique_ptr<Window> Create();
+        static  std::unique_ptr<Window> Create(){}
 
+        virtual  void Draw(Drawable & drawable) = 0;
 
         virtual void Show() = 0;
     };

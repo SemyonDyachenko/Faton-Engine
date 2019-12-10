@@ -5,19 +5,35 @@
 #ifndef MY_OWN_GAME_DRAWABLE_H
 #define MY_OWN_GAME_DRAWABLE_H
 
-#include "Renderer2D.h"
+#include <memory>
+
 
 namespace Engine {
 
-    class Drawable {
-    protected:
-     //   friend class Renderer2D;
 
-//        virtual void Draw(Renderer2D & renderer2D) const = 0;
-    public:
-        virtual ~Drawable();
+    enum class DrawableTypes
+    {
+        SPRITE
+
     };
 
+    class Drawable {
+    protected:
+     // friend class Renderer2D;
+
+     // static void Draw(Window & window);
+    public:
+
+        virtual ~Drawable();
+
+
+        static std::unique_ptr<Drawable> Create(DrawableTypes type);
+
+    };
 }
 
 #endif //MY_OWN_GAME_DRAWABLE_H
+
+// 10 ДЕКАБРЯ
+// СОЗДАНИЕ СТРУКТУРЫ ПОКАЗА ОБЬЕКТА с ПОМОШЬю renderer2d или WIndow
+// Вывод спрайтов на экран

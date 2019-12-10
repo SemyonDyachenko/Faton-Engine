@@ -67,3 +67,11 @@ std::unique_ptr<Engine::Sprite> Engine::Sprite::Create()
 SFMLSprite::~SFMLSprite() {
 delete this->texture;
 }
+
+std::unique_ptr<Engine::Drawable> Engine::Drawable::Create(Engine::DrawableTypes type) {
+    if(type == Engine::DrawableTypes::SPRITE) {
+        return std::unique_ptr<SFMLSprite>();
+    }
+}
+
+

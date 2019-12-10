@@ -14,30 +14,33 @@ namespace Engine {
 
     class Time
     {
-        float time;
 
     public:
 
-        Time(float time = 0.0f);
-        virtual ~Time();
+        ~Time() = default;
+
 
         float AsSeconds() {
-            return time;
+            return 0.f;
         }
 
         double AsMicroseconds() {
-            return time * 1000000.f;
+            return 0.f * 1000000.f;
         }
 
         double AsMilliseconds() {
-            return time * 1000.f;
+            return 0.f * 1000.f;
         }
 
 
     };
 
     class Timer {
+        using Clock = std::chrono::high_resolution_clock;
 
+
+        long lastTime =  std::chrono::duration_cast<std::chrono::nanoseconds>
+                (std::chrono::system_clock::now().time_since_epoch()).count();
     public:
         Time GetElapsedTime() {
             return Time();

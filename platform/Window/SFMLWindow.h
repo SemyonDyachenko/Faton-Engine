@@ -55,7 +55,7 @@ public:
 
     void SetTitle(const char * title) override;
 
-    void Draw();
+    void Draw(Engine::Drawable & drawable) override;
 
     void Show() override;
 

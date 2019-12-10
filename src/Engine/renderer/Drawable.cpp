@@ -3,7 +3,12 @@
 //
 
 #include "../../../include/Engine/renderer/Drawable.h"
+#include "../../../include/Engine/renderer/Sprite.h"
 
-Engine::Drawable::~Drawable() {
+namespace Engine {
+
+    Drawable::~Drawable() {
+
+    }
 
 }

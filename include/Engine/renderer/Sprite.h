@@ -20,7 +20,7 @@ namespace Engine
 {
 
 
- class Sprite : Engine::Drawable {
+ class Sprite : public  Engine::Drawable {
  public:
      virtual ~Sprite() = default;
 
@@ -31,7 +31,6 @@ namespace Engine
      virtual Math::Vector2<float> GetPositions() const = 0;
 
      virtual Math::Vector2<float> GetSize() const = 0;
-
 
      static std::unique_ptr<Sprite> Create();
  };

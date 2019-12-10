@@ -4,6 +4,7 @@
 
 #include <SFML/Window/Event.hpp>
 #include "SFMLWindow.h"
+#include "../SFML/SFMLSprite.h"
 
 void SFMLWindow::Init(float window_width, float window_height, const char *window_title) {
     this->window = new sf::RenderWindow(sf::VideoMode(window_width,window_height),window_title);
@@ -83,8 +84,8 @@ void SFMLWindow::Close() {
 this->window->close();
 }
 
-void SFMLWindow::Draw() {
-    //this->window.draw();
+void SFMLWindow::Draw(Engine::Drawable & drawable)
+{
 
 }
 

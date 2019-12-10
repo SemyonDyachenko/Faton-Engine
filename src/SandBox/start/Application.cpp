@@ -6,6 +6,7 @@
 #include "../../../platform/Window/SFMLWindow.h"
 #include "../../../platform/SFML/SFMLRendererAPI.h"
 #include "../../../include/Engine/Events/AppEvent.h"
+#include "../../../include/Engine/Engine.h"
 
 
 Application::Application() {
@@ -27,42 +28,28 @@ void Application::UpdateDeltaTime() {
 
 
 void Application::Update() {
-    this->event = new Engine::WindowCloseEvent();
-    while(window->isOpen()) {
         while (window->PollEvent(*this->event)) {
             if(event->GetEventType() == Engine::EventType::WINDOW_CLOSE)
             {
-
             }
 
-
-            this->window->Clear();
-
-
-        }
-
-
-
-
-        sf::RectangleShape shape;
-        shape.setSize(sf::Vector2f(400,400));
-        shape.setPosition(300,400);
-        shape.setFillColor(sf::Color::Green);
-
-
-
-        this->window->Show();
     }
+
 }
 
 
 void Application::Render() {
 
+    this->window->Clear();
+    this->window->Show();
 }
 
 void Application::Run() {
-this->Update();
-this->Render();
+    this->event = new Engine::WindowCloseEvent();
+    while(window->isOpen()) {
+        this->Update();
+        this->Render();
+    }
 }
 
 
