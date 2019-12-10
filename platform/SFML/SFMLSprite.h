@@ -34,6 +34,8 @@ public:
 
     Engine::Math::Vector2<float> GetPositions() const override;
 
+    sf::RectangleShape &GetAPISprite();
+
     Engine::Math::Vector2<float> GetSize() const override;
 
     void SetTexture(const char* path) override;

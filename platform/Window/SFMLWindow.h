@@ -49,6 +49,7 @@ public:
 
 
 
+
     bool isOpen() const override;
 
     void Close() override;
@@ -56,6 +57,8 @@ public:
     void SetTitle(const char * title) override;
 
     void Draw(Engine::Drawable & drawable) override;
+
+    void Draw(Engine::Sprite & sprite) override;
 
     void Show() override;
 

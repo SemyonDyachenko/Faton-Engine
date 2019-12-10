@@ -30,6 +30,10 @@ namespace Engine
 
      virtual Math::Vector2<float> GetPositions() const = 0;
 
+
+
+     static std::unique_ptr<Engine::Sprite> GetSprite();
+
      virtual Math::Vector2<float> GetSize() const = 0;
 
      static std::unique_ptr<Sprite> Create();

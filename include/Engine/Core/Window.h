@@ -7,6 +7,7 @@
 
 #include "../Events/Event.h"
 #include "../renderer/Drawable.h"
+#include "../renderer/Sprite.h"
 
 #include <memory>
 
@@ -43,7 +44,10 @@ namespace Engine {
 
         static  std::unique_ptr<Window> Create(){}
 
+
         virtual  void Draw(Drawable & drawable) = 0;
+
+        virtual void Draw(Sprite & sprite) = 0;
 
         virtual void Show() = 0;
     };

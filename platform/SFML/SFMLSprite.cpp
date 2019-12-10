@@ -68,6 +68,10 @@ SFMLSprite::~SFMLSprite() {
 delete this->texture;
 }
 
+sf::RectangleShape &SFMLSprite::GetAPISprite() {
+    return this->sprite;
+}
+
 std::unique_ptr<Engine::Drawable> Engine::Drawable::Create(Engine::DrawableTypes type) {
     if(type == Engine::DrawableTypes::SPRITE) {
         return std::unique_ptr<SFMLSprite>();
@@ -75,3 +79,7 @@ std::unique_ptr<Engine::Drawable> Engine::Drawable::Create(Engine::DrawableTypes
 }
 
 
+std::unique_ptr<Engine::Sprite> Engine::Sprite::GetSprite()
+{
+    return std::unique_ptr<SFMLSprite>();
+}

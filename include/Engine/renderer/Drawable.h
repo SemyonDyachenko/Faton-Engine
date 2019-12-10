@@ -19,7 +19,7 @@ namespace Engine {
 
     class Drawable {
     protected:
-     // friend class Renderer2D;
+        //friend class Renderer2D;
 
      // static void Draw(Window & window);
     public:
