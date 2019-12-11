@@ -14,10 +14,17 @@ private:
     sf::Shader shader;
 
 public:
+    SFMLShader();
+
+    SFMLShader(const char* vertex_shader_file,const char* fragment_shader_file);
+
+    SFMLShader(const char* vertex_shader_file,const char* fragment_shader_file,const char* geometry_shader_file);
+
+    ~SFMLShader();
+
     void LoadFromFile(const char* vertex_shader_file,const char* fragment_shader_file) override;
 
     void LoadFromFile(const char* vertex_shader_file,const char* fragment_shader_file,const char* geometry_shader_file) override;
-
 
 
     void Bind() override;

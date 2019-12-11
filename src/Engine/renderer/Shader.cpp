@@ -3,3 +3,9 @@
 //
 
 #include "../../../include/Engine/renderer/Shader.h"
+
+
+namespace Engine
+{
+
+}
