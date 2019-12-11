@@ -16,7 +16,7 @@
 
 class Application {
 private:
-   Engine::Window* window;
+    Engine::Window* window;
     bool is_run = true;
 
     Engine::Event* event;

@@ -7,6 +7,7 @@
 #include "../../../platform/SFML/SFMLRendererAPI.h"
 #include "../../../include/Engine/Events/AppEvent.h"
 #include "../../../include/Engine/Engine.h"
+#include "../../../platform/SFML/SFMLSprite.h"
 
 
 Application::Application() {
@@ -40,12 +41,12 @@ void Application::Update() {
 
 void Application::Render() {
 
-    Engine::Sprite * sprite = new SFMLSprite(Engine::Math::Vector2<float>(100,200),Engine::Math::Vector2<float>(100,200));
+    Engine::Sprite * sprite= new SFMLSprite(Engine::Math::Vector2<float>(10,10),Engine::Math::Vector2<float>(200,200));
 
 
 
     this->window->Clear();
-    this->window->Draw(*sprite);
+    Engine::Renderer2D::RendererDraw(*sprite,*this->window);
     this->window->Show();
 
 }

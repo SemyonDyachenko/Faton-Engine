@@ -8,7 +8,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../../include/Engine/renderer/Sprite.h"
-
+#include "../../platform/Window/SFMLWindow.h"
 
 
 class SFMLSprite : public Engine::Sprite
@@ -37,6 +37,11 @@ public:
     sf::RectangleShape &GetAPISprite();
 
     Engine::Math::Vector2<float> GetSize() const override;
+
+    void Draw(Engine::Window & window) override;
+
+
+    void Draw(SFMLWindow & window);
 
     void SetTexture(const char* path) override;
 

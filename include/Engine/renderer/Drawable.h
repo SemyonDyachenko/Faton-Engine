@@ -7,7 +7,7 @@
 
 #include <memory>
 
-class Window;
+#include "../Core/Window.h"
 
 namespace Engine {
 
@@ -27,7 +27,7 @@ namespace Engine {
 
         virtual ~Drawable();
 
-       // virtual void Draw(Window & window) = 0;
+        //virtual void Draw(Window & window) = 0;
 
         static std::unique_ptr<Drawable> Create(DrawableTypes type);
 

@@ -4,6 +4,7 @@
 
 #include "SFMLSprite.h"
 #include "SFMLRendererAPI.h"
+#include "../../include/Engine/renderer/Sprite.h"
 
 
 SFMLSprite::SFMLSprite() {
@@ -65,6 +66,7 @@ std::unique_ptr<Engine::Sprite> Engine::Sprite::Create()
 }
 
 
+
 SFMLSprite::~SFMLSprite() {
     delete this->texture;
 }
@@ -72,6 +74,15 @@ SFMLSprite::~SFMLSprite() {
 sf::RectangleShape &SFMLSprite::GetAPISprite() {
     return this->sprite;
 }
+
+void SFMLSprite::Draw(SFMLWindow &window) {
+window.GetWindow().draw(this->sprite);
+}
+
+void SFMLSprite::Draw(Engine::Window &window) {
+
+}
+
 
 std::unique_ptr<Engine::Drawable> Engine::Drawable::Create(Engine::DrawableTypes type) {
     if(type == Engine::DrawableTypes::SPRITE) {

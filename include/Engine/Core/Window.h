@@ -7,12 +7,7 @@
 
 #include "../Events/Event.h"
 
-#include "../renderer/Sprite.h"
-#include "../../../platform/SFML/SFMLSprite.h"
-
 #include <memory>
-
-
 
 
 namespace Engine {
@@ -46,12 +41,6 @@ namespace Engine {
 
         static  std::unique_ptr<Window> Create(){}
 
-
-        virtual  void Draw(Drawable & drawable) = 0;
-
-        virtual void Draw(Engine::Sprite & sprite) = 0;
-
-        virtual void Draw(SFMLSprite & sprite) = 0;
 
         virtual void Show() = 0;
     };

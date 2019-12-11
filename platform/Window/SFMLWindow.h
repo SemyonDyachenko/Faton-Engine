@@ -43,7 +43,7 @@ public:
     void SetVerticalSync(bool enabled) override;
     bool IsVerticalSyncEnable() const override;
 
-    sf::Window &GetWindow() const;
+    sf::RenderWindow &GetWindow() const;
 
     bool PollEvent(Engine::Event & event) override;
 
@@ -55,12 +55,6 @@ public:
     void Close() override;
 
     void SetTitle(const char * title) override;
-
-    void Draw(Engine::Drawable & drawable) override;
-
-    void Draw(Engine::Sprite & sprite) override;
-
-    void Draw(SFMLSprite & sprite) override;
 
     void Show() override;
 

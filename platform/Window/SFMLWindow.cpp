@@ -45,7 +45,7 @@ bool SFMLWindow::IsVerticalSyncEnable() const {
 
 
 
-sf::Window &SFMLWindow::GetWindow() const {
+sf::RenderWindow &SFMLWindow::GetWindow() const {
     return *this->window;
 }
 
@@ -82,19 +82,6 @@ this->window->display();
 
 void SFMLWindow::Close() {
 this->window->close();
-}
-
-void SFMLWindow::Draw(Engine::Drawable & drawable)
-{
-
-}
-
-void SFMLWindow::Draw(SFMLSprite &sprite) {
-    window->draw(sprite.GetAPISprite());
-}
-
-void SFMLWindow::Draw(Engine::Sprite &sprite) {
-
 }
 
 
