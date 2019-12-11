@@ -60,6 +60,8 @@ public:
 
     void Draw(Engine::Sprite & sprite) override;
 
+    void Draw(SFMLSprite & sprite) override;
+
     void Show() override;
 
 

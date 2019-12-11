@@ -40,8 +40,14 @@ void Application::Update() {
 
 void Application::Render() {
 
+    Engine::Sprite * sprite = new SFMLSprite(Engine::Math::Vector2<float>(100,200),Engine::Math::Vector2<float>(100,200));
+
+
+
     this->window->Clear();
+    this->window->Draw(*sprite);
     this->window->Show();
+
 }
 
 void Application::Run() {

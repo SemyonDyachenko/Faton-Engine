@@ -7,37 +7,38 @@
 
 
 SFMLSprite::SFMLSprite() {
-this->SpriteSize = Engine::Math::Vector2<float>(DEFAULT_SPRITE_WIDTH,DEFAULT_SPRITE_HEIGHT);
-this->SpritePosition = Engine::Math::Vector2<float>(DEFAULT_POSITION_X,DEFAULT_POSITION_Y);
+    this->SpriteSize = Engine::Math::Vector2<float>(DEFAULT_SPRITE_WIDTH,DEFAULT_SPRITE_HEIGHT);
+    this->SpritePosition = Engine::Math::Vector2<float>(DEFAULT_POSITION_X,DEFAULT_POSITION_Y);
 
-this->sprite.setSize(sf::Vector2f(
-        static_cast<float>(this->SpriteSize.x),
-        static_cast<float>(this->SpriteSize.y)
-        ));
+    this->sprite.setSize(sf::Vector2f(
+            static_cast<float>(this->SpriteSize.x),
+            static_cast<float>(this->SpriteSize.y)
+    ));
 
-this->sprite.setPosition(
-        static_cast<float>(this->SpritePosition.x),
-        static_cast<float>(this->SpritePosition.y)
-        );
+    this->sprite.setPosition(
+            static_cast<float>(this->SpritePosition.x),
+            static_cast<float>(this->SpritePosition.y)
+    );
 }
 
 SFMLSprite::SFMLSprite(Engine::Math::Vector2<float> position, Engine::Math::Vector2<float> size) {
-this->SpriteSize = size;
-this->SpritePosition = position;
-this->sprite.setFillColor(sf::Color(0,0,0,1));
-this->sprite.setSize(sf::Vector2f(size.x,size.y));
-if(this->texture == nullptr)
-{
+    this->SpriteSize = size;
+    this->SpritePosition = position;
+    this->sprite.setSize(sf::Vector2f(size.x,size.y));
+    this->sprite.setFillColor(sf::Color(25,130,75,100));
+    this->sprite.setPosition(sf::Vector2f(position.x,position.y));
+    if(this->texture == nullptr)
+    {
 
-}
-else
-{
-    this->sprite.setTexture(this->texture);
-}
+    }
+    else
+    {
+        this->sprite.setTexture(this->texture);
+    }
 }
 
 void SFMLSprite::SetFillColor(Engine::Math::Color3<float> color3) {
-this->fillColor = color3;
+    this->fillColor = color3;
 }
 
 Engine::Math::Vector2<float> SFMLSprite::GetPositions() const {
@@ -49,7 +50,7 @@ Engine::Math::Vector2<float> SFMLSprite::GetSize() const {
 }
 
 void SFMLSprite::SetTexture(const char *path) {
-this->texture->loadFromFile(path);
+    this->texture->loadFromFile(path);
 }
 
 std::unique_ptr<Engine::Sprite> Engine::Sprite::Create()
@@ -65,7 +66,7 @@ std::unique_ptr<Engine::Sprite> Engine::Sprite::Create()
 
 
 SFMLSprite::~SFMLSprite() {
-delete this->texture;
+    delete this->texture;
 }
 
 sf::RectangleShape &SFMLSprite::GetAPISprite() {
@@ -79,7 +80,3 @@ std::unique_ptr<Engine::Drawable> Engine::Drawable::Create(Engine::DrawableTypes
 }
 
 
-std::unique_ptr<Engine::Sprite> Engine::Sprite::GetSprite()
-{
-    return std::unique_ptr<SFMLSprite>();
-}

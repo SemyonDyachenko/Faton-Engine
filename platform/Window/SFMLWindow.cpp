@@ -89,9 +89,13 @@ void SFMLWindow::Draw(Engine::Drawable & drawable)
 
 }
 
+void SFMLWindow::Draw(SFMLSprite &sprite) {
+    window->draw(sprite.GetAPISprite());
+}
+
 void SFMLWindow::Draw(Engine::Sprite &sprite) {
-    window->draw();
 
 }
+
 
 

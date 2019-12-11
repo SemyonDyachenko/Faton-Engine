@@ -41,7 +41,7 @@ public:
     void SetTexture(const char* path) override;
 
 
-   //void Draw(Engine::Window & window) override;
+    //void Draw(Engine::Window & window) override;
 
     virtual ~SFMLSprite();
 };

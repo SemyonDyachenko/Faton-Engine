@@ -6,10 +6,12 @@
 #define MY_OWN_GAME_WINDOW_H
 
 #include "../Events/Event.h"
-#include "../renderer/Drawable.h"
+
 #include "../renderer/Sprite.h"
+#include "../../../platform/SFML/SFMLSprite.h"
 
 #include <memory>
+
 
 
 
@@ -47,7 +49,9 @@ namespace Engine {
 
         virtual  void Draw(Drawable & drawable) = 0;
 
-        virtual void Draw(Sprite & sprite) = 0;
+        virtual void Draw(Engine::Sprite & sprite) = 0;
+
+        virtual void Draw(SFMLSprite & sprite) = 0;
 
         virtual void Show() = 0;
     };
