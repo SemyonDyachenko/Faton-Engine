@@ -12,11 +12,7 @@
 
 Application::Application() {
 
-    if(Engine::RendererAPI::Create() == std::unique_ptr<SFMLRendererAPI>())
-    {
-        this->window = new SFMLWindow(1920, 1080, "hello world");
-    }
-
+    this->window = Engine::Window::Create(1280,720,"HELLO");
 }
 
 Application::~Application() {
@@ -40,20 +36,18 @@ void Application::Update() {
 
 
 void Application::Render() {
+    std::unique_ptr<Engine::Sprite> sprite = Engine::Sprite::Create();
 
-    Engine::Sprite * sprite= new SFMLSprite(Engine::Math::Vector2<float>(10,10),Engine::Math::Vector2<float>(200,200));
-
-
+    
 
     this->window->Clear();
-    Engine::Renderer2D::RendererDraw(*sprite,*this->window);
     this->window->Show();
 
 }
 
 void Application::Run() {
     this->event = new Engine::WindowCloseEvent();
-    while(window->isOpen()) {
+    while(this->window->isOpen()) {
         this->Update();
         this->Render();
     }

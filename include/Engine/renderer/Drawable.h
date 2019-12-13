@@ -7,7 +7,6 @@
 
 #include <memory>
 
-#include "../Core/Window.h"
 
 namespace Engine {
 

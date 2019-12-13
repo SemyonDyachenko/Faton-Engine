@@ -45,10 +45,6 @@ bool SFMLWindow::IsVerticalSyncEnable() const {
 
 
 
-sf::RenderWindow &SFMLWindow::GetWindow() const {
-    return *this->window;
-}
-
 
 void SFMLWindow::Clear() {
     window->clear();
@@ -82,6 +78,14 @@ this->window->display();
 
 void SFMLWindow::Close() {
 this->window->close();
+}
+
+void SFMLWindow::Draw(SFMLSprite &sprite){
+window->draw(sprite.GetAPISprite());
+}
+
+std::unique_ptr<Engine::Window> Engine::Window::Create(float width,float height,const char*title) {
+    return   std::make_unique<SFMLWindow>(width,height,title);
 }
 
 

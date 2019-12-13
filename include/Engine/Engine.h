@@ -22,7 +22,7 @@
 #include "renderer/Renderer2D.h"
 #include "renderer/RendererAPI.h"
 #include "renderer/Sprite.h"
-
+#include "renderer/Shader.h"
 
 
 #endif //MY_OWN_GAME_ENGINE_H

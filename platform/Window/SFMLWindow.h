@@ -10,7 +10,7 @@
 
 #include "../../include/Engine/Events/Event.h"
 #include "../../include/Engine/Core/Window.h"
-
+#include "../SFML/SFMLSprite.h"
 
 
 #include <memory>
@@ -43,11 +43,11 @@ public:
     void SetVerticalSync(bool enabled) override;
     bool IsVerticalSyncEnable() const override;
 
-    sf::RenderWindow &GetWindow() const;
+    inline virtual void* GetNativeWindow()  const override  {return this->window; }
 
     bool PollEvent(Engine::Event & event) override;
 
-
+    void Draw(SFMLSprite & sprite);
 
 
     bool isOpen() const override;

@@ -5,10 +5,18 @@
 #ifndef MY_OWN_GAME_COLLISION_H
 #define MY_OWN_GAME_COLLISION_H
 
+namespace Engine {
 
-class Collision {
+    namespace Physics {
 
-};
+
+        class Collision {
+        public:
+
+        };
+
+    }
+}
 
 
 #endif //MY_OWN_GAME_COLLISION_H

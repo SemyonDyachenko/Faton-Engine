@@ -25,9 +25,9 @@ SFMLSprite::SFMLSprite() {
 SFMLSprite::SFMLSprite(Engine::Math::Vector2<float> position, Engine::Math::Vector2<float> size) {
     this->SpriteSize = size;
     this->SpritePosition = position;
-    this->sprite.setSize(sf::Vector2f(size.x,size.y));
-    this->sprite.setFillColor(sf::Color(25,130,75,100));
-    this->sprite.setPosition(sf::Vector2f(position.x,position.y));
+    this->sprite.setSize(sf::Vector2f(static_cast<float>(size.x),static_cast<float>(size.y)));
+    this->sprite.setFillColor(sf::Color(65,130,75,100));
+    this->sprite.setPosition(sf::Vector2f(static_cast<float>(position.x),static_cast<float>(position.y)));
     if(this->texture == nullptr)
     {
 
@@ -56,13 +56,7 @@ void SFMLSprite::SetTexture(const char *path) {
 
 std::unique_ptr<Engine::Sprite> Engine::Sprite::Create()
 {
-    if(Engine::RendererAPI::Create() == std::unique_ptr<SFMLRendererAPI>()) {
-        return std::unique_ptr<SFMLSprite>();
-    }
-    else
-    {
-        return nullptr;
-    }
+    return std::make_unique<SFMLSprite>();
 }
 
 
@@ -74,20 +68,12 @@ SFMLSprite::~SFMLSprite() {
 sf::RectangleShape &SFMLSprite::GetAPISprite() {
     return this->sprite;
 }
-
+/*
 void SFMLSprite::Draw(SFMLWindow &window) {
 window.GetWindow().draw(this->sprite);
 }
 
 void SFMLSprite::Draw(Engine::Window &window) {
 
-}
-
-
-std::unique_ptr<Engine::Drawable> Engine::Drawable::Create(Engine::DrawableTypes type) {
-    if(type == Engine::DrawableTypes::SPRITE) {
-        return std::unique_ptr<SFMLSprite>();
-    }
-}
-
+}*/
 

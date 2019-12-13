@@ -10,6 +10,7 @@
 
 #include "../Math/Color3.hpp"
 #include "Sprite.h"
+#include "Shader.h"
 
 
 namespace Engine {
@@ -28,6 +29,8 @@ namespace Engine {
         static void DrawRect(Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size,Engine::Math::Color3<float>& color3);
 
         static void RendererDraw(Sprite& sprite,Window&window);
+
+        static void RendererDraw(Sprite& sprite,Window& window,Shader&shader);
 
 
 

@@ -36,6 +36,6 @@ this->shader.loadFromFile(vertex_shader_file,fragment_shader_file,geometry_shade
 
 
 void SFMLShader::Bind() {
-this->shader.bind(this->shader);
+sf::Shader::bind(&this->shader);
 }
 
