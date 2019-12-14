@@ -20,14 +20,13 @@ class SFMLWindow : public Engine::Window {
 private:
     sf::RenderWindow * window;
 
-
-
     const char* title;
-
     float width,height;
+    unsigned int frameRateLimit;
 
     bool vertical_sync;
-
+    bool resizable;
+    bool fullscreen;
 
     void Init();
 public:
@@ -35,7 +34,7 @@ public:
 
     virtual ~SFMLWindow();
 
-    void Clear() override;
+    void Clear(Engine::Math::Color3<float> color) override;
 
      float GetWidth() const override;
      float GetHeight() const override;
@@ -43,11 +42,15 @@ public:
     void SetVerticalSync(bool enabled) override;
     bool IsVerticalSyncEnable() const override;
 
+    void ChangeFrameRateLimit(unsigned int frameRateLimit) override;
+
+    void SetFullscreen(bool is_fullscreen) override;
+
+    void SetResizable(bool resizable) override;
+
     inline virtual void* GetNativeWindow() const;
 
     bool PollEvent(Engine::Event & event) override;
-
-    void Draw(SFMLSprite & sprite);
 
 
     bool isOpen() const override;

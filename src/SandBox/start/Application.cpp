@@ -10,6 +10,7 @@
 Application::Application() {
 
     this->window = Engine::Window::Create(1280,720,"ENGINE WINDOW");
+
 }
 
 Application::~Application() {
@@ -30,10 +31,6 @@ void Application::Update() {
 void Application::Render() {
     std::unique_ptr<Engine::Sprite> sprite = Engine::Sprite::Create();
 
-
-
-
-
 }
 
 void Application::Run() {
@@ -41,7 +38,7 @@ void Application::Run() {
     while (this->window->isOpen()) {
         window->PollEvent(*event);
 
-        this->window->Clear();
+        this->window->Clear(Engine::Math::Color3<float>(160,80,80,100));
 
         this->window->Show();
 

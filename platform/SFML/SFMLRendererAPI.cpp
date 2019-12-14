@@ -12,6 +12,6 @@ void SFMLRendererAPI::Init() {
 }
 
 void SFMLRendererAPI::Clear(Engine::Window &window) {
-window.Clear();
+window.Clear(Engine::Math::Color3<float>(0,0,0,100));
 }
 

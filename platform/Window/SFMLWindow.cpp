@@ -16,10 +16,26 @@ SFMLWindow::SFMLWindow(float window_width, float window_height, const char *wind
     this->height = window_height;
     this->title = window_title;
     this->vertical_sync = false;
+    this->resizable = false;
+    this->fullscreen = false;
+    this->frameRateLimit = 120;
 
-    this->window = new sf::RenderWindow(sf::VideoMode(width,height),window_title);
+    if(!fullscreen) {
+
+        if (this->resizable) {
+            this->window = new sf::RenderWindow(sf::VideoMode(width, height), window_title);
+        } else {
+            this->window = new sf::RenderWindow(sf::VideoMode(width, height), window_title, sf::Style::Close);
+        }
+
+    }
+    else{
+        this->window = new sf::RenderWindow(sf::VideoMode(width, height), window_title, sf::Style::Fullscreen);
+    }
+
     this->window->setVerticalSyncEnabled(this->vertical_sync);
-    this->window->setFramerateLimit(120);
+    this->window->setFramerateLimit(this->frameRateLimit);
+
 
 }
 
@@ -48,9 +64,8 @@ bool SFMLWindow::IsVerticalSyncEnable() const {
 
 
 
-
-void SFMLWindow::Clear() {
-    window->clear(sf::Color(150,100,50));
+void SFMLWindow::Clear(Engine::Math::Color3<float> color) {
+    window->clear(sf::Color(color.red,color.green,color.blue));
 }
 
 bool SFMLWindow::isOpen() const {
@@ -82,16 +97,25 @@ void SFMLWindow::Close() {
 this->window->close();
 }
 
-void SFMLWindow::Draw(SFMLSprite &sprite){
-//window->draw(sprite.GetAPISprite());
-}
 
 void *SFMLWindow::GetNativeWindow() const {
     return this->window;
 }
 
+void SFMLWindow::SetResizable(bool resizable) {
+    this->resizable = resizable;
+}
 
- std::unique_ptr<Engine::Window> Engine::Window::Create(const float width,const float height,const char*title) {
+void SFMLWindow::SetFullscreen(bool is_fullscreen) {
+this->fullscreen = is_fullscreen;
+}
+
+void SFMLWindow::ChangeFrameRateLimit(unsigned int frameRateLimit) {
+    this->frameRateLimit = frameRateLimit;
+}
+
+
+std::unique_ptr<Engine::Window> Engine::Window::Create(const float width,const float height,const char*title) {
     return  std::make_unique<SFMLWindow>(width,height,title);
 }
 
