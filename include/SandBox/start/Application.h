@@ -6,8 +6,7 @@
 #define MY_OWN_GAME_APPLICATION_H
 
 
-#include "../../../include/Engine/Core/Window.h"
-#include "../../../include/Engine/renderer/Renderer2D.h"
+#include "../../../include/Engine/Engine.h"
 #include <SFML/System.hpp>
 
 
@@ -17,10 +16,12 @@
 class Application {
 private:
     std::unique_ptr<Engine::Window> window;
-    bool is_run = true;
+
 
     Engine::Event* event;
 
+
+    bool running = true;
 
     //time
 
@@ -41,5 +42,7 @@ public:
 };
 
 Application* CreateApplication();
+
+
 
 #endif //MY_OWN_GAME_APPLICATION_H

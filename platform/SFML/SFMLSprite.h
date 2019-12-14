@@ -16,7 +16,7 @@ class SFMLSprite : public Engine::Sprite
 
 
 private:
-    sf::RectangleShape sprite;
+    sf::RectangleShape* sprite;
     sf::Texture* texture;
 
     Engine::Math::Vector2<float> SpriteSize;
@@ -34,9 +34,10 @@ public:
 
     Engine::Math::Vector2<float> GetPositions() const override;
 
-    sf::RectangleShape &GetAPISprite();
 
     Engine::Math::Vector2<float> GetSize() const override;
+
+    inline virtual  void* GetAPISprite() const { return this->sprite;}
 
    // void Draw(Engine::Window & window) override;
 

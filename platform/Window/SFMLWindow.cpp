@@ -6,18 +6,21 @@
 #include "SFMLWindow.h"
 #include "../SFML/SFMLSprite.h"
 
-void SFMLWindow::Init(float window_width, float window_height, const char *window_title) {
-    this->window = new sf::RenderWindow(sf::VideoMode(window_width,window_height),window_title);
+
+void SFMLWindow::Init() {
+
+}
+
+SFMLWindow::SFMLWindow(float window_width, float window_height, const char *window_title) {
+    this->width = window_width;
+    this->height = window_height;
+    this->title = window_title;
+    this->vertical_sync = false;
+
+    this->window = new sf::RenderWindow(sf::VideoMode(width,height),window_title);
     this->window->setVerticalSyncEnabled(this->vertical_sync);
     this->window->setFramerateLimit(120);
 
-    this->width = window_width;
-    this->height = window_height;
-}
-
-
-SFMLWindow::SFMLWindow(float window_width, float window_height, const char *window_title) {
-this->Init(window_width,window_height,window_title);
 }
 
 
@@ -47,7 +50,7 @@ bool SFMLWindow::IsVerticalSyncEnable() const {
 
 
 void SFMLWindow::Clear() {
-    window->clear();
+    window->clear(sf::Color(150,100,50));
 }
 
 bool SFMLWindow::isOpen() const {
@@ -58,14 +61,13 @@ bool SFMLWindow::isOpen() const {
 bool SFMLWindow::PollEvent(Engine::Event &event) {
     sf::Event sf_event;
 
-    if(sf_event.type == sf::Event::Closed)
-    {
-        window->close();
-        return 0;
+    while(window->pollEvent(sf_event)) {
+        if (sf_event.type == sf::Event::Closed) {
+            window->close();
+        }
     }
-    else {
-        return this->window->pollEvent(sf_event);
-    }
+    return this->window->pollEvent(sf_event);
+
 }
 
 void SFMLWindow::SetTitle(const char *title) {
@@ -81,11 +83,16 @@ this->window->close();
 }
 
 void SFMLWindow::Draw(SFMLSprite &sprite){
-window->draw(sprite.GetAPISprite());
+//window->draw(sprite.GetAPISprite());
 }
 
-std::unique_ptr<Engine::Window> Engine::Window::Create(float width,float height,const char*title) {
-    return   std::make_unique<SFMLWindow>(width,height,title);
+void *SFMLWindow::GetNativeWindow() const {
+    return this->window;
+}
+
+
+ std::unique_ptr<Engine::Window> Engine::Window::Create(const float width,const float height,const char*title) {
+    return  std::make_unique<SFMLWindow>(width,height,title);
 }
 
 

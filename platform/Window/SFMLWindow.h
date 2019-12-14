@@ -29,7 +29,7 @@ private:
     bool vertical_sync;
 
 
-    void Init(float window_width, float window_height, const char *window_title);
+    void Init();
 public:
     SFMLWindow(float window_width,float window_height,const char * window_title);
 
@@ -37,13 +37,13 @@ public:
 
     void Clear() override;
 
-    float GetWidth() const override;
-    float GetHeight() const override;
+     float GetWidth() const override;
+     float GetHeight() const override;
 
     void SetVerticalSync(bool enabled) override;
     bool IsVerticalSyncEnable() const override;
 
-    inline virtual void* GetNativeWindow()  const override  {return this->window; }
+    inline virtual void* GetNativeWindow() const;
 
     bool PollEvent(Engine::Event & event) override;
 

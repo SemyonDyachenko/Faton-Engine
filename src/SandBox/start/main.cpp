@@ -11,13 +11,11 @@
 int main()
 {
 
+std::cout<< "Engine is work" << std::endl;
 
+Application app;
 
- std::cout<< "Engine is work" << std::endl;
-
-
- Application app;
- app.Run();
+app.Run();
 
  return 0;
  }

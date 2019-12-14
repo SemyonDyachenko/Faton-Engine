@@ -33,6 +33,7 @@ namespace Engine
 
        // virtual void Draw(Window & window) = 0;
 
+
         virtual Math::Vector2<float> GetSize() const = 0;
 
 

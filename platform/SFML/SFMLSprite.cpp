@@ -3,20 +3,22 @@
 //
 
 #include "SFMLSprite.h"
-#include "SFMLRendererAPI.h"
-#include "../../include/Engine/renderer/Sprite.h"
+
 
 
 SFMLSprite::SFMLSprite() {
     this->SpriteSize = Engine::Math::Vector2<float>(DEFAULT_SPRITE_WIDTH,DEFAULT_SPRITE_HEIGHT);
     this->SpritePosition = Engine::Math::Vector2<float>(DEFAULT_POSITION_X,DEFAULT_POSITION_Y);
 
-    this->sprite.setSize(sf::Vector2f(
+    this->sprite = new sf::RectangleShape();
+    this->texture = nullptr;
+
+    this->sprite->setSize(sf::Vector2f(
             static_cast<float>(this->SpriteSize.x),
             static_cast<float>(this->SpriteSize.y)
     ));
 
-    this->sprite.setPosition(
+    this->sprite->setPosition(
             static_cast<float>(this->SpritePosition.x),
             static_cast<float>(this->SpritePosition.y)
     );
@@ -25,17 +27,14 @@ SFMLSprite::SFMLSprite() {
 SFMLSprite::SFMLSprite(Engine::Math::Vector2<float> position, Engine::Math::Vector2<float> size) {
     this->SpriteSize = size;
     this->SpritePosition = position;
-    this->sprite.setSize(sf::Vector2f(static_cast<float>(size.x),static_cast<float>(size.y)));
-    this->sprite.setFillColor(sf::Color(65,130,75,100));
-    this->sprite.setPosition(sf::Vector2f(static_cast<float>(position.x),static_cast<float>(position.y)));
-    if(this->texture == nullptr)
-    {
+    this->sprite = new sf::RectangleShape();
+    this->sprite->setSize(sf::Vector2f(static_cast<float>(size.x),static_cast<float>(size.y)));
+    this->sprite->setFillColor(sf::Color(65,130,75,100));
+    this->sprite->setPosition(sf::Vector2f(static_cast<float>(position.x),static_cast<float>(position.y)));
+    this->texture = nullptr;
 
-    }
-    else
-    {
-        this->sprite.setTexture(this->texture);
-    }
+    if(texture != nullptr)
+        this->sprite->setTexture(this->texture);
 }
 
 void SFMLSprite::SetFillColor(Engine::Math::Color3<float> color3) {
@@ -52,6 +51,7 @@ Engine::Math::Vector2<float> SFMLSprite::GetSize() const {
 
 void SFMLSprite::SetTexture(const char *path) {
     this->texture->loadFromFile(path);
+    this->sprite->setTexture(this->texture);
 }
 
 std::unique_ptr<Engine::Sprite> Engine::Sprite::Create()
@@ -65,9 +65,8 @@ SFMLSprite::~SFMLSprite() {
     delete this->texture;
 }
 
-sf::RectangleShape &SFMLSprite::GetAPISprite() {
-    return this->sprite;
-}
+
+
 /*
 void SFMLSprite::Draw(SFMLWindow &window) {
 window.GetWindow().draw(this->sprite);
