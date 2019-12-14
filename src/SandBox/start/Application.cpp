@@ -7,6 +7,7 @@
 
 
 
+
 Application::Application() {
 
     this->window = Engine::Window::Create(1280,720,"ENGINE WINDOW");
@@ -30,6 +31,8 @@ void Application::Update() {
 
 void Application::Render() {
     std::unique_ptr<Engine::Sprite> sprite = Engine::Sprite::Create();
+
+
 
 }
 

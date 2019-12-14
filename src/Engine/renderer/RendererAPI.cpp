@@ -20,7 +20,7 @@ namespace Engine {
         switch (m_API) {
             case RendererAPI::API::NONE: std::cout << "Not use API!" << std::endl;
             case RendererAPI::API::OPENGL: std::cout << "Opengl while not support! " << std::endl;
-            case RendererAPI::API::SFML: return  std::unique_ptr<SFMLRendererAPI>();
+            case RendererAPI::API::SFML: return std::unique_ptr<SFMLRendererAPI>();
         }
         return nullptr;
     }

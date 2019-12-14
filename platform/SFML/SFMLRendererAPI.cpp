@@ -6,6 +6,10 @@
 #include "../../include/Engine/Core/Window.h"
 
 
+SFMLRendererAPI::SFMLRendererAPI() {
+
+}
+
 
 void SFMLRendererAPI::Init() {
 

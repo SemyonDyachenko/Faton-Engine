@@ -37,7 +37,7 @@ namespace Engine
     }
 
     void Renderer2D::RendererDraw(Sprite &sprite, Window &window) {
-       // sprite.Draw(window);
+       window.Draw(sprite);
     }
 
     void Renderer2D::RendererDraw(Sprite &sprite, Window &window, Shader &shader) {
@@ -47,16 +47,6 @@ namespace Engine
     // void Renderer2D::Draw(Engine::Drawable object, Window &window) {
     //    window.Draw(object);
   //  }
-
-
-
-    //   void Renderer2D::Draw(Engine::Drawable object) {
-//
- //   }
-
-    //void Renderer2D::Draw(Engine::Drawable object) {
-   //     object.Draw();
-   // }
 
 
 }

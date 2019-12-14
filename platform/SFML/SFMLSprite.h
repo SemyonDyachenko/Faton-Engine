@@ -24,7 +24,6 @@ private:
 
     Engine::Math::Color3<float> fillColor;
 public:
-    //type
     //default constructor
     SFMLSprite();
     //with positions and size
@@ -37,12 +36,8 @@ public:
 
     Engine::Math::Vector2<float> GetSize() const override;
 
-    inline virtual  void* GetAPISprite() const { return this->sprite;}
+    inline virtual  void* GetAPISprite() const { return this->sprite; }
 
-   // void Draw(Engine::Window & window) override;
-
-
-   // void Draw(SFMLWindow & window);
 
     void SetTexture(const char* path) override;
 

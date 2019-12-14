@@ -114,6 +114,11 @@ void SFMLWindow::ChangeFrameRateLimit(unsigned int frameRateLimit) {
     this->frameRateLimit = frameRateLimit;
 }
 
+void SFMLWindow::Draw(Engine::Sprite &sprite) {
+    this->window->draw();
+}
+
+
 
 std::unique_ptr<Engine::Window> Engine::Window::Create(const float width,const float height,const char*title) {
     return  std::make_unique<SFMLWindow>(width,height,title);

@@ -27,9 +27,10 @@ SFMLSprite::SFMLSprite() {
 SFMLSprite::SFMLSprite(Engine::Math::Vector2<float> position, Engine::Math::Vector2<float> size) {
     this->SpriteSize = size;
     this->SpritePosition = position;
+    this->fillColor = Engine::Math::Color3<float>(255,0,0,100);
     this->sprite = new sf::RectangleShape();
     this->sprite->setSize(sf::Vector2f(static_cast<float>(size.x),static_cast<float>(size.y)));
-    this->sprite->setFillColor(sf::Color(65,130,75,100));
+    this->sprite->setFillColor(sf::Color(fillColor.red,fillColor.green,fillColor.blue));
     this->sprite->setPosition(sf::Vector2f(static_cast<float>(position.x),static_cast<float>(position.y)));
     this->texture = nullptr;
 

@@ -52,8 +52,9 @@ public:
 
     bool PollEvent(Engine::Event & event) override;
 
-
     bool isOpen() const override;
+
+    void Draw(Engine::Sprite& sprite) override;
 
     void Close() override;
 

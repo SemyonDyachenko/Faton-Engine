@@ -15,6 +15,9 @@
 class SFMLRendererAPI : public Engine::RendererAPI
 {
 public:
+    SFMLRendererAPI();
+
+
     virtual void Init() override;
 
     virtual void Clear(Engine::Window & window) override;
