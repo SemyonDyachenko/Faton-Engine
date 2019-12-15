@@ -26,5 +26,9 @@
 #include "renderer/Shader.h"
 
 
+#ifdef FATON_WINDOWS_PLATFORM
+#include <Windows.h>
+#endif
+
 
 #endif //MY_OWN_GAME_ENGINE_H

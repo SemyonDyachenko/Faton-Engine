@@ -36,6 +36,7 @@ this->UpdateDeltaTime();
 void Application::Render() {
     std::unique_ptr<Engine::Sprite> sprite = Engine::Sprite::Create();
 
+
     Engine::Renderer2D::RendererDraw(*sprite,*this->window);
 }
 

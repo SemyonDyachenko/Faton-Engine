@@ -22,6 +22,10 @@ private:
     Engine::Math::Vector2<float> SpriteSize;
     Engine::Math::Vector2<float> SpritePosition;
 
+    Engine::Math::Vector2<float> ScaleFactor;
+
+    float Rotation;
+
     Engine::Math::Color3<float> fillColor;
 public:
     //default constructor
@@ -29,14 +33,34 @@ public:
     //with positions and size
     SFMLSprite(Engine::Math::Vector2<float> position,Engine::Math::Vector2<float> size);
 
+
+    void SetPosition(Engine::Math::Vector2<float> position) override;
+
+    void SetPosition(float x,float y) override;
+
     void SetFillColor(Engine::Math::Color3<float> color3) override;
 
     Engine::Math::Vector2<float> GetPositions() const override;
 
+    void SetScale(float ScaleFactorX,float ScaleFactorY) override;
+
+    void SetScale(Engine::Math::Vector2<float> factors) override;
+
+    void SetOrigin(float x,float y) override;
+
+    void SetOrigin(Engine::Math::Vector2<float> origin) override;
+
+    void SetRotation(float angle) override;
+
+    const Engine::Math::Vector2<float> & GetScale() const override;
+
+    const Engine::Math::Vector2<float> & GetOrigin() const override;
+
+    Engine::Math::Color3<float> GetFillColor() override;
 
     Engine::Math::Vector2<float> GetSize() const override;
 
-    sf::RectangleShape GetAPISprite() const { return *this->sprite; }
+    sf::RectangleShape GetAPISprite() const;
 
 
     void SetTexture(const char* path) override;
@@ -44,7 +68,7 @@ public:
 
     //void Draw(Engine::Window & window) override;
 
-    virtual ~SFMLSprite();
+    ~SFMLSprite() = default;
 };
 
 

@@ -9,7 +9,7 @@
 
 
 #ifdef _WIN32
-#define ENGINE_PLATFORM_WINDOWS
+#define FATON_WINDOWS_PLATFORM
 
 #elif defined(__APPLE__) || defined(__MACH__)
 #error "Apple Macintosh is not supported!"
@@ -18,7 +18,7 @@
 #error "Android is not supported!"
 
 #elif defined(__linux__)
-#define ENGINE_LINUX_PLATFORM
+#define FATON_LINUX_PLATFORM
 
 #else
 #error "Unknow platform is not support"

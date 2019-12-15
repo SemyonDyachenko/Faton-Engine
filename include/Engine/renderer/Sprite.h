@@ -20,21 +20,44 @@
 namespace Engine
 {
 
-    class Sprite {
+  class  Sprite {
     public:
         virtual ~Sprite() = default;
 
+
+        static std::unique_ptr<Sprite> Create();
+
         virtual void SetTexture(const char* path) = 0;
 
-        virtual void SetFillColor(Engine::Math::Color3<float> color3)= 0;
+        virtual void SetPosition(Math::Vector2<float> position) = 0;
+
+        virtual void SetPosition(float x,float y) = 0;
+
+        virtual void SetFillColor(Math::Color3<float> color3)= 0;
+
+        virtual void SetScale(float ScaleFactorX,float ScaleFactorY) = 0;
+
+        virtual void SetScale(Math::Vector2<float> factors) = 0;
+
+        virtual void SetOrigin(float x,float y) = 0;
+
+        virtual void SetOrigin(Math::Vector2<float> origin) = 0;
+
+        virtual void SetRotation(float angle) = 0;
+
+
+        virtual const Math::Vector2<float> & GetScale() const = 0;
+
+        virtual const Math::Vector2<float> & GetOrigin() const = 0;
+
+        virtual const float& GetRotation() const = 0;
 
         virtual Math::Vector2<float> GetPositions() const = 0;
 
+        virtual Math::Color3<float> GetFillColor() = 0;
 
         virtual Math::Vector2<float> GetSize() const = 0;
 
-
-        static std::unique_ptr<Sprite> Create();
     };
 };
 

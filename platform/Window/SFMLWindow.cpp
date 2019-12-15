@@ -114,9 +114,8 @@ void SFMLWindow::ChangeFrameRateLimit(unsigned int frameRateLimit) {
     this->frameRateLimit = frameRateLimit;
 }
 
-void SFMLWindow::Draw(Engine::Sprite &sprite) {
- // this->window->draw();
-}
+
+
 
 void SFMLWindow::Draw(SFMLSprite &sprite) {
     this->window->draw(sprite.GetAPISprite());
@@ -124,6 +123,10 @@ void SFMLWindow::Draw(SFMLSprite &sprite) {
 }
 
 void SFMLWindow::Draw(Engine::Sprite &sprite, Engine::Shader &shader) {
+
+}
+
+void SFMLWindow::Draw(Engine::Sprite &sprite) {
 
 }
 

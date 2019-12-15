@@ -57,7 +57,8 @@ public:
     void Draw(Engine::Sprite& sprite) override;
     void Draw(Engine::Sprite& sprite,Engine::Shader & shader) override;
 
-    void Draw(SFMLSprite & sprite);
+    void Draw(SFMLSprite & sprite) override;
+
 
     void Close() override;
 

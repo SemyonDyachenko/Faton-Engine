@@ -66,6 +66,50 @@ SFMLSprite::~SFMLSprite() {
     delete this->texture;
 }
 
+Engine::Math::Color3<float> SFMLSprite::GetFillColor() {
+    return this->fillColor;
+}
+
+void SFMLSprite::SetPosition(Engine::Math::Vector2<float> position) {
+
+}
+
+void SFMLSprite::SetPosition(float x, float y) {
+
+}
+
+void SFMLSprite::SetScale(float ScaleFactorX, float ScaleFactorY) {
+
+}
+
+void SFMLSprite::SetScale(const Engine::Math::Vector2<float> factors) {
+
+}
+
+void SFMLSprite::SetOrigin(float x, float y) {
+
+}
+
+void SFMLSprite::SetOrigin(const Engine::Math::Vector2<float> origin) {
+
+}
+
+void SFMLSprite::SetRotation(float angle) {
+
+}
+
+const Engine::Math::Vector2<float> &SFMLSprite::GetScale() const {
+    return  Engine::Math::Vector2<float>(0,0);
+}
+
+const Engine::Math::Vector2<float> &SFMLSprite::GetOrigin() const {
+    return  Engine::Math::Vector2<float>(0,0);
+}
+
+sf::RectangleShape SFMLSprite::GetAPISprite() const {
+    return *this->sprite;
+}
+
 
 
 /*
