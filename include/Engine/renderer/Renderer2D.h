@@ -11,6 +11,7 @@
 #include "../Math/Color3.hpp"
 #include "Sprite.h"
 #include "Shader.h"
+#include "../../../platform/Window/SFMLWindow.h"
 
 
 namespace Engine {
@@ -32,7 +33,7 @@ namespace Engine {
 
         static void RendererDraw(Sprite& sprite,Window& window,Shader&shader);
 
-
+        static void RendererDraw(SFMLSprite& sprite,Window & window);
 
     };
 

@@ -8,6 +8,7 @@
 #include "../Events/Event.h"
 #include "../renderer/Sprite.h"
 #include "Core.h"
+#include "../renderer/Shader.h"
 
 #include <memory>
 
@@ -48,6 +49,8 @@ namespace Engine {
 
 
         virtual void Draw(Sprite & sprite) = 0;
+
+        virtual void Draw(Sprite& sprite,Shader & shader) = 0;
 
          static std::unique_ptr<Window> Create(const float width,const float height,const char*title);
 

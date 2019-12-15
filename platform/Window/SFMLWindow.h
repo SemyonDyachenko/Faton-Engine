@@ -55,6 +55,9 @@ public:
     bool isOpen() const override;
 
     void Draw(Engine::Sprite& sprite) override;
+    void Draw(Engine::Sprite& sprite,Engine::Shader & shader) override;
+
+    void Draw(SFMLSprite & sprite);
 
     void Close() override;
 

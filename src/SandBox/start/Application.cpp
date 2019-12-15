@@ -15,16 +15,20 @@ Application::Application() {
 }
 
 Application::~Application() {
-
+    this->window->Close();
 }
 
 void Application::UpdateDeltaTime() {
+sf::Clock clock;
+float time = float(clock.restart().asMilliseconds());
+Engine::Time timer = time - lastFrameTime;
+lastFrameTime = time;
 
 }
 
 
 void Application::Update() {
-
+this->UpdateDeltaTime();
 
 }
 
@@ -32,16 +36,17 @@ void Application::Update() {
 void Application::Render() {
     std::unique_ptr<Engine::Sprite> sprite = Engine::Sprite::Create();
 
-
-
+    Engine::Renderer2D::RendererDraw(*sprite,*this->window);
 }
 
 void Application::Run() {
     this->event = new Engine::WindowCloseEvent();
     while (this->window->isOpen()) {
         window->PollEvent(*event);
-
+        this->Update();
         this->window->Clear(Engine::Math::Color3<float>(160,80,80,100));
+
+        this->Render();
 
         this->window->Show();
 

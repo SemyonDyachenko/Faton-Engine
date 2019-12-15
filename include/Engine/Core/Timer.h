@@ -14,48 +14,34 @@ namespace Engine {
 
     class Time
     {
-
+    private:
+        float time;
     public:
+        Time(float time) : time(time)
+        {
+
+        }
 
         ~Time() = default;
 
 
         float AsSeconds() {
-            return 0.f;
+            return time;
         }
 
         double AsMicroseconds() {
-            return 0.f * 1000000.f;
+            return time * 1000000.f;
         }
 
         double AsMilliseconds() {
-            return 0.f * 1000.f;
-        }
-
-
-    };
-
-    class Timer {
-        using Clock = std::chrono::high_resolution_clock;
-
-
-        long lastTime =  std::chrono::duration_cast<std::chrono::nanoseconds>
-                (std::chrono::system_clock::now().time_since_epoch()).count();
-    public:
-        Time GetElapsedTime() {
-            return Time();
-        }
-
-        Time Restart() {
-            return Time();
+            return time * 1000.f;
         }
 
 
     };
 
 
-
-}
+    };
 
 
 #endif //MY_OWN_GAME_TIMER_H

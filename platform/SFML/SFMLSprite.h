@@ -36,7 +36,7 @@ public:
 
     Engine::Math::Vector2<float> GetSize() const override;
 
-    inline virtual  void* GetAPISprite() const { return this->sprite; }
+    sf::RectangleShape GetAPISprite() const { return *this->sprite; }
 
 
     void SetTexture(const char* path) override;

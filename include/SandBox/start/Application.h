@@ -11,8 +11,6 @@
 
 
 
-
-
 class Application {
 private:
     std::unique_ptr<Engine::Window> window;
@@ -24,7 +22,7 @@ private:
     bool running = true;
 
     //time
-
+    float lastFrameTime;
 
 public:
     Application();
@@ -40,9 +38,6 @@ public:
     void Render();
     void Run();
 };
-
-Application* CreateApplication();
-
 
 
 #endif //MY_OWN_GAME_APPLICATION_H

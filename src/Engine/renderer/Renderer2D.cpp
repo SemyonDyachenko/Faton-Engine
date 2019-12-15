@@ -41,7 +41,11 @@ namespace Engine
     }
 
     void Renderer2D::RendererDraw(Sprite &sprite, Window &window, Shader &shader) {
+        window.Draw(sprite,shader);
+    }
 
+    void Renderer2D::RendererDraw(SFMLSprite &sprite, Window &window) {
+        window.Draw(sprite);
     }
 
     // void Renderer2D::Draw(Engine::Drawable object, Window &window) {
