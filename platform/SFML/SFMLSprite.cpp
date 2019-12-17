@@ -7,6 +7,8 @@
 
 
 SFMLSprite::SFMLSprite() {
+    this->Rotation = 0.0f;
+    this->ScaleFactor = Engine::Math::Vector2<float>(0,0);
     this->SpriteSize = Engine::Math::Vector2<float>(DEFAULT_SPRITE_WIDTH,DEFAULT_SPRITE_HEIGHT);
     this->SpritePosition = Engine::Math::Vector2<float>(DEFAULT_POSITION_X,DEFAULT_POSITION_Y);
 
@@ -25,6 +27,8 @@ SFMLSprite::SFMLSprite() {
 }
 
 SFMLSprite::SFMLSprite(Engine::Math::Vector2<float> position, Engine::Math::Vector2<float> size) {
+    this->Rotation = 0.0f;
+    this->ScaleFactor = Engine::Math::Vector2<float>(0,0);
     this->SpriteSize = size;
     this->SpritePosition = position;
     this->fillColor = Engine::Math::Color3<float>(255,0,0,100);
@@ -55,16 +59,11 @@ void SFMLSprite::SetTexture(const char *path) {
     this->sprite->setTexture(this->texture);
 }
 
-std::unique_ptr<Engine::Sprite> Engine::Sprite::Create()
+std::unique_ptr<Engine::Sprite> Engine::Sprite::Create(const Math::Vector2<float> position,const Math::Vector2<float> size)
 {
-    return std::make_unique<SFMLSprite>();
+    return std::unique_ptr<Engine::Sprite>();
 }
 
-
-
-SFMLSprite::~SFMLSprite() {
-    delete this->texture;
-}
 
 Engine::Math::Color3<float> SFMLSprite::GetFillColor() {
     return this->fillColor;
@@ -108,6 +107,18 @@ const Engine::Math::Vector2<float> &SFMLSprite::GetOrigin() const {
 
 sf::RectangleShape SFMLSprite::GetAPISprite() const {
     return *this->sprite;
+}
+
+SFMLSprite::~SFMLSprite() {
+delete this->texture;
+}
+
+sf::RectangleShape SFMLSprite::GetAPISprite() {
+    return *this->sprite;
+}
+
+const float &SFMLSprite::GetRotation() const {
+    return this->Rotation;
 }
 
 

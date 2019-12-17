@@ -33,7 +33,7 @@ namespace Engine {
 
         static void RendererDraw(Sprite& sprite,Window& window,Shader&shader);
 
-        static void RendererDraw(SFMLSprite& sprite,Window & window);
+        static void RendererDraw(SFMLSprite sprite, Window & window);
 
     };
 

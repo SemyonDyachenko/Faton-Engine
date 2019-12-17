@@ -48,14 +48,13 @@ namespace Engine {
 
         virtual void Close() =  0;
 
-
         virtual void Draw(Sprite & sprite) = 0;
 
         virtual void Draw(Sprite& sprite,Shader & shader) = 0;
 
         virtual void Draw(SFMLSprite & sprite) = 0;
 
-         static std::unique_ptr<Window> Create(const float width,const float height,const char*title);
+        static std::unique_ptr<Window> Create(const float width,const float height,const char*title);
 
 
         virtual void Show() = 0;

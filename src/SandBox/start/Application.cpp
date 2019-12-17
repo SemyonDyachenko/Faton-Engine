@@ -34,10 +34,10 @@ this->UpdateDeltaTime();
 
 
 void Application::Render() {
-    std::unique_ptr<Engine::Sprite> sprite = Engine::Sprite::Create();
+    std::unique_ptr<Engine::Sprite> sprite = Engine::Sprite::Create(Engine::Math::Vector2<float>(10,10),Engine::Math::Vector2<float>(100,100));
 
 
-    Engine::Renderer2D::RendererDraw(*sprite,*this->window);
+   // Engine::Renderer2D::RendererDraw(sprite,*this->window);
 }
 
 void Application::Run() {

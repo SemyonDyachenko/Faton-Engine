@@ -1,6 +1,3 @@
-
-#include <iostream>
-#include <SFML/Window/Keyboard.hpp>
 #include "../../../include/Engine/Engine.h"
 #include "../../../include/SandBox/start/Application.h"
 
@@ -17,5 +14,6 @@ Application app;
 
 app.Run();
 
+
  return 0;
- }
+}

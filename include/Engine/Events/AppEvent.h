@@ -20,6 +20,17 @@ public:
         const char* GetName() override;
 };
 
+class KeyPressedEvent
+{
+public:
+
+};
+
+class ButtonPressedEvent
+{
+public:
+};
+
 
 }
 

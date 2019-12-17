@@ -7,7 +7,6 @@
 
 #include "../Math/Vector2.hpp"
 #include "../Math/Color3.hpp"
-#include "Drawable.h"
 
 #include <memory>
 
@@ -25,7 +24,7 @@ namespace Engine
         virtual ~Sprite() = default;
 
 
-        static std::unique_ptr<Sprite> Create();
+        static std::unique_ptr<Sprite> Create(const Math::Vector2<float> position,const Math::Vector2<float> size);
 
         virtual void SetTexture(const char* path) = 0;
 

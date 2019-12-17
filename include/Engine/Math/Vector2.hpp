@@ -46,7 +46,12 @@ namespace Engine {
 
 
 
+        typedef Vector2<float> Vec2f;
+        typedef Vector2<int> Vec2i;
+        typedef Vector2<unsigned int> Vec2u;
     }
+
+
 
 }
 

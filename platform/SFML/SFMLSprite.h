@@ -11,7 +11,7 @@
 
 
 
-class SFMLSprite : public Engine::Sprite
+class SFMLSprite  : public Engine::Sprite
 {
 
 
@@ -30,6 +30,8 @@ private:
 public:
     //default constructor
     SFMLSprite();
+
+    virtual  ~SFMLSprite();
     //with positions and size
     SFMLSprite(Engine::Math::Vector2<float> position,Engine::Math::Vector2<float> size);
 
@@ -44,9 +46,14 @@ public:
 
     void SetScale(float ScaleFactorX,float ScaleFactorY) override;
 
+    sf::RectangleShape GetAPISprite();
+
     void SetScale(Engine::Math::Vector2<float> factors) override;
 
     void SetOrigin(float x,float y) override;
+
+
+    const float& GetRotation() const override;
 
     void SetOrigin(Engine::Math::Vector2<float> origin) override;
 
@@ -67,8 +74,6 @@ public:
 
 
     //void Draw(Engine::Window & window) override;
-
-    ~SFMLSprite() = default;
 };
 
 

@@ -5,6 +5,9 @@
 #include <SFML/Window/Event.hpp>
 #include "SFMLWindow.h"
 #include "../SFML/SFMLSprite.h"
+#include "../../include/Engine/Core/Window.h"
+
+
 
 
 void SFMLWindow::Init() {
@@ -35,7 +38,6 @@ SFMLWindow::SFMLWindow(float window_width, float window_height, const char *wind
 
     this->window->setVerticalSyncEnabled(this->vertical_sync);
     this->window->setFramerateLimit(this->frameRateLimit);
-
 
 }
 
@@ -115,9 +117,7 @@ void SFMLWindow::ChangeFrameRateLimit(unsigned int frameRateLimit) {
 }
 
 
-
-
-void SFMLWindow::Draw(SFMLSprite &sprite) {
+void SFMLWindow::Draw(SFMLSprite&sprite) {
     this->window->draw(sprite.GetAPISprite());
 
 }
@@ -130,10 +130,10 @@ void SFMLWindow::Draw(Engine::Sprite &sprite) {
 
 }
 
-
 std::unique_ptr<Engine::Window> Engine::Window::Create(const float width,const float height,const char*title) {
     return  std::make_unique<SFMLWindow>(width,height,title);
 }
+
 
 
 

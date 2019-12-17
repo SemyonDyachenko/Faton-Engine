@@ -39,3 +39,7 @@ void SFMLShader::Bind() {
 sf::Shader::bind(&this->shader);
 }
 
+std::unique_ptr<Engine::Shader> Engine::Shader::Create() {
+    return std::make_unique<SFMLShader>();
+}
+

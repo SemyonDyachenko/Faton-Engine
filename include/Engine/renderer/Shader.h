@@ -5,6 +5,8 @@
 #ifndef MY_OWN_GAME_SHADER_H
 #define MY_OWN_GAME_SHADER_H
 
+#include <memory>
+
 namespace Engine {
 
     class Shader {
@@ -16,6 +18,8 @@ namespace Engine {
         virtual void LoadFromFile(const char* vertex_shader_file,const char* fragment_shader_file,const char* geometry_shader_file) = 0;
 
         virtual void Bind() = 0;
+
+        static std::unique_ptr<Shader> Create();
     };
 
 

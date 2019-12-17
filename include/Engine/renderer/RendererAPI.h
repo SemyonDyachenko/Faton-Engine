@@ -30,9 +30,13 @@ namespace Engine {
 
         virtual void Init() = 0;
 
-        virtual void Clear(Window & window) = 0;
+        virtual void Clear(Math::Color3<float>& color) = 0;
 
-        virtual void Draw(Window & window) = 0;
+        virtual void Clear(Window& window) = 0; // for sfml
+
+        virtual void Draw(Window & window) = 0; // for sfml
+
+        virtual void Draw() = 0;
 
 
         inline static API getAPI();
