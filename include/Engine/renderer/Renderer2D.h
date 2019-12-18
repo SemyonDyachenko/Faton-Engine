@@ -33,8 +33,6 @@ namespace Engine {
 
         static void RendererDraw(Sprite& sprite,Window& window,Shader&shader);
 
-        static void RendererDraw(SFMLSprite sprite, Window & window);
-
     };
 
     class RenderCommand
@@ -49,16 +47,17 @@ namespace Engine {
             m_RendererAPI->Init();
         }
 
+        static void Clear(Engine::Math::Color3<float>& color)
+        {
+            m_RendererAPI->Clear(color);
+        }
+
         static void Clear(Window& window)
         {
             m_RendererAPI->Clear(window);
 
         }
 
-        static void Draw(Window& window)
-        {
-            m_RendererAPI->Draw(window);
-        }
 
     };
 

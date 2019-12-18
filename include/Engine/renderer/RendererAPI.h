@@ -9,6 +9,7 @@
 
 #include "../Core/Core.h"
 #include "../Core/Window.h"
+#include "VertexArray.h"
 #include <memory>
 
 
@@ -34,10 +35,7 @@ namespace Engine {
 
         virtual void Clear(Window& window) = 0; // for sfml
 
-        virtual void Draw(Window & window) = 0; // for sfml
-
-        virtual void Draw() = 0;
-
+        virtual void Draw(VertexArray* vertexArray) = 0;
 
         inline static API getAPI()
         {

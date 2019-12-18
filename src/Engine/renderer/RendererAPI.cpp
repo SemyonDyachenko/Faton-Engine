@@ -10,13 +10,13 @@
 
 namespace Engine {
 
-    RendererAPI::API RendererAPI::m_API  = RendererAPI::API::OPENGL;
+    RendererAPI::API RendererAPI::m_API = RendererAPI::API::OPENGL;
 
     std::unique_ptr<RendererAPI> RendererAPI::Create() {
         switch (m_API) {
             case RendererAPI::API::NONE: FATON_ERROR_01;
-            case RendererAPI::API::OPENGL: return std::unique_ptr<OpenGLRendererAPI>();
-            case RendererAPI::API::SFML: return std::unique_ptr<SFMLRendererAPI>();
+            case RendererAPI::API::OPENGL: return std::make_unique<OpenGLRendererAPI>();
+            case RendererAPI::API::SFML: return std::make_unique<SFMLRendererAPI>();
         }
         return nullptr;
     }

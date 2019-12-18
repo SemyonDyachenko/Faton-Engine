@@ -11,6 +11,12 @@ set(IMGUI_DEMO_SOURCES  lib/imgui/imgui.cpp lib/imgui/imgui-SFML.cpp lib/imgui/i
 find_package(OpenGL)
 find_package(SFML 2.5.1 COMPONENTS system window graphics network audio)
 
+find_package(GLEW REQUIRED)
+if(GLEW_FOUND)
+    include_directories(${GLEW_INCLUDE_DIRS})
+    link_libraries(${GLEW_LIBRARIES})
+endif()
+
 link_directories(SFML_LIBRARY_DIR)
 include_directories(SFML_INCLUDE_DIR)
 

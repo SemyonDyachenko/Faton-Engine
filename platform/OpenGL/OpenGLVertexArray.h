@@ -14,7 +14,9 @@
 class OpenGLVertexArray : public Engine::VertexArray {
 private:
     Engine::IndexBuffer *indexBuffer;
-    unsigned int id;
+    GLuint id;
+    unsigned int number_vertices;
+
     std::vector<std::unique_ptr<Engine::VertexBuffer>> vertexBuffers;
 
 public:
@@ -26,6 +28,8 @@ public:
     void Unbind() override;
 
     void AddIndexBuffer(Engine::IndexBuffer * buffer) override;
+
+    void AddVertexBuffer(Engine::VertexBuffer& vertexBuffer) override;
 
     Engine::IndexBuffer& GetIndexBuffer() const override;
 

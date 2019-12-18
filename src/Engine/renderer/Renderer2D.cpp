@@ -44,9 +44,7 @@ namespace Engine
        window.Draw(sprite,shader);
     }
 
-    void Renderer2D::RendererDraw(SFMLSprite sprite, Window &window) {
-        window.Draw(sprite);
-    }
+
 
     void Renderer2D::RendererDraw(Sprite& sprite, Window &window) {
        window.Draw(sprite);
