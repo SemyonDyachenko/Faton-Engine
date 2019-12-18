@@ -9,6 +9,7 @@
 #include <vector>
 #include "../../include/Engine/renderer/VertexArray.h"
 #include "../../include/Engine/renderer/VertexBuffer.h"
+#include <GL/glew.h>
 
 class OpenGLVertexArray : public Engine::VertexArray {
 private:

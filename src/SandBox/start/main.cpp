@@ -2,7 +2,6 @@
 #include "../../../include/SandBox/start/Application.h"
 
 
-
 #define __linux__
 
 int main()

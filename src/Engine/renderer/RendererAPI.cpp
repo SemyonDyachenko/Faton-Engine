@@ -5,12 +5,12 @@
 
 #include "../../../include/Engine/renderer/RendererAPI.h"
 #include "../../../platform/SFML/SFMLRendererAPI.h"
-
+#include "../../../platform/OpenGL/OpenGLRendererAPI.h"
 
 
 namespace Engine {
 
-    RendererAPI::API RendererAPI::m_API  = RendererAPI::API::SFML;
+    RendererAPI::API RendererAPI::m_API  = RendererAPI::API::OPENGL;
 
     RendererAPI::API RendererAPI::getAPI() {
         return m_API;
@@ -18,9 +18,9 @@ namespace Engine {
 
     std::unique_ptr<RendererAPI> RendererAPI::Create() {
         switch (m_API) {
-            case RendererAPI::API::NONE: std::cout << "Not use API!" << std::endl;
-            case RendererAPI::API::OPENGL: std::cout << "Opengl while not support! " << std::endl;
-            case RendererAPI::API::SFML: return std::unique_ptr<SFMLRendererAPI>();
+            case RendererAPI::API::NONE: FATON_ERROR_01;
+            case RendererAPI::API::OPENGL: return std::make_unique<OpenGLRendererAPI>();
+            case RendererAPI::API::SFML: return std::make_unique<SFMLRendererAPI>();
         }
         return nullptr;
     }

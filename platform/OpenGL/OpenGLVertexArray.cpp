@@ -9,11 +9,11 @@ OpenGLVertexArray::OpenGLVertexArray() {
 }
 
 void OpenGLVertexArray::Bind() {
-
+glBindVertexArray(id);
 }
 
 void OpenGLVertexArray::Unbind() {
-
+ glBindVertexArray(0);
 }
 
 void OpenGLVertexArray::AddIndexBuffer(Engine::IndexBuffer *buffer) {
