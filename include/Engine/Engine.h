@@ -15,6 +15,7 @@
 #include "Events/AppEvent.h"
 #include "Math/Vector2.hpp"
 #include "Math/Vector3.hpp"
+#include "Math/Math.h"
 #include "Math/Matrix.hpp"
 #include "Math/Color3.hpp"
 #include "Object/Scene.h"

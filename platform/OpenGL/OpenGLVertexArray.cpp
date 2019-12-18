@@ -4,16 +4,22 @@
 
 #include "OpenGLVertexArray.h"
 
-OpenGLVertexArray::OpenGLVertexArray() {
+OpenGLVertexArray::OpenGLVertexArray()
+{
+
+}
+
+
+OpenGLVertexArray::~OpenGLVertexArray() {
 
 }
 
 void OpenGLVertexArray::Bind() {
-glBindVertexArray(id);
+//glBindVertexArray(id);
 }
 
 void OpenGLVertexArray::Unbind() {
- glBindVertexArray(0);
+// glBindVertexArray(0);
 }
 
 void OpenGLVertexArray::AddIndexBuffer(Engine::IndexBuffer *buffer) {
@@ -23,4 +29,12 @@ void OpenGLVertexArray::AddIndexBuffer(Engine::IndexBuffer *buffer) {
 Engine::IndexBuffer &OpenGLVertexArray::GetIndexBuffer() const {
     return *this->indexBuffer;
 }
+
+
+
+
+
+
+
+
 

@@ -39,7 +39,10 @@ namespace Engine {
         virtual void Draw() = 0;
 
 
-        inline static API getAPI();
+        inline static API getAPI()
+        {
+            return m_API;
+        }
 
         static std::unique_ptr<RendererAPI> Create();
 

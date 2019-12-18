@@ -15,6 +15,7 @@ public:
 
     virtual void Clear(Engine::Math::Color3<float> & color) override;
 
+
     virtual void Draw() override;
 };
 
