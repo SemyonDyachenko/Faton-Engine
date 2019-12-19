@@ -32,6 +32,13 @@ Engine::IndexBuffer &OpenGLVertexArray::GetIndexBuffer() const {
 }
 
 void OpenGLVertexArray::AddVertexBuffer(Engine::VertexBuffer &vertexBuffer) {
+    Bind();
+    vertexBuffer.Bind();
+
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0,)
+
     glBindVertexArray(this->id);
     //vertexBuffer.Bind();
 

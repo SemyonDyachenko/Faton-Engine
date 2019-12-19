@@ -14,12 +14,12 @@ namespace Engine {
     public:
         virtual ~IndexBuffer() = default;
 
-        virtual void Bind() = 0;
-        virtual void Unbind() = 0;
+        virtual void Bind() const = 0;
+        virtual void Unbind() const = 0;
 
         virtual unsigned int GetCount() const = 0;
 
-        static std::shared_ptr<IndexBuffer> Create();
+        static std::shared_ptr<IndexBuffer> Create(unsigned int* data,unsigned int size);
 
     };
 
