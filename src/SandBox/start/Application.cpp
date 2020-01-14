@@ -121,6 +121,7 @@ void Application::Render() {
 	m_Shader->Bind();
 	
 	m_Shader->SetMat4("Transform", rect1->GetTransform());
+	
 	m_Shader->SetFloat4("m_Color", { 0.7,0.25,0.25,1 });
 
 
