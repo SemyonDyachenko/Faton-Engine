@@ -15,15 +15,22 @@ void SFMLRendererAPI::Init() {
 
 }
 
-void SFMLRendererAPI::Clear(Engine::Window &window) {
-window.Clear(Engine::Math::Color3<float>(0,0,0,100));
-}
+
 
 void SFMLRendererAPI::Draw(Engine::VertexArray *vertexArray) {
 
 }
 
+void SFMLRendererAPI::SetViewport(unsigned x, unsigned y, unsigned width, unsigned height)
+{
+}
+
 void SFMLRendererAPI::Clear(Engine::Math::Color3<float> &color) {
+
+}
+
+void SFMLRendererAPI::Clear(Engine::Window& window)
+{
 
 }
 

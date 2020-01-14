@@ -7,7 +7,7 @@
 
 
 #include "../../../include/Engine/Engine.h"
-#include <SFML/System.hpp>
+
 
 
 
@@ -16,7 +16,15 @@ private:
     std::unique_ptr<Engine::Window> window;
 
 
+	Engine::Camera* m_Camera;
+	std::shared_ptr<Engine::Texture2D> m_Texture;
+	std::shared_ptr<Engine::Shader> m_Shader;
+	Engine::Rectangle * rect;
+
+	Engine::Math::Vec4f m_Color =  { 0.2f, 0.3f, 0.8f, 1.0f };
+	
     Engine::Event* event;
+
 
 
     bool running = true;
@@ -24,6 +32,8 @@ private:
     //time
     float lastFrameTime;
 
+
+	void InitRenderer();
 public:
     Application();
     virtual ~Application();
@@ -33,7 +43,7 @@ public:
     void UpdateDeltaTime();
 
 
-
+	
     void Update();
     void Render();
     void Run();

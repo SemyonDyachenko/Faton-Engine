@@ -12,15 +12,14 @@
 #include "Sprite.h"
 #include "Shader.h"
 #include "../../../platform/Window/SFMLWindow.h"
+#include "RectangleShape.h"
 
 
 namespace Engine {
+	
 
-    class Renderer2D {
+	class Renderer2D {
     public:
-        Renderer2D();
-        virtual ~Renderer2D();
-
         static void Init();
 
         static void createScene(Engine::Camera& camera);
@@ -29,7 +28,11 @@ namespace Engine {
 
         static void DrawRect(Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size,Engine::Math::Color3<float>& color3);
 
+		static void DrawRect(Engine::Math::Vec2f size);
+		
         static void RendererDraw(Sprite& sprite,Window&window);
+
+		static void Draw(Engine::Shape& primitive);
 
         static void RendererDraw(Sprite& sprite,Window& window,Shader&shader);
 
@@ -56,6 +59,11 @@ namespace Engine {
         {
             m_RendererAPI->Clear(window);
 
+        }
+
+		static void SetViewport(unsigned int x, unsigned int y, unsigned int width, unsigned int height)
+        {
+			m_RendererAPI->SetViewport(x, y, width, height);
         }
 
 

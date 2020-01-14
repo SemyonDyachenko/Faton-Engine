@@ -5,6 +5,8 @@
 #ifndef MY_OWN_GAME_ENGINEKEYS_H
 #define MY_OWN_GAME_ENGINEKEYS_H
 
+//keys number = sfml keys number
+
 #define FATON_KEY_A 0
 #define FATON_KEY_B 1
 #define FATON_KEY_C 2
@@ -19,7 +21,7 @@
 #define FATON_KEY_L 11
 #define FATON_KEY_M 12
 #define FATON_KEY_N 13
-#define FATON KEY_O 14
+#define FATON_KEY_O 14
 #define FATON_KEY_P 15
 #define FATON_KEY_Q 16
 #define FATON_KEY_R 17
@@ -39,5 +41,10 @@
 #define FATON_KEY_RSHIFT 42
 #define FATON_KEY_RENTER 43
 #define FATON_KEY_RALT 44
+#define FATON_KEY_LEFT 71
+#define FATON_KEY_RIGHT 72
+#define FATON_KEY_UP 73
+#define FATON_KEY_DOWN 74
+
 
 #endif //MY_OWN_GAME_ENGINEKEYS_H

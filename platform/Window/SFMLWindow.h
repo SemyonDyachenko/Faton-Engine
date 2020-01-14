@@ -10,7 +10,6 @@
 
 #include "../../include/Engine/Events/Event.h"
 #include "../../include/Engine/Core/Window.h"
-#include "../SFML/SFMLSprite.h"
 
 
 #include <memory>
@@ -57,7 +56,7 @@ public:
     void Draw(Engine::Sprite& sprite) override;
     void Draw(Engine::Sprite& sprite,Engine::Shader & shader) override;
 
-    void Draw(SFMLSprite & sprite) override;
+    
 
 
     void Close() override;

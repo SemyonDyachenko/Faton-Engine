@@ -5,32 +5,74 @@
 #ifndef MY_OWN_GAME_CAMERA_H
 #define MY_OWN_GAME_CAMERA_H
 
-#include "../Math/Vector2.hpp"
+#include "../Math/Vector3.hpp"
+
 #include <memory>
+#include "../Core/Timer.h"
+
+#include <glm/gtc/matrix_transform.hpp>
+#include "../../../include/Engine/Core/Input.h"
+#include "../../../include/Engine/Core/EngineKeys.h"
+#include <glm/glm.hpp>
+#include "../Math/Vector2.hpp"
 
 namespace Engine {
 
     class Camera {
     private:
-        float rotation = 0.0f;
-        float zoomFactor;
-        Math::Vector2<float> position= {0.0f,0.0f};
+        float Rotation = 0.0f;
+        float ZoomFactor = 5.f;
 
+		float AspectRatio;
+    	
+		Math::Vec2f Size;
+		Math::Vec3f Position = {0.0, 0.0, 0.0};
+    	
 
+		float CameraSpeed;
 
-
+		glm::mat4 ViewMatrix;
+		glm::mat4 ProjectionMatrix;
+		glm::mat4 ViewProjectionMatrix;
+		
     public:
-        Camera(float x,float y);
+		Camera(float aspectRatio);
+		virtual ~Camera();
 
-        Camera(Engine::Math::Vector2<float> position);
 
-        virtual const Math::Vector2<float> GetPosition() const;
+		void Update(float time);
+    	
+        const Math::Vec3f GetPosition() const;
 
-        virtual void SetPosition(const Math::Vector2<float> position);
+		const glm::mat4& GetProjectionMatrix() const;
+		const glm::mat4& GetViewMatrix() const;
+		const glm::mat4& GetViewProjectionMatrix() const;
+    	
+    	
+		 const float& GetZoomFactor() const;
 
-        virtual void SetZoom(float zoomFactor);
+		 const Math::Vec2f GetSize() const;
 
-        virtual ~Camera();
+		 float GetRotation() const;
+
+		//Controller
+
+		void SetPojection(float left, float right, float bottom, float top);
+    	
+        void SetPosition(const Math::Vec3f position);
+
+		void SetSize(float width, float height);
+
+		void SetSize(const Math::Vec2f size);
+    	
+        void SetZoomFactor(float zoomFactor);
+
+		void SetRotation(float RotationAngle);
+
+		void ResetView();
+		
+
+      
     };
 
 }

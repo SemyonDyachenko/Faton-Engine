@@ -1,16 +1,16 @@
-//
-// Created by semyon on 03.12.2019.
-//
+#ifndef ENGINE_MATRIX_H
 
-#ifndef MY_OWN_GAME_MATRIX_HPP
-#define MY_OWN_GAME_MATRIX_HPP
-
-template<typename T>
-class Matrix {
-
-    virtual ~Matrix() = default;
-
-};
+#define ENGINE_MATRIX_H
 
 
-#endif //MY_OWN_GAME_MATRIX_HPP
+namespace  Engine
+{
+	namespace Math
+	{
+		
+	}
+	
+}
+
+
+#endif

@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FatonEngine.vcxproj
+/packages.config
+/FatonEngine.vcxproj.user
+/FatonEngine.vcxproj.filters
+/Debug

@@ -11,26 +11,28 @@ namespace Engine {
 
         template<typename T>
         class Vector3 {
-            //default constructor with value (0,0)
+        public:
+            //default constructor with value (0,0,0)
             Vector3();
 
             Vector3(T x,T y,T z);
 
             virtual ~Vector3() = default;
 
-            T x;
-            T y;
-            T z;
+           
 
             template <typename F>
             explicit Vector3(const Vector3<F>& vector);
 
+
+			T x, y, z;
+
         };
 
         template<typename T>
-        Vector3<T>::Vector3() {
+		Vector3<T>::Vector3() {}
 
-        }
+        
 
         template<typename T>
         Vector3<T>::Vector3(T x, T y, T z) {
@@ -45,8 +47,18 @@ namespace Engine {
         Vector3<T>::Vector3(const Vector3<F> &vector) {
 
         }
+
+		typedef Vector3<float> Vec3f;
+		typedef Vector3<int> Vec3i;
+		typedef Vector3<unsigned int> vec3u;
+
     }
 
+
+
 }
+
+
+
 
 #endif //MY_OWN_GAME_VECTOR3_H

@@ -4,9 +4,7 @@
 
 #include <SFML/Window/Event.hpp>
 #include "SFMLWindow.h"
-#include "../SFML/SFMLSprite.h"
 #include "../../include/Engine/Core/Window.h"
-
 
 
 
@@ -14,30 +12,31 @@ void SFMLWindow::Init() {
 
 }
 
-SFMLWindow::SFMLWindow(float window_width, float window_height, const char *window_title) {
+SFMLWindow::SFMLWindow(float window_width, float window_height, const char *window_title) : width(window_width), height(window_height) {
     this->width = window_width;
     this->height = window_height;
     this->title = window_title;
     this->vertical_sync = false;
-    this->resizable = false;
+	this->resizable = false;
     this->fullscreen = false;
     this->frameRateLimit = 120;
 
     if(!fullscreen) {
 
         if (this->resizable) {
-            this->window = new sf::RenderWindow(sf::VideoMode(width, height), window_title);
+            this->window = new sf::RenderWindow(sf::VideoMode(static_cast<unsigned int>(width), static_cast<unsigned int>(height)), window_title,sf::Style::Default);
         } else {
-            this->window = new sf::RenderWindow(sf::VideoMode(width, height), window_title, sf::Style::Close);
+            this->window = new sf::RenderWindow(sf::VideoMode(static_cast<unsigned int>(width),static_cast<unsigned int>(height)), window_title, sf::Style::Close);
         }
 
     }
     else{
-        this->window = new sf::RenderWindow(sf::VideoMode(width, height), window_title, sf::Style::Fullscreen);
+        this->window = new sf::RenderWindow(sf::VideoMode(static_cast<unsigned int>(width), static_cast<unsigned int>(height)), window_title, sf::Style::Fullscreen);
     }
 
     this->window->setVerticalSyncEnabled(this->vertical_sync);
     this->window->setFramerateLimit(this->frameRateLimit);
+
 
 }
 
@@ -79,6 +78,7 @@ bool SFMLWindow::PollEvent(Engine::Event &event) {
     sf::Event sf_event;
 
     while(window->pollEvent(sf_event)) {
+ 	
         if (sf_event.type == sf::Event::Closed) {
             window->close();
         }
@@ -116,11 +116,6 @@ void SFMLWindow::ChangeFrameRateLimit(unsigned int frameRateLimit) {
     this->frameRateLimit = frameRateLimit;
 }
 
-
-void SFMLWindow::Draw(SFMLSprite&sprite) {
-    this->window->draw(sprite.GetAPISprite());
-
-}
 
 void SFMLWindow::Draw(Engine::Sprite &sprite, Engine::Shader &shader) {
 

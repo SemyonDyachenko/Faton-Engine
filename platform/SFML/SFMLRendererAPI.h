@@ -20,12 +20,14 @@ public:
 
     virtual void Init() override;
 
-    virtual void Clear(Engine::Window & window) override;
-
     virtual void Draw(Engine::VertexArray*vertexArray) override;
 
+	virtual void SetViewport(unsigned x, unsigned y, unsigned width, unsigned height) override;
+	
     virtual void Clear(Engine::Math::Color3<float>& color) override;
 
+	
+    virtual void Clear(Engine::Window & window) override;
 };
 
 

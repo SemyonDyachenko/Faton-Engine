@@ -6,29 +6,50 @@
 #define MY_OWN_GAME_VERTEXARRAY_H
 
 
-#include <memory>
+#include <vector>
+#include "Drawable.h"
+#include "../Math/Math.h"
 
-#include "IndexBuffer.h"
-#include "VertexBuffer.h"
 
 namespace Engine {
 
+
+	struct Vertex
+	{
+		Math::Vec2f TexCoord;
+		Math::Vec3f Position;
+	};
+
+	
+
+	enum class EngineDataType
+	{
+		FtInt,
+		FtFloat,
+		Ftsizei,
+		FtChar
+	};
+	
     class VertexArray {
     public:
-        virtual ~VertexArray()= default;
+        virtual ~VertexArray() {}
 
 
-        virtual void Bind() = 0;
-        virtual void Unbind() = 0;
+		virtual void CreateVAO() = 0;
+    	
+        virtual void Bind() const = 0;
+        virtual void Unbind() const = 0;
 
-        virtual void AddIndexBuffer(IndexBuffer * buffer) = 0;
+        virtual void AddIndexBuffer(const std::vector<unsigned int> & indices) = 0;
 
-        virtual IndexBuffer& GetIndexBuffer() const = 0;
+		virtual std::unique_ptr<Drawable> GetDrawable() const = 0;
 
-        virtual void AddVertexBuffer(VertexBuffer & vertexBuffer) = 0;
+        virtual void AddVertexBuffer(const std::vector<float> &vertices) = 0;
 
         static std::shared_ptr<VertexArray> Create();
     };
+
+
 
 }
 

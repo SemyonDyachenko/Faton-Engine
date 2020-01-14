@@ -7,3 +7,4 @@ PLATOFORMS = {
 }
 
 
+#author and COPIRIGHT

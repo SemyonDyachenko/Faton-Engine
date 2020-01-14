@@ -12,18 +12,15 @@ namespace Engine
 {
     class Input
     {
-    private:
-        static std::unique_ptr<Input> instance;
+  
     protected:
         Input() = default;
 
-        virtual bool isKeyPressedImplementation(int key) = 0;
-        virtual bool isButtonPressedImplementation(int button) = 0;
-        virtual Engine::Math::Vector2<float> GetMousePositionImplementation() = 0;
-        virtual float GetMousePositionXImplementation() = 0;
-        virtual float GetMousePositionYImplementation() = 0;
+  
     public:
+		Input(const Input&) = delete;
 
+    	
         static bool IsKeyPressed(int key) {
             return instance->isKeyPressedImplementation(key);
         }
@@ -48,7 +45,19 @@ namespace Engine
             return instance->GetMousePositionYImplementation();
         }
 
+		virtual ~Input() = default;
 
+    protected:
+		virtual bool isKeyPressedImplementation(int key) = 0;
+		virtual bool isButtonPressedImplementation(int button) = 0;
+		virtual Engine::Math::Vector2<float> GetMousePositionImplementation() = 0;
+		virtual float GetMousePositionXImplementation() = 0;
+		virtual float GetMousePositionYImplementation() = 0;
+
+		
+		
+	private:
+		static std::unique_ptr<Input> instance;
     };
 
 }

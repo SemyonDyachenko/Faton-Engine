@@ -6,8 +6,20 @@
 #define MY_OWN_GAME_GLFWWINDOW_H
 
 
-class GLFWWindow {
+#include "../../include/Engine/Core/Window.h"
 
+
+class GLFWWindow : public Engine::Window {
+
+private:
+	GLFWWindow* window;
+
+	float Width, Height;
+
+	unsigned int FrameRateLimit;
+
+	bool fullscreen;
+	bool resizable;
 };
 
 

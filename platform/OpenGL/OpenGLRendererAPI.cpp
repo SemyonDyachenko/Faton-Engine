@@ -2,7 +2,6 @@
 // Created by semyon on 16.12.2019.
 //
 
-#include <GL/glew.h>
 #include "OpenGLRendererAPI.h"
 
 void OpenGLRendererAPI::Init() {
@@ -10,20 +9,31 @@ void OpenGLRendererAPI::Init() {
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
     glEnable(GL_DEPTH_TEST);
+
+
+
+	glewExperimental = GL_TRUE;
+	if (glewInit() != GLEW_OK)
+		printf("Error\n");
+
 }
 
 void OpenGLRendererAPI::Clear(Engine::Math::Color3<float> &color) {
 glClearColor(color.red,color.green,color.blue,color.m_Alpha);
-glClear(GL_COLOR_BUFFER_BIT);
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void OpenGLRendererAPI::Clear(Engine::Window& window)
+{
+}
+
+void OpenGLRendererAPI::SetViewport(unsigned x, unsigned y, unsigned width, unsigned height)
+{
+	glViewport(x, y, width, height);
 }
 
 
 void OpenGLRendererAPI::Draw(Engine::VertexArray* vertexArray) {
-//glDrawElements(GL_TRIANGLES,vertexArray->GetIndexBuffer()->count,GL_UNSIGNED_INT,nullptr);
-glBindTexture(GL_TEXTURE_2D,0);
-}
 
-void OpenGLRendererAPI::Clear(Engine::Window &window) {
-    window.Clear(Engine::Math::Color3<float>(0,0,0,1));
 }
 

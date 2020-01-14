@@ -5,8 +5,11 @@
 #ifndef MY_OWN_GAME_MATH_H
 #define MY_OWN_GAME_MATH_H
 
-
-
+#include "Vector2.hpp"
+#include "Vector3.hpp"
+#include "Vector4.hpp"
+#include "Color3.hpp"
+#include "Matrix.hpp"
 
 namespace Engine
 {

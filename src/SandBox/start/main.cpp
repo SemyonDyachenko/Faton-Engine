@@ -3,16 +3,26 @@
 
 
 
-#define __linux__
+
 
 int main()
 {
 
-std::cout<< "Engine is work" << std::endl;
 
-Application app;
+auto  *app = new Application();
 
-app.Run();
+
+system("color 02");
+FATON_PRINT("[ENGINE]:  Engine is work!");
+
+
+app->Run();
+
+
+
+
+
+
 
 return 0;
 }

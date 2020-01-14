@@ -17,7 +17,8 @@ namespace Engine
     {
         switch(Engine::RendererAPI::getAPI()) {
 
-            case RendererAPI::API::NONE: FATON_ERROR_01;
+			case RendererAPI::API::NONE: FATON_ERROR_01; return nullptr;
+			case RendererAPI::API::SFML: FATON_ERROR_01; return nullptr;
             case RendererAPI::API::OPENGL : return std::make_shared<OpenGLVertexArray>();
         }
 

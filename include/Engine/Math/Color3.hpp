@@ -63,6 +63,10 @@ namespace Engine
             }
 
         };
+
+		typedef Color3<float> Color3f;
+
+		typedef Color3<int> Color3i;
     }
 
 }

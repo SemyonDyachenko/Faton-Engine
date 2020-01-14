@@ -8,6 +8,7 @@
 #include <memory>
 
 
+
 namespace Engine {
 
 
@@ -17,24 +18,20 @@ namespace Engine {
 
     };
 
-    class Drawable {
-    protected:
-        //friend class Renderer2D;
 
-     // static void Draw(Window & window);
+    class Drawable {
     public:
 
         virtual ~Drawable();
 
-        //virtual void Draw(Window & window) = 0;
+		virtual void Bind() const = 0;
 
-        static std::unique_ptr<Drawable> Create(DrawableTypes type);
+		virtual void Draw() const = 0;
+    	
+        static std::unique_ptr<Drawable> Create(unsigned int vao,unsigned int indices);
 
     };
 }
 
 #endif //MY_OWN_GAME_DRAWABLE_H
 
-// 10 ДЕКАБРЯ
-// СОЗДАНИЕ СТРУКТУРЫ ПОКАЗА ОБЬЕКТА с ПОМОШЬю renderer2d или WIndow
-// Вывод спрайтов на экран

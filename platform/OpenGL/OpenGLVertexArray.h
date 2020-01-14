@@ -2,39 +2,37 @@
 // Created by semyon on 16.12.2019.
 //
 
-#ifndef MY_OWN_GAME_OPENGLVERTEXARRAY_H
-#define MY_OWN_GAME_OPENGLVERTEXARRAY_H
+#ifndef MY_OWN_GAME_OPENGL_VERTEXARRAY_H
+#define MY_OWN_GAME_OPENGL_VERTEXARRAY_H
 
 
 #include <vector>
 #include "../../include/Engine/renderer/VertexArray.h"
-#include "../../include/Engine/renderer/VertexBuffer.h"
+
 #include <GL/glew.h>
 
 class OpenGLVertexArray : public Engine::VertexArray {
-private:
-    Engine::IndexBuffer *indexBuffer;
-    GLuint id;
-    unsigned int number_vertices;
-
-    std::vector<std::unique_ptr<Engine::VertexBuffer>> vertexBuffers;
-
 public:
-    OpenGLVertexArray();
-    virtual ~OpenGLVertexArray();
+	OpenGLVertexArray();
+	virtual ~OpenGLVertexArray();
 
+	virtual void CreateVAO() override;	
+    virtual void Bind() const override;
+    virtual void Unbind() const override;
 
-    void Bind() override;
-    void Unbind() override;
+    virtual void AddIndexBuffer(const std::vector<unsigned int> & indices) override;
 
-    void AddIndexBuffer(Engine::IndexBuffer * buffer) override;
+	std::unique_ptr < Engine::Drawable> GetDrawable() const  override;
 
-    void AddVertexBuffer(Engine::VertexBuffer& vertexBuffer) override;
+    virtual void AddVertexBuffer(const std::vector<float> &vertices) override;
 
-    Engine::IndexBuffer& GetIndexBuffer() const override;
+private:
+	uint32_t vao_id;
+	GLsizei  indicesCount = 0;
+	std::vector<GLuint> bufferObjects;
 
 
 };
 
 
-#endif //MY_OWN_GAME_OPENGLVERTEXARRAY_H
+#endif //MY_OWN_GAME_OPENGL_VERTEXARRAY_H

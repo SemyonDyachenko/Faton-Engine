@@ -9,7 +9,7 @@
 #include "../renderer/Sprite.h"
 #include "Core.h"
 #include "../renderer/Shader.h"
-#include "../../../platform/SFML/SFMLSprite.h"
+
 
 #include <memory>
 
@@ -52,7 +52,6 @@ namespace Engine {
 
         virtual void Draw(Sprite& sprite,Shader & shader) = 0;
 
-        virtual void Draw(SFMLSprite & sprite) = 0;
 
         static std::unique_ptr<Window> Create(const float width,const float height,const char*title);
 

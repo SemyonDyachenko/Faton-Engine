@@ -9,55 +9,51 @@
 #include "../Math/Color3.hpp"
 
 #include <memory>
-
-#define DEFAULT_SPRITE_WIDTH 100
-#define DEFAULT_SPRITE_HEIGHT 100
-#define DEFAULT_POSITION_X 10
-#define DEFAULT_POSITION_Y 10
+#include "Shape.h"
+#include <string>
+#include "Texture.h"
+#include "RectangleShape.h"
 
 
 namespace Engine
 {
 
-  class  Sprite {
-    public:
-        virtual ~Sprite() = default;
+	class Sprite
+	{
+	private:
+		std::shared_ptr<Texture2D> texture;
+
+		std::string texturePath;
+
+		float m_Width;
+		float m_Height;
+
+		Math::Vec2f Position;
+
+		bool withTexture;
+		
+		Rectangle *rect;
+	public:
+		Sprite(float width,float height);
+
+		virtual ~Sprite();
 
 
-        static std::unique_ptr<Sprite> Create(const Math::Vector2<float> position,const Math::Vector2<float> size);
+		void SetTexture(std::string path);
 
-        virtual void SetTexture(const char* path) = 0;
+		//control
+		void SetPosition(Math::Vec2f & position);
+		void SetPosition(float x, float y);
 
-        virtual void SetPosition(Math::Vector2<float> position) = 0;
+		void OnUpdate();
 
-        virtual void SetPosition(float x,float y) = 0;
+		void Translate(float x,float y);
+		void Translate(Math::Vec2f& position);
 
-        virtual void SetFillColor(Math::Color3<float> color3)= 0;
+		Shape& GetShape() const { }
 
-        virtual void SetScale(float ScaleFactorX,float ScaleFactorY) = 0;
-
-        virtual void SetScale(Math::Vector2<float> factors) = 0;
-
-        virtual void SetOrigin(float x,float y) = 0;
-
-        virtual void SetOrigin(Math::Vector2<float> origin) = 0;
-
-        virtual void SetRotation(float angle) = 0;
-
-
-        virtual const Math::Vector2<float> & GetScale() const = 0;
-
-        virtual const Math::Vector2<float> & GetOrigin() const = 0;
-
-        virtual const float& GetRotation() const = 0;
-
-        virtual Math::Vector2<float> GetPositions() const = 0;
-
-        virtual Math::Color3<float> GetFillColor() = 0;
-
-        virtual Math::Vector2<float> GetSize() const = 0;
-
-    };
+		void OnRender();
+	};
 };
 
 

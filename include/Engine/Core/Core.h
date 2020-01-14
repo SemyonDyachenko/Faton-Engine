@@ -31,15 +31,23 @@
 
 #endif
 
-#define FATON_ERROR_01 std::cout << "ERROR_01: None API , or Engine does not see his, or API is currently not supported!" << std::endl
-// Engine not use , or does not see API
+#define FATON_ERROR_01 std::cout << "ERROR_01: None API , or Engine does not see his, or API is currently not ssupported!" << std::endl  // Engine not use , or does not see API
+#define FATON_ERROR_02(filename) std::cout << "ERROR_02: Error load data from file " << filename << std::endl
 
+
+//typedef
+
+#define FATON_PRINT(text) std::cout << text << std::endl
 
 
 
 
 namespace Engine
 {
+	//typedef signed char Int8;
+
+	//typedef unsigned int Int32;
+
 
 }
 

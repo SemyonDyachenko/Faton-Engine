@@ -7,6 +7,7 @@
 
 
 #include "../../include/Engine/renderer/RendererAPI.h"
+
 #include <GL/glew.h>
 
 class OpenGLRendererAPI : public Engine::RendererAPI {
@@ -16,8 +17,10 @@ public:
 
     virtual void Clear(Engine::Math::Color3<float> & color) override;
 
-    virtual void Clear(Engine::Window & window) override;
+	virtual void Clear(Engine::Window & window) override;
 
+	virtual void SetViewport(unsigned int x, unsigned int y, unsigned int width, unsigned int height) override;
+	
     virtual void Draw(Engine::VertexArray * vertexArray) override;
 };
 
