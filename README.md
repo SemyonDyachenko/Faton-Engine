@@ -1,4 +1,4 @@
-# FATON-engine
+# Faton Engine
 My own Game Engine:
  - C++
  - OpenGL
