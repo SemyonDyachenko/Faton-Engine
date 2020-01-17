@@ -24,7 +24,7 @@ public:
 
 	std::unique_ptr < Engine::Drawable> GetDrawable() const  override;
 
-    virtual void AddVertexBuffer(const std::vector<float> &vertices) override;
+    virtual void AddVertexBuffer(const std::vector<float> & vertices) override;
 
 private:
 	uint32_t vao_id;

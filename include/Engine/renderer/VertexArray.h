@@ -14,10 +14,27 @@
 namespace Engine {
 
 
-	struct Vertex
+	class Vertex
 	{
-		Math::Vec2f TexCoord;
-		Math::Vec3f Position;
+		Math::Vec3f  position;
+		Math::Vec2f	 texcoord;
+
+	public:
+		Vertex(Math::Vec3f & pos,Math::Vec2f &texcoord)
+		{
+			this->position = pos;
+			this->texcoord = texcoord;
+		}
+
+		inline Math::Vec3f * GetPosition()
+		{
+			return &this->position;
+		}
+
+		inline Math::Vec2f * GetTexCoord()
+		{
+			return &this->texcoord;
+		}
 	};
 
 	
@@ -44,7 +61,7 @@ namespace Engine {
 
 		virtual std::unique_ptr<Drawable> GetDrawable() const = 0;
 
-        virtual void AddVertexBuffer(const std::vector<float> &vertices) = 0;
+        virtual void AddVertexBuffer(const std::vector<float> & vertices) = 0;
 
         static std::shared_ptr<VertexArray> Create();
     };
