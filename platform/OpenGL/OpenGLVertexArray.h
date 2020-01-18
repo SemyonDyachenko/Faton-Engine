@@ -29,6 +29,7 @@ public:
 private:
 	uint32_t vao_id;
 	GLsizei  indicesCount = 0;
+
 	std::vector<GLuint> bufferObjects;
 
 

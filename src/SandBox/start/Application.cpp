@@ -59,7 +59,7 @@ Application::Application() {
 	
 		void main()
 		 {
-			color = texture(m_Texture,TexCoord) ;
+			color = texture(m_Texture,TexCoord);
 		}
 
 
@@ -117,7 +117,7 @@ void Application::Render() {
 
 	this->m_Shader->SetInt("u_Texture", 0);
 	
-	texture->Bind();
+	texture->Bind(0);
 	
 	
 	Engine::Renderer2D::Draw(*rect);

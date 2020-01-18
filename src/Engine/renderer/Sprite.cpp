@@ -3,38 +3,35 @@
 //
 
 #include "../../../include/Engine/renderer/Sprite.h"
+#include "../../../include/Engine/renderer/Renderer2D.h"
 
 
 namespace Engine
 {
 
 
-	Sprite::Sprite(float width,float height) : m_Width(width), m_Height(height)
+	Sprite::Sprite(std::string texturePath) :m_TexturePath(texturePath)
 	{
-		this->withTexture = false;
+		m_Texture = Texture2D::Create(texturePath.c_str());
 
-		if (!withTexture)
-		{
-			this->texture = nullptr;
-			this->rect = new Rectangle(0,0,m_Width, m_Height);
-		}
-		else
-		{
-			this->texture = Texture2D::Create(texturePath.c_str());
-			this->rect = new Rectangle(0,0,texture->GetSize().x, texture->GetSize().y);
-		}
+		m_Width = m_Texture->GetSize().x;
+		m_Height = m_Texture->GetSize().y;
+
+		Position.x = 0;
+		Position.y = 0;
+
+		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
+		m_Rect = new Rectangle(Position.x, Position.y, m_Texture->GetSize().x, m_Texture->GetSize().y);
+
+		
 	}
 
 	Sprite::~Sprite()
 	{
-		
+		delete m_Rect;
 	}
 
-	void Sprite::SetTexture(std::string path)
-	{
-		this->texturePath = path;
-		this->withTexture = true;
-	}
+	
 
 	void Sprite::SetPosition(Math::Vec2f& position)
 	{
@@ -59,14 +56,11 @@ namespace Engine
 		Position.y = Position.y + position.y;
 	}
 
-
-	void Sprite::OnUpdate()
-	{
-	}
-
-	
 	void Sprite::OnRender()
 	{
-		
+
+		m_Texture->Bind();
+		m_Shader->SetInt("m_Texture", 0);
+		Renderer2D::Draw(*m_Rect);
 	}
 }

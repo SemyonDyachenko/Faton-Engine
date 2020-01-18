@@ -9,32 +9,20 @@
 #include "../Math/Color3.hpp"
 
 #include <memory>
+
 #include "Shape.h"
 #include <string>
 #include "Texture.h"
 #include "RectangleShape.h"
-
+#include "Shader.h"
 
 namespace Engine
 {
 
 	class Sprite
 	{
-	private:
-		std::shared_ptr<Texture2D> texture;
-
-		std::string texturePath;
-
-		float m_Width;
-		float m_Height;
-
-		Math::Vec2f Position;
-
-		bool withTexture;
-		
-		Rectangle *rect;
 	public:
-		Sprite(float width,float height);
+		Sprite(std::string texturePath);
 
 		virtual ~Sprite();
 
@@ -45,14 +33,24 @@ namespace Engine
 		void SetPosition(Math::Vec2f & position);
 		void SetPosition(float x, float y);
 
-		void OnUpdate();
-
 		void Translate(float x,float y);
 		void Translate(Math::Vec2f& position);
 
-		Shape& GetShape() const { }
+		Shape& GetShape() const { return *m_Rect; }
 
 		void OnRender();
+		
+	private:
+		Rectangle *m_Rect;
+		std::shared_ptr<Texture2D> m_Texture;
+		std::shared_ptr<Shader> m_Shader;
+
+		std::string m_TexturePath;
+
+		unsigned int m_Width;
+		unsigned int m_Height;
+
+		Math::Vec2f Position;
 	};
 };
 
