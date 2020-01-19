@@ -13,30 +13,6 @@
 
 namespace Engine {
 
-
-	class Vertex
-	{
-		Math::Vec3f  position;
-		Math::Vec2f	 texcoord;
-
-	public:
-		Vertex(Math::Vec3f & pos,Math::Vec2f &texcoord)
-		{
-			this->position = pos;
-			this->texcoord = texcoord;
-		}
-
-		inline Math::Vec3f * GetPosition()
-		{
-			return &this->position;
-		}
-
-		inline Math::Vec2f * GetTexCoord()
-		{
-			return &this->texcoord;
-		}
-	};
-
 	
 
 	enum class EngineDataType

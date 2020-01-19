@@ -45,7 +45,9 @@ namespace Engine {
         template<typename T>
         template<typename F>
         Vector3<T>::Vector3(const Vector3<F> &vector) {
-
+			this->x = vector.x;
+			this->y = vector.y;
+			this->z = vector.z;
         }
 
 		typedef Vector3<float> Vec3f;

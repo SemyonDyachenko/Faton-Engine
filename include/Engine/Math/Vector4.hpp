@@ -46,12 +46,16 @@ namespace Engine {
 		template<typename T>
 		template<typename F>
 		Vector4<T>::Vector4(const Vector4<F> &vector) {
+			this->x = vector.x;
+			this->y = vector.y;
+			this->z = vector.z;
+			this->w = vector.w;
 
 		}
 
-		typedef Math::Vector4<float> Vec4f;
-		typedef Math::Vector4<int> Vec4i;
-		typedef Math::Vector4<unsigned int> vec4u;
+		typedef Vector4<float> Vec4f;
+		typedef Vector4<int> Vec4i;
+		typedef Vector4<unsigned int> vec4u;
 
 	}
 

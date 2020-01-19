@@ -31,50 +31,6 @@ namespace Engine
 
     }
 
-	void Renderer2D::DrawRect(Engine::Math::Vec2f size)
-	{
-		float w = size.x;
-		float h = size.y;
-
-		std::shared_ptr<VertexArray> vao = VertexArray::Create();
-
-		std::vector<float> vertices =
-		{
-			-w,-h,0,
-			w,-h,0,
-			w,h,0,
-			-w,h,0
-		};
-
-		std::vector<unsigned int> indices =
-		{
-			0,1,3,
-			3,1,2
-		};
-
-
-	
-		vao->AddIndexBuffer(indices);
-		vao->AddVertexBuffer(vertices);
-		
-		
-		
-		vao->GetDrawable()->Bind();
-		vao->GetDrawable()->Draw();
-    	
-    	
-	}
-
-
-    void Renderer2D::RendererDraw(Sprite &sprite, Window &window, Shader &shader) {
-       window.Draw(sprite,shader);
-    }
-
-
-
-    void Renderer2D::RendererDraw(Sprite& sprite, Window &window) {
-       window.Draw(sprite);
-   }
 
     void Renderer2D::Draw(Engine::Shape& primitive)
     {

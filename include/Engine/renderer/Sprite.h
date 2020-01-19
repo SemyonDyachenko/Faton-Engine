@@ -15,42 +15,24 @@
 #include "Texture.h"
 #include "RectangleShape.h"
 #include "Shader.h"
+#include "Drawable2D.h"
 
 namespace Engine
 {
 
-	class Sprite
+	class Sprite : public Drawable2D
 	{
 	public:
-		Sprite(std::string texturePath);
-
-		virtual ~Sprite();
-
-
-		void SetTexture(std::string path);
-
-		//control
-		void SetPosition(Math::Vec2f & position);
-		void SetPosition(float x, float y);
-
-		void Translate(float x,float y);
-		void Translate(Math::Vec2f& position);
-
-		Shape& GetShape() const { return *m_Rect; }
-
-		void OnRender();
+		Sprite(std::shared_ptr<Texture2D> texture);
 		
+		Sprite(float x,float y,std::shared_ptr<Texture2D> texture);
+
+		void OnRender() const override;
 	private:
-		Rectangle *m_Rect;
-		std::shared_ptr<Texture2D> m_Texture;
 		std::shared_ptr<Shader> m_Shader;
 
-		std::string m_TexturePath;
+		Rectangle* m_Rect;
 
-		unsigned int m_Width;
-		unsigned int m_Height;
-
-		Math::Vec2f Position;
 	};
 };
 

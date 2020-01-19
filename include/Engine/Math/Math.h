@@ -10,6 +10,7 @@
 #include "Vector4.hpp"
 #include "Color3.hpp"
 #include "Matrix.hpp"
+#include "Rect.hpp"
 
 namespace Engine
 {

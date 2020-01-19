@@ -15,6 +15,7 @@ class Application {
 private:
     std::unique_ptr<Engine::Window> window;
 
+	Engine::Sprite * sprite;
 
 	Engine::Camera* m_Camera;
 	std::shared_ptr<Engine::Texture2D> m_Texture;

@@ -65,13 +65,15 @@ Application::Application() {
 
 	)";
 
-
+	m_Texture = Engine::Texture2D::Create("assets/images/photo.jpg");
+	
+	sprite = new Engine::Sprite(m_Texture);
 
 	m_Camera = new Engine::Camera(window->GetWidth() /window->GetHeight());
 	
-	m_Shader = Engine::Shader::Create("texture_shader", textureVertexShader, textureFragmentShader);
+	m_Shader = Engine::Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
 
-	m_Texture = Engine::Texture2D::Create("../assets/photo.png");
+	
 
 
 	rect = new Engine::Rectangle(0, 0, 2, 2);
@@ -111,20 +113,11 @@ void Application::Render() {
 
 	
 	m_Shader->SetMat4("ViewProjectionMatrix", m_Camera->GetViewProjectionMatrix());
-	m_Shader->SetFloat4("m_Color",{0.2,0.3,0.7,1});
-	
-	m_Shader->SetMat4("Transform", rect->GetTransform());
 
-	this->m_Shader->SetInt("u_Texture", 0);
-	
-	texture->Bind(0);
+	sprite->OnRender();
 	
 	
-	Engine::Renderer2D::Draw(*rect);
-	
-	m_Shader->Unbind();
 
-	
 	
 	
 	Engine::Renderer2D::endScene();

@@ -8,59 +8,35 @@
 
 namespace Engine
 {
-
-
-	Sprite::Sprite(std::string texturePath) :m_TexturePath(texturePath)
+	Sprite::Sprite(std::shared_ptr<Texture2D> texture) :
+	Drawable2D(Math::Vec2f(0.0,0.0),
+	Math::Vec2f(static_cast<float>(texture->GetSize().x),static_cast<float>(texture->GetSize().y)))
 	{
-		m_Texture = Texture2D::Create(texturePath.c_str());
-
-		m_Width = m_Texture->GetSize().x;
-		m_Height = m_Texture->GetSize().y;
-
-		Position.x = 0;
-		Position.y = 0;
-
-		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
-		m_Rect = new Rectangle(Position.x, Position.y, m_Texture->GetSize().x, m_Texture->GetSize().y);
-
+		m_Texture = texture;
+		m_Rect = new Rectangle(0, 0, static_cast<float>(texture->GetSize().x)/100, static_cast<float>(texture->GetSize().y)/100);
 		
+		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
 	}
 
-	Sprite::~Sprite()
+	Sprite::Sprite(float x, float y, std::shared_ptr<Texture2D> texture) :
+	Drawable2D(Math::Vec2f(x,y),
+	Math::Vec2f(static_cast<float>(texture->GetSize().x), static_cast<float>(texture->GetSize().y)))
 	{
-		delete m_Rect;
+		m_Texture = texture;
+		m_Rect = new Rectangle(x, y, static_cast<float>(texture->GetSize().x) / 100, static_cast<float>(texture->GetSize().y) / 100);
 	}
 
-	
-
-	void Sprite::SetPosition(Math::Vec2f& position)
+	void Sprite::OnRender() const
 	{
-		Position = position;
-	}
+		m_Shader->Bind();
 
-	void Sprite::SetPosition(float x, float y)
-	{
-		Position = { x,y };
-	}
-
-
-	void Sprite::Translate(float x, float y)
-	{
-		Position.x = Position.x + x;
-		Position.y = Position.y + y;
-	}
-
-	void Sprite::Translate(Math::Vec2f& position)
-	{
-		Position.x = Position.x + position.x;
-		Position.y = Position.y + position.y;
-	}
-
-	void Sprite::OnRender()
-	{
-
-		m_Texture->Bind();
 		m_Shader->SetInt("m_Texture", 0);
+		
+		m_Shader->SetMat4("Transform", m_Rect->GetTransform());
+		m_Texture->Bind();
+		
 		Renderer2D::Draw(*m_Rect);
+
+		m_Shader->Unbind();
 	}
 }

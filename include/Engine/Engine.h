@@ -29,7 +29,6 @@
 
 
 //---------Renderer---------
-#include "Object/Scene.h"
 #include "Physics/Collider2D.h"
 #include "Physics/BoxCollider2D.h"
 #include "renderer/Renderer2D.h"

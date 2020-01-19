@@ -41,7 +41,11 @@ namespace Engine {
 
         template<typename T>
         template<typename F>
-        Vector2<T>::Vector2(const Vector2<F> &vector){}
+        Vector2<T>::Vector2(const Vector2<F> &vector)
+        {
+			this->x = vector.x;
+			this->y = vector.y;
+        }
 
 
 
