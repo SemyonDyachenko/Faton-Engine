@@ -18,7 +18,7 @@
 
 namespace Engine {
 
-    class Camera {
+    class Camera2D {
     private:
         float Rotation = 0.0f;
         float ZoomFactor = 5.f;
@@ -36,8 +36,8 @@ namespace Engine {
 		glm::mat4 ViewProjectionMatrix;
 		
     public:
-		Camera(float aspectRatio);
-		virtual ~Camera();
+		Camera2D(float aspectRatio);
+		virtual ~Camera2D();
 
 
 		void Update(float time);

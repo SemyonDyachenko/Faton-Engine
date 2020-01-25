@@ -8,31 +8,39 @@
 namespace Engine
 {
 
-	
-	
+
     std::unique_ptr<RendererAPI> RenderCommand::m_RendererAPI = RendererAPI::Create();
 
 
     void Renderer2D::Init() {
-	
+		
     }
 
-    void Renderer2D::createScene(Engine::Camera &camera) {
-	
-    }
-
-    void Renderer2D::endScene() {
-
-    }
-
-    void Renderer2D::DrawRect(Engine::Math::Vector2<float> &positions, Engine::Math::Vector2<float> &size,Engine::Math::Color3<float> &color3)
+    void Renderer2D::BeginScene(Entity::Scene2D& scene)
     {
-       //return Engine::Sprite()
+		scene.Start();
+    }
+
+   
+    void Renderer2D::EndScene() {
 
     }
 
+    void Renderer2D::DrawRect(Camera2D& camera, Engine::Math::Vector2<float>& positions,
+	    Engine::Math::Vector2<float>& size)
+    {
+    	
+    }
 
-    void Renderer2D::Draw(Engine::Shape& primitive)
+    void Renderer2D::DrawRect(Camera2D& camera, Engine::Math::Vector2<float>& positions,
+	    Engine::Math::Vector2<float>& size, Engine::Math::Color3<float>& color3)
+    {
+    	
+    }
+
+
+
+    void Renderer2D::Render(Engine::Shape& primitive)
     {
 		primitive.Draw();
     }

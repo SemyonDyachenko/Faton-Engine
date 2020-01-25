@@ -6,11 +6,12 @@
 #include <memory>
 #include "Texture.h"
 
-
+#include "../Camera/Camera.h"
 
 
 namespace Engine
 {
+
 	class Drawable2D
 	{
 	protected:
@@ -24,7 +25,7 @@ namespace Engine
 
 		virtual ~Drawable2D();
 
-		virtual void OnRender() const = 0;
+		virtual void OnRender(Camera2D & camera) const = 0;
 
 		const Math::Vec2f& GetPosition() const;
 

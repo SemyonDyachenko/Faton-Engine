@@ -13,22 +13,20 @@
 
 namespace Engine {
 
+	namespace Entity
+	{
 
+		class Scene
+		{
+		public:
+			virtual void AddEntity(Entity& entity) = 0;
 
-    class Scene2D
-    {
-    public:
-        Scene2D(Camera& camera);
+			virtual ~Scene() = default;
 
-        virtual ~Scene2D();
+			virtual void Start() = 0;
+		};
 
-        void OnUpdate();
-        void OnRender();
-    private:
-		Camera * m_Camera;
-    	
-		std::vector<Entity::Entity*> m_Entities;
-    };
+	}
 }
 
 #endif //MY_OWN_GAME_SCENE_H

@@ -8,21 +8,15 @@
 int main()
 {
 
-
-auto  *app = new Application();
-
-
-system("color 02");
-FATON_PRINT("[ENGINE]:  Engine is work!");
+	auto  *app = new Application();
 
 
-app->Run();
+	system("color 02");
+	FATON_PRINT("[ENGINE]:  Engine is work!");
 
 
+	app->Run();
 
 
-
-
-
-return 0;
+	return 0;
 }

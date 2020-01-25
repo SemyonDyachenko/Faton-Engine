@@ -10,7 +10,7 @@
 namespace Engine{
 
 
-    Camera::Camera(float aspectRatio) : AspectRatio(aspectRatio)
+	Camera2D::Camera2D(float aspectRatio) : AspectRatio(aspectRatio)
 	{
 		ProjectionMatrix = glm::ortho(-AspectRatio*ZoomFactor,AspectRatio*ZoomFactor, -ZoomFactor, ZoomFactor, -1.0f, 1.0f);
 
@@ -21,11 +21,11 @@ namespace Engine{
 		CameraSpeed = 0.1f;
     }
 
-    Camera::~Camera()
+	Camera2D::~Camera2D()
     {
     }
 
-    void Camera::Update(float time)
+    void Camera2D::Update(float time)
     {
 
     	//movement camera
@@ -77,42 +77,42 @@ namespace Engine{
     }
 
 
-    const Math::Vec3f Camera::GetPosition() const {
+    const Math::Vec3f Camera2D::GetPosition() const {
         return this->Position;
     }
 
-    const glm::mat4& Camera::GetProjectionMatrix() const
+    const glm::mat4& Camera2D::GetProjectionMatrix() const
     {
 		return ProjectionMatrix;
     }
 
-    const glm::mat4& Camera::GetViewMatrix() const
+    const glm::mat4& Camera2D::GetViewMatrix() const
     {
 		return ViewMatrix;
     }
 
-    const glm::mat4& Camera::GetViewProjectionMatrix() const
+    const glm::mat4& Camera2D::GetViewProjectionMatrix() const
     {
 		return ViewProjectionMatrix;
     }
 
   
-    const float& Camera::GetZoomFactor() const
+    const float& Camera2D::GetZoomFactor() const
     {
 		return this->ZoomFactor;
     }
 
-    const Math::Vec2f Camera::GetSize() const
+    const Math::Vec2f Camera2D::GetSize() const
     {
 		return this->Size;
     }
 
-    float Camera::GetRotation() const
+    float Camera2D::GetRotation() const
     {
 		return this->Rotation;
     }
 
-    void Camera::SetPojection(float left, float right, float bottom, float top)
+    void Camera2D::SetPojection(float left, float right, float bottom, float top)
     {
 		this->ProjectionMatrix = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		ViewProjectionMatrix = ProjectionMatrix * ViewMatrix;
@@ -120,35 +120,35 @@ namespace Engine{
 
     //Controller
 
-    void Camera::SetPosition(const Math::Vec3f position)
+    void Camera2D::SetPosition(const Math::Vec3f position)
     {
 		this->Position = position;
 		ResetView();
     }
 
-    void Camera::SetSize(float width, float height)
+    void Camera2D::SetSize(float width, float height)
     {
 		this->Size.x = width;
 		this->Size.y = height;
     }
 
-    void Camera::SetSize(const Math::Vec2f size)
+    void Camera2D::SetSize(const Math::Vec2f size)
     {
 		this->SetSize(size.x, size.y);
     }
 
-    void Camera::SetZoomFactor(float zoomFactor) {
+    void Camera2D::SetZoomFactor(float zoomFactor) {
         this->ZoomFactor = zoomFactor;
 		ResetView();
     }
 
-    void Camera::SetRotation(float RotationAngle)
+    void Camera2D::SetRotation(float RotationAngle)
     {
 		this->Rotation = RotationAngle;
 		ResetView();
     }
 
-    void Camera::ResetView()
+    void Camera2D::ResetView()
     {
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), glm::vec3(Position.x, Position.y, Position.z)) * 
 			glm::rotate(glm::mat4(1.0f), glm::radians(Rotation), glm::vec3(0, 0, 1));

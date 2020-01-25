@@ -8,6 +8,8 @@
 #include "../Math/Vector2.hpp"
 #include "../Math/Color3.hpp"
 
+
+
 #include <memory>
 
 #include "Shape.h"
@@ -17,9 +19,9 @@
 #include "Shader.h"
 #include "Drawable2D.h"
 
+
 namespace Engine
 {
-
 	class Sprite : public Drawable2D
 	{
 	public:
@@ -27,7 +29,7 @@ namespace Engine
 		
 		Sprite(float x,float y,std::shared_ptr<Texture2D> texture);
 
-		void OnRender() const override;
+		void OnRender(Camera2D& camera) const override;
 	private:
 		std::shared_ptr<Shader> m_Shader;
 

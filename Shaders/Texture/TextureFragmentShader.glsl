@@ -1,14 +1,14 @@
 #version 330 core
 
-layout(location = 0) out vec4 color;
+		layout(location = 0) out vec4 color;
 
-in vec2 TexCoord;
+		in vec2 TexCoord;
 	
-uniform sampler2D m_Texture;
+		uniform sampler2D m_Texture;
 		
-uniform vec4 m_Color;
+		uniform vec4 m_Color;
 	
-void main()
-{
-	color = texture(m_Texture,TexCoord);
-}
+		void main()
+		 {
+			color = texture(m_Texture,TexCoord);
+		}

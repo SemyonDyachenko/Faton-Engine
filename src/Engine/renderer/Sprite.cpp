@@ -24,18 +24,23 @@ namespace Engine
 	{
 		m_Texture = texture;
 		m_Rect = new Rectangle(x, y, static_cast<float>(texture->GetSize().x) / 100, static_cast<float>(texture->GetSize().y) / 100);
+
+		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
 	}
 
-	void Sprite::OnRender() const
+	void Sprite::OnRender(Camera2D& camera) const
 	{
 		m_Shader->Bind();
 
+		m_Shader->SetMat4("ViewProjectionMatrix", camera.GetViewProjectionMatrix());
+
+		m_Shader->SetMat4("Transform", m_Rect->GetTransform());
+		
 		m_Shader->SetInt("m_Texture", 0);
 		
-		m_Shader->SetMat4("Transform", m_Rect->GetTransform());
 		m_Texture->Bind();
 		
-		Renderer2D::Draw(*m_Rect);
+		Renderer2D::Render(*m_Rect);
 
 		m_Shader->Unbind();
 	}

@@ -15,20 +15,24 @@
 #include "RectangleShape.h"
 
 
+#include "../Entity/Scene2D.h"
+
 namespace Engine {
 	
+
 
 	class Renderer2D {
     public:
         static void Init();
 
-        static void createScene(Engine::Camera& camera);
+        static void BeginScene(Entity::Scene2D & scene);
 
-        static void endScene();
+        static void EndScene();
 
-        static void DrawRect(Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size,Engine::Math::Color3<float>& color3);
+        static void DrawRect(Camera2D & camera,Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size);
+        static void DrawRect(Camera2D & camera,Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size,Engine::Math::Color3<float>& color3);
 
-		static void Draw(Engine::Shape& primitive);
+		static void Render(Engine::Shape& primitive);
 
     };
 
@@ -37,6 +41,11 @@ namespace Engine {
     private:
         static std::unique_ptr<RendererAPI> m_RendererAPI;
     public:
+
+    	static void Init3D()
+    	{
+			m_RendererAPI->Init3D();
+    	}
 
         static void Init()
         {

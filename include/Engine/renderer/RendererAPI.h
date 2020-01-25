@@ -29,6 +29,8 @@ namespace Engine {
 
         virtual void Init() = 0;
 
+		virtual void Init3D() = 0;
+    	
         virtual void Clear(Math::Color3<float>& color) = 0;
 
 		virtual void SetViewport(unsigned int x, unsigned int y, unsigned int width, unsigned int height) = 0;
