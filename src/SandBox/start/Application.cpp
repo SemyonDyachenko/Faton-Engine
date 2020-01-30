@@ -4,6 +4,7 @@
 
 
 #include "../../../include/SandBox/start/Application.h"
+#include "../../../include/Engine/Scripts/Script.h"
 
 
 void Application::InitRenderer()
@@ -34,7 +35,7 @@ Application::~Application() {
 
 void Application::Update() {
 
-
+	
 }
 
 

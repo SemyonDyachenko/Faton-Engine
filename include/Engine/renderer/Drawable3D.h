@@ -13,18 +13,10 @@ namespace Engine
 	class Drawable3D
 	{
 
-	private:
-		
 	public:
-		Drawable3D(const Math::Vec2f & position, const Math::Vec2f & size);
+		virtual void OnRender(Camera3D & camera) = 0;
 
-		virtual ~Drawable3D();
-
-		const Math::Vec3f& GetPosition() const;
-
-		const Math::Vec3f& GetSize() const;
-
-		virtual void OnRender(Camera3D & camera);
+		virtual ~Drawable3D() = default;
 		
 	};
 	

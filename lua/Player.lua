@@ -1,24 +1,8 @@
-local HEALTH_POINTS = 100
-
-local LEVEL =  0
+print("hello world")
 
 
-function LevelUp()
-{
-LEVEL= LEVEL+1;
-}
+for i = 1, 10 do
+print(i)
+end
 
 
-
-
-INVENTORY
-{
-    SWORD,
-    MAP,
-
-}
-
-function AddToInventory(Object object)
-{
-
-}
