@@ -8,32 +8,38 @@
 
 #include "../../../include/Engine/Engine.h"
 
-
+using namespace Engine;
+using namespace Math;
+using namespace Physics;
 
 
 class Application {
 private:
-    std::unique_ptr<Engine::Window> window;
+    std::unique_ptr<Window> window;
 
 
-	std::shared_ptr<Engine::Shader> m_Shader;
+	std::shared_ptr<Shader> m_Shader;
 
-	Engine::Math::Vec4f m_Color =  { 0.2f, 0.3f, 0.8f, 1.0f };
+	Vec4f m_Color =  { 0.2f, 0.3f, 0.8f, 1.0f };
+
+	Camera2D * camera;
 	
-    Engine::Event* event{};
+    Event* event;
 
+	Sprite *sprite;
+	Sprite * sprite2;
 
     bool is_Running = true;
 
-	void InitRenderer();
+	void InitGraphics();
 public:
     Application();
     virtual ~Application();
 
 
 	
-    void Update();
-    void Render();
+    void OnUpdate();
+    void OnRender();
     void Run();
 };
 

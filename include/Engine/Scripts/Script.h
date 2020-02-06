@@ -17,7 +17,7 @@ extern "C"
 
 namespace Engine
 {
-	class Script
+	/*class Script
 	{
 	private:
 		lua_State *m_Lua_State;
@@ -50,7 +50,7 @@ namespace Engine
 		template<class T>
 		void Return(T value);
 	};
-
+*/
 }
 
 

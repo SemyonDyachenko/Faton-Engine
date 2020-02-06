@@ -5,7 +5,7 @@ namespace Engine
 {
 
 
-	Script::Script()
+	/*Script::Script()
 	{
 		
 	}
@@ -186,6 +186,6 @@ namespace Engine
 			void Script::Return<bool>(bool value)
 			{
 				lua_pushboolean(m_Lua_State, value);
-			}
+			}*/
 
 }

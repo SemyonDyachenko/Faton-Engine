@@ -16,8 +16,6 @@ namespace Engine
 
 	class Renderer3D
 	{
-	private:
-		static std::unique_ptr<RendererAPI> m_RendererAPI;
 	public:
 
 		static void Init();

@@ -4,8 +4,7 @@
 namespace Engine
 {
 	
-	std::unique_ptr<RendererAPI> RenderCommand::m_RendererAPI = RendererAPI::Create();
-	
+
 	void Renderer3D::Init()
 	{
 		RenderCommand::Init3D();

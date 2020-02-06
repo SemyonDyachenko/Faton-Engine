@@ -4,6 +4,7 @@
 
 #ifndef MY_OWN_GAME_COLLISION_H
 #define MY_OWN_GAME_COLLISION_H
+#include "../Math/Math.h"
 
 namespace Engine {
 
@@ -12,7 +13,7 @@ namespace Engine {
 
         class Collision {
         public:
-
+			static bool AABB(const Math::FloatRect& rectA, const Math::FloatRect & rectB);
         };
 
     }

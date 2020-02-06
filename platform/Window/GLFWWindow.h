@@ -20,6 +20,7 @@ private:
 
 	bool fullscreen;
 	bool resizable;
+
 };
 
 

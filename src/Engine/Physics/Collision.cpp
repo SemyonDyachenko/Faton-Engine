@@ -3,3 +3,20 @@
 //
 
 #include "../../../include/Engine/Physics/Collision.h"
+
+namespace Engine
+{
+	namespace Physics
+	{
+		bool Collision::AABB(const Math::FloatRect& rectA, const Math::FloatRect& rectB)
+		{
+			if(rectA.x + rectA.w >= rectB.x && rectB.x + rectB.w >=  rectA.x && rectA.y + rectA.h >= rectB.y && rectB.y + rectB.h >= rectA.y)
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+	}
+}

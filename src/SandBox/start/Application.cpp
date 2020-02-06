@@ -4,27 +4,35 @@
 
 
 #include "../../../include/SandBox/start/Application.h"
-#include "../../../include/Engine/Scripts/Script.h"
+#include "../../../include/Engine/Physics/Collision.h"
 
 
-void Application::InitRenderer()
+void Application::InitGraphics()
 {
-	Engine::Renderer2D::Init();
-
-
-	Engine::RenderCommand::Init();
+	Renderer2D::Init();
+	RenderCommand::Init();
 }
 
 Application::Application() {
 	
-    this->window = Engine::Window::Create(1280,720,"Faton Engine");
+    this->window = Window::Create(1280,720,"Faton Engine");
+	this->InitGraphics();
+
+	camera = new Camera2D(window->GetWidth() / window->GetHeight());
+	
+	std::shared_ptr<Texture2D> texture = Texture2D::Create("assets/images/pusheen.png");
+
+	sprite = new Sprite(texture);
 
 	
-	this->InitRenderer();
+	
+	sprite2 = new Sprite(texture);
+	sprite->SetPosition({ 2, 2 });
 
-
-	//-----TEST------------
-
+	if(Collision::AABB(FloatRect(sprite->GetPosition().x,sprite->GetPosition().y,sprite->GetSize().x,sprite->GetSize().y),FloatRect(sprite2->GetPosition().x,sprite2->GetPosition().y,sprite2->GetSize().x,sprite2->GetSize().y)))
+	{
+		std::cout << "IS COLLIISION" << std::endl;
+	}
 
 }
 
@@ -33,21 +41,23 @@ Application::~Application() {
 }
 
 
-void Application::Update() {
+void Application::OnUpdate() {
 
 	
 }
 
 
 
-void Application::Render() {
+void Application::OnRender() {
 
-
-
+	
+	
+	sprite->OnRender(*camera);
+	sprite2->OnRender(*camera);
 }
 
 void Application::Run() {
-    event = new Engine::WindowCloseEvent();
+    event = new WindowCloseEvent();
     while (window->isOpen()) {
 
 		sf::Clock clock;
@@ -55,11 +65,11 @@ void Application::Run() {
 		clock.restart();
 		time = time / 800;
     	
-    	
+		camera->Update(time);
         window->PollEvent(*event);
 		window->Clear({ 34, 38, 35,1 });
-        Update();
-        Render();
+		OnUpdate();
+        OnRender();
 
     	
         window->Show();

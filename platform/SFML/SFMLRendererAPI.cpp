@@ -15,6 +15,9 @@ void SFMLRendererAPI::Init() {
 
 }
 
+void SFMLRendererAPI::Init3D()
+{
+}
 
 
 void SFMLRendererAPI::Draw(Engine::VertexArray *vertexArray) {
@@ -33,4 +36,5 @@ void SFMLRendererAPI::Clear(Engine::Window& window)
 {
 
 }
+
 
