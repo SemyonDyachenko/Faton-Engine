@@ -22,8 +22,11 @@ namespace Engine
 	Drawable2D(Math::Vec2f(x,y),
 	Math::Vec2f(static_cast<float>(texture->GetSize().x), static_cast<float>(texture->GetSize().y)))
 	{
+		this->bounds.x = x;
+		this->bounds.y = y;
+		
 		m_Texture = texture;
-		m_Rect = new Rectangle(x, y, static_cast<float>(texture->GetSize().x) / 100, static_cast<float>(texture->GetSize().y) / 100);
+		m_Rect = new Rectangle(this->bounds.x, this->bounds.y, static_cast<float>(texture->GetSize().x) / 100, static_cast<float>(texture->GetSize().y) / 100);
 
 		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
 	}

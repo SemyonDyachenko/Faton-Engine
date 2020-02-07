@@ -22,14 +22,13 @@ Application::Application() {
 	
 	std::shared_ptr<Texture2D> texture = Texture2D::Create("assets/images/pusheen.png");
 
-	sprite = new Sprite(texture);
+	sprite = new Sprite(5,5,texture);
 
 	
-	
-	sprite2 = new Sprite(texture);
-	sprite->SetPosition({ 2, 2 });
+	sprite2 = new Sprite(2,2,texture);
 
-	if(Collision::AABB(FloatRect(sprite->GetPosition().x,sprite->GetPosition().y,sprite->GetSize().x,sprite->GetSize().y),FloatRect(sprite2->GetPosition().x,sprite2->GetPosition().y,sprite2->GetSize().x,sprite2->GetSize().y)))
+
+	if(Collision::AABB(FloatRect(sprite->GetBounds()),FloatRect(sprite2->GetBounds())))
 	{
 		std::cout << "IS COLLIISION" << std::endl;
 	}
