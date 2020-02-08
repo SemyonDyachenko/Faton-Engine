@@ -13,7 +13,7 @@ namespace Engine {
 
         class Collision {
         public:
-			static bool AABB(const Math::FloatRect& rectA, const Math::FloatRect & rectB);
+			static bool Intersects(const Math::FloatRect& rectA, const Math::FloatRect & rectB);
         };
 
     }

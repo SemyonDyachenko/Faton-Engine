@@ -12,13 +12,11 @@ namespace Engine {
     namespace Physics {
 
         class Collider2D {
-        private:
-            Engine::Math::Vector2<float> position;
         public:
 
-            ~Collider2D() = default;
+            virtual ~Collider2D() = default;
 
-            virtual void GetPosition() = 0;
+            virtual void GetBounds() = 0;
 
             virtual void Show() = 0;
         };

@@ -11,8 +11,9 @@ namespace Engine {
 
     namespace Physics {
 
-        class BoxCollider2D : public Engine::Physics::Collider2D {
-
+        class BoxCollider2D : public Collider2D {
+        public:
+        	
         };
     }
 

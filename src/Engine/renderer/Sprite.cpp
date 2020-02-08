@@ -13,7 +13,13 @@ namespace Engine
 	Math::Vec2f(static_cast<float>(texture->GetSize().x),static_cast<float>(texture->GetSize().y)))
 	{
 		m_Texture = texture;
-		m_Rect = new Rectangle(0, 0, static_cast<float>(texture->GetSize().x)/100, static_cast<float>(texture->GetSize().y)/100);
+
+		bounds.w = static_cast<float>(texture->GetSize().x) / 100;
+		bounds.h = static_cast<float>(texture->GetSize().y) / 100;
+		
+		m_Rect = new Rectangle(0, 0, bounds.x, bounds.y);
+
+	
 		
 		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
 	}
@@ -22,13 +28,22 @@ namespace Engine
 	Drawable2D(Math::Vec2f(x,y),
 	Math::Vec2f(static_cast<float>(texture->GetSize().x), static_cast<float>(texture->GetSize().y)))
 	{
-		this->bounds.x = x;
-		this->bounds.y = y;
+		bounds.x = x;
+		bounds.y = y;
+
+		bounds.w = static_cast<float>(texture->GetSize().x) / 100;
+		bounds.h = static_cast<float>(texture->GetSize().y) / 100;
 		
 		m_Texture = texture;
-		m_Rect = new Rectangle(this->bounds.x, this->bounds.y, static_cast<float>(texture->GetSize().x) / 100, static_cast<float>(texture->GetSize().y) / 100);
+		m_Rect = new Rectangle(this->bounds.x, this->bounds.y, bounds.w, bounds.h);
 
 		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
+	}
+
+	void Sprite::TransformRecalculate()
+	{
+		m_Rect->SetPosition(bounds.x, bounds.y);
+		m_Rect->SetSize(bounds.w, bounds.h);
 	}
 
 	void Sprite::OnRender(Camera2D& camera) const

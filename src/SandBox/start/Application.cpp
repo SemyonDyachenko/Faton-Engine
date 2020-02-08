@@ -22,15 +22,25 @@ Application::Application() {
 	
 	std::shared_ptr<Texture2D> texture = Texture2D::Create("assets/images/pusheen.png");
 
-	sprite = new Sprite(5,5,texture);
+	sprite = new Sprite(1,1,texture);
 
 	
-	sprite2 = new Sprite(2,2,texture);
+	sprite2 = new Sprite(6,6,texture);
 
 
-	if(Collision::AABB(FloatRect(sprite->GetBounds()),FloatRect(sprite2->GetBounds())))
+
+	if(Collision::Intersects(FloatRect(sprite->GetBounds()),FloatRect(sprite2->GetBounds())))
 	{
-		std::cout << "IS COLLIISION" << std::endl;
+		FATON_PRINT(sprite->GetBounds().x);
+		FATON_PRINT(sprite->GetBounds().y);
+		FATON_PRINT(sprite->GetBounds().w);
+		FATON_PRINT(sprite->GetBounds().h);
+		FATON_PRINT(".....////////////////.............");
+		FATON_PRINT(sprite2->GetBounds().x);
+		FATON_PRINT(sprite2->GetBounds().y);
+		FATON_PRINT(sprite2->GetBounds().w);
+		FATON_PRINT(sprite2->GetBounds().h);
+		FATON_PRINT("IS COLLIISION");
 	}
 
 }

@@ -19,6 +19,9 @@ namespace Engine
 
 		virtual ~Rectangle();
 
+		void SetPosition(float x,float y);
+		void SetSize(float w,float h);
+		
 		const glm::mat4& GetTransform() const;
 		
 		void Draw() const override;

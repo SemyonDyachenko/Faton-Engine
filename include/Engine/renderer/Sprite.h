@@ -29,6 +29,8 @@ namespace Engine
 		
 		Sprite(float x,float y,std::shared_ptr<Texture2D> texture);
 
+		void TransformRecalculate();
+
 		void OnRender(Camera2D& camera) const override;
 	private:
 		std::shared_ptr<Shader> m_Shader;

@@ -42,6 +42,21 @@ namespace Engine
 	{
 	}
 
+	void Rectangle::SetPosition(float x, float y)
+	{
+		m_Position = { x,y,0 };
+		m_Transform = translate(glm::mat4(1.0f), { m_Position.x,m_Position.y,m_Position.z }) * scale(glm::mat4(1.0f), { m_Size.x, m_Size.y, 1.0f });
+
+	}
+
+	void Rectangle::SetSize(float w, float h)
+	{
+		m_Size = { w,h };
+
+		m_Transform = translate(glm::mat4(1.0f), { m_Position.x,m_Position.y,m_Position.z }) * scale(glm::mat4(1.0f), { m_Size.x, m_Size.y, 1.0f });
+	}
+
+
 	const glm::mat4 & Rectangle::GetTransform() const
 	{
 		return m_Transform;
