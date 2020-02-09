@@ -6,6 +6,7 @@
 #define MY_OWN_GAME_BOXCOLLIDER2D_H
 
 #include "Collider2D.h"
+#include "../Math/Rect.hpp"
 
 namespace Engine {
 
@@ -13,7 +14,15 @@ namespace Engine {
 
         class BoxCollider2D : public Collider2D {
         public:
-        	
+			BoxCollider2D(Math::FloatRect & bounds);
+
+			virtual ~BoxCollider2D();
+
+			Math::FloatRect &  GetBounds() const override;
+
+        	void Show() override;
+        private:
+			Math::FloatRect& m_ColliderBounds;
         };
     }
 

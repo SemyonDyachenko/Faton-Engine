@@ -6,6 +6,7 @@
 #define MY_OWN_GAME_COLLIDER2D_H
 
 #include "../Math/Vector2.hpp"
+#include "../Math/Rect.hpp"
 
 namespace Engine {
 
@@ -16,7 +17,7 @@ namespace Engine {
 
             virtual ~Collider2D() = default;
 
-            virtual void GetBounds() = 0;
+            virtual Math::FloatRect& GetBounds() const = 0;
 
             virtual void Show() = 0;
         };
