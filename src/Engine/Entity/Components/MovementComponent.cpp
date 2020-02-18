@@ -30,7 +30,7 @@ namespace Engine
 
 	const bool MovementComponent::GetState(const unsigned short state)
 	{
-		
+		return false;
 	}
 
 

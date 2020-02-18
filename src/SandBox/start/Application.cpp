@@ -18,6 +18,8 @@ Application::Application() {
     this->window = Window::Create(1280,720,"Faton Engine");
 	this->InitGraphics();
 
+	event = nullptr;
+
 	camera = new Camera2D(window->GetWidth() / window->GetHeight());
 	
 	std::shared_ptr<Texture2D> texture = Texture2D::Create("assets/images/pusheen.png");
@@ -25,21 +27,17 @@ Application::Application() {
 	sprite = new Sprite(1,1,texture);
 
 	
-	sprite2 = new Sprite(6,6,texture);
+	sprite2 = new Sprite(5,5,texture);
+
+	
 
 
-
+	std::cout << "Width: " << sprite->GetBounds().w << " " << "Height: " << sprite->GetBounds().h << "\n";
+	std::cout << "X: " << sprite->GetBounds().x << " " << "Y: " << sprite->GetBounds().y << "\n";
+	
 	if(Collision::Intersects(FloatRect(sprite->GetBounds()),FloatRect(sprite2->GetBounds())))
 	{
-		FATON_PRINT(sprite->GetBounds().x);
-		FATON_PRINT(sprite->GetBounds().y);
-		FATON_PRINT(sprite->GetBounds().w);
-		FATON_PRINT(sprite->GetBounds().h);
-		FATON_PRINT(".....////////////////.............");
-		FATON_PRINT(sprite2->GetBounds().x);
-		FATON_PRINT(sprite2->GetBounds().y);
-		FATON_PRINT(sprite2->GetBounds().w);
-		FATON_PRINT(sprite2->GetBounds().h);
+	
 		FATON_PRINT("IS COLLIISION");
 	}
 
@@ -62,6 +60,9 @@ void Application::OnRender() {
 	
 	
 	sprite->OnRender(*camera);
+
+
+	
 	sprite2->OnRender(*camera);
 }
 
