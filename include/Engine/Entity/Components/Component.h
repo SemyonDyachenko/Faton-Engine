@@ -5,13 +5,21 @@
 namespace Engine
 {
 
+	enum ComponentType
+	{
+		MOVEMENT_COMPONENT,
+		TRANSFORMATION_COMPONENT,
+		ANIMATION_COMPONENT
+	};
+
 	class Component
 	{
-		friend class Entity;
 	public:
 		virtual ~Component() = default;
 
 		virtual void OnUpdate(float DeltaTime) = 0;
+
+		
 		virtual void Destroy() = 0;
 	};
 	

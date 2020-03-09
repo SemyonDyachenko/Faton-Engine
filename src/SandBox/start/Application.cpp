@@ -5,7 +5,11 @@
 
 #include "../../../include/SandBox/start/Application.h"
 #include "../../../include/Engine/Physics/Collision.h"
+#include "../../../include/Engine/Entity/Components/MovementComponent.h"
 
+namespace Engine {
+	
+}
 
 void Application::InitGraphics()
 {
@@ -26,20 +30,15 @@ Application::Application() {
 
 	sprite = new Sprite(1,1,texture);
 
-	
-	sprite2 = new Sprite(5,5,texture);
 
 	
+	
+	sprite2 = new Sprite(5,5,texture);
 
 
 	std::cout << "Width: " << sprite->GetBounds().w << " " << "Height: " << sprite->GetBounds().h << "\n";
 	std::cout << "X: " << sprite->GetBounds().x << " " << "Y: " << sprite->GetBounds().y << "\n";
 	
-	if(Collision::Intersects(FloatRect(sprite->GetBounds()),FloatRect(sprite2->GetBounds())))
-	{
-	
-		FATON_PRINT("IS COLLIISION");
-	}
 
 }
 

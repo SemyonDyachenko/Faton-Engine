@@ -40,6 +40,33 @@ namespace Engine
 		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
 	}
 
+
+	
+	void Sprite::MoveLeft(float time, float speed)
+	{
+		bounds.x += time * speed;
+		SetPosition({ bounds.x,bounds.y });
+	}
+
+	void Sprite::MoveRight(float time, float speed)
+	{
+		bounds.x += time * (-speed);
+		SetPosition({ bounds.x,bounds.y });
+	}
+
+	void Sprite::MoveUp(float time, float speed)
+	{
+		bounds.y += time * speed;
+		SetPosition({ bounds.x,bounds.y });
+	}
+
+	void Sprite::MoveDown(float time, float speed)
+	{
+		bounds.y += time * (-speed);
+		SetPosition({ bounds.x,bounds.y });
+	}
+
+
 	void Sprite::TransformRecalculate()
 	{
 		m_Rect->SetPosition(bounds.x, bounds.y);

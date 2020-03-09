@@ -4,6 +4,8 @@
 
 #include <map>
 
+#include "Components/Component.h"
+#include "../renderer/Sprite.h"
 
 namespace Engine
 {
@@ -13,13 +15,19 @@ namespace Engine
 		class Entity
 		{
 		protected:
-			//std::map<component::ComponentType, component::Component*> m_Componenent;
-			
+			std::map<ComponentType,Component*> m_Components;
+
+			Sprite * m_Sprite;
 		public:
 			Entity();
 
-			//void AddComponent();
-		
+			virtual ~Entity();
+
+			void AddSprite(Sprite* sprite);
+			
+			void AddComponent(ComponentType type,Component * component);
+
+			
 		};
 
 	}

@@ -29,6 +29,11 @@ namespace Engine
 		
 		Sprite(float x,float y,std::shared_ptr<Texture2D> texture);
 
+		void MoveLeft(float time,float speed);
+		void MoveRight(float time, float speed);
+		void MoveUp(float time,float speed);
+		void MoveDown(float time,float speed);
+
 		void TransformRecalculate();
 
 		void OnRender(Camera2D& camera) const override;
