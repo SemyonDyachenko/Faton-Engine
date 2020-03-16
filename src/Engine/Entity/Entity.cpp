@@ -11,6 +11,7 @@ namespace Engine
 		{
 
 			m_Sprite = nullptr;
+			m_MovComponent = nullptr;
 			
 			if(m_Sprite != nullptr)
 			{
@@ -32,7 +33,19 @@ namespace Engine
 			m_Components[type] = component;
 		}
 
+		void Entity::AddMovementComponent(MovementComponent* component)
+		{
+			m_MovComponent = component;
+		}
 
+		void Entity::Update(float DeltaTime)
+		{
+			if(m_Sprite != nullptr && this->m_MovComponent)
+			{
+				
+			}
+		}
+		
 	}
 
 }

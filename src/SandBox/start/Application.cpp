@@ -36,6 +36,8 @@ Application::Application() {
 	sprite2 = new Sprite(5,5,texture);
 
 
+	
+	
 	std::cout << "Width: " << sprite->GetBounds().w << " " << "Height: " << sprite->GetBounds().h << "\n";
 	std::cout << "X: " << sprite->GetBounds().x << " " << "Y: " << sprite->GetBounds().y << "\n";
 	
@@ -80,6 +82,27 @@ void Application::Run() {
 		OnUpdate();
         OnRender();
 
+		if (Collision::Intersects(sprite->GetBounds(), sprite2->GetBounds()))
+		{
+			std::cout << "Hello world is Collision" << std::endl;
+		}
+
+    	if(Input::IsKeyPressed(FATON_KEY_T))
+    	{
+			sprite->MoveUp(1, 0.05f);
+    	}
+		else if(Input::IsKeyPressed(FATON_KEY_G))
+		{
+			sprite->MoveDown(1, 0.05f);
+		}
+		else if(Input::IsKeyPressed(FATON_KEY_F))
+		{
+			sprite->MoveRight(1, 0.05f);
+		}
+		else if(Input::IsKeyPressed(FATON_KEY_H))
+    	{
+    		sprite->MoveLeft(1,0.05f);
+    	}
     	
         window->Show();
 

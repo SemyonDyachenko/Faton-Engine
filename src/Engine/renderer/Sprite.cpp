@@ -46,24 +46,28 @@ namespace Engine
 	{
 		bounds.x += time * speed;
 		SetPosition({ bounds.x,bounds.y });
+		TransformRecalculate();
 	}
 
 	void Sprite::MoveRight(float time, float speed)
 	{
 		bounds.x += time * (-speed);
 		SetPosition({ bounds.x,bounds.y });
+		TransformRecalculate();
 	}
 
 	void Sprite::MoveUp(float time, float speed)
 	{
 		bounds.y += time * speed;
 		SetPosition({ bounds.x,bounds.y });
+		TransformRecalculate();
 	}
 
 	void Sprite::MoveDown(float time, float speed)
 	{
 		bounds.y += time * (-speed);
 		SetPosition({ bounds.x,bounds.y });
+		TransformRecalculate();
 	}
 
 
