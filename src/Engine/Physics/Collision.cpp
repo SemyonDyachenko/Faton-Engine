@@ -10,7 +10,7 @@ namespace Engine
 	{
 		bool Collision::Intersects(const Math::FloatRect& rectA, const Math::FloatRect& rectB)
 		{
-			if((rectA.x + rectA.w) >= rectB.x && (rectA.y + rectA.h) >= rectB.y)
+			if((rectA.x + rectA.w) >= rectB.x && ((rectB.x+rectB.w) > rectA.x) && (rectA.y + rectA.h) >= rectB.y && (rectA.y < (rectB.y+rectB.h)))
 			{
 				return true;
 			}

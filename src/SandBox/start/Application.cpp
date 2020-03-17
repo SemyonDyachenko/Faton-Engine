@@ -33,7 +33,7 @@ Application::Application() {
 
 	
 	
-	sprite2 = new Sprite(5,5,texture);
+	sprite2 = new Sprite(5,5,texture);	
 
 
 	
