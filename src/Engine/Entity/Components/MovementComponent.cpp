@@ -28,6 +28,18 @@ namespace Engine
 		return m_Velocity;
 	}
 
+
+	void MovementComponent::StopVelocityX()
+	{
+		this->m_Velocity.x = 0.0f;
+	}
+
+	void MovementComponent::StopVelocityY()
+	{
+		this->m_Velocity.y = 0.0f;
+	}
+
+
 	const bool MovementComponent::GetState(const unsigned short state)
 	{
 		return false;

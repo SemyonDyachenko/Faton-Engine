@@ -33,7 +33,7 @@ namespace Engine
 		void MoveRight(float time, float speed);
 		void MoveUp(float time,float speed);
 		void MoveDown(float time,float speed);
-
+		
 		void TransformRecalculate();
 
 		void OnRender(Camera2D& camera) const override;

@@ -44,14 +44,14 @@ namespace Engine
 	
 	void Sprite::MoveLeft(float time, float speed)
 	{
-		bounds.x += time * speed;
+		bounds.x += time * (-speed);
 		SetPosition({ bounds.x,bounds.y });
 		TransformRecalculate();
 	}
 
 	void Sprite::MoveRight(float time, float speed)
 	{
-		bounds.x += time * (-speed);
+		bounds.x += time * speed;
 		SetPosition({ bounds.x,bounds.y });
 		TransformRecalculate();
 	}
@@ -69,6 +69,7 @@ namespace Engine
 		SetPosition({ bounds.x,bounds.y });
 		TransformRecalculate();
 	}
+
 
 
 	void Sprite::TransformRecalculate()

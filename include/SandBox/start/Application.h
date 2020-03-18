@@ -7,6 +7,7 @@
 
 
 #include "../../../include/Engine/Engine.h"
+#include "../../../include/Engine/Entity/Entity.h"
 
 using namespace Engine;
 using namespace Math;
@@ -30,7 +31,12 @@ private:
 	Sprite * sprite2;
 
     bool is_Running = true;
+	Entity::Entity * entity;
+	
+	MovementComponent * component;
 
+	
+	
 	void InitGraphics();
 public:
     Application();

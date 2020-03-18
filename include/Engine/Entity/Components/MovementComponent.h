@@ -27,7 +27,9 @@ namespace Engine
 		const float& GetMaxVelocity() const;
 		const Math::Vec2f& GetVelocity() const;
 
-		void Move(float DeltaTime);
+		
+		void StopVelocityX();
+		void StopVelocityY();
 		
 		const bool GetState(const short unsigned state);
 		

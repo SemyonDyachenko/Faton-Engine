@@ -24,11 +24,26 @@ Application::Application() {
 
 	event = nullptr;
 
-	camera = new Camera2D(window->GetWidth() / window->GetHeight());
+	component = new MovementComponent(*sprite,0.5,0.25);
+	
+	
 	
 	std::shared_ptr<Texture2D> texture = Texture2D::Create("assets/images/pusheen.png");
+	sprite = new Sprite(1, 1, texture);
 
-	sprite = new Sprite(1,1,texture);
+	entity = new Entity::Entity();
+	
+	entity->AddSprite(sprite);
+
+	entity->AddMovementComponent(component);
+
+	
+	
+	camera = new Camera2D(window->GetWidth() / window->GetHeight());
+	
+	
+
+	
 
 
 	
@@ -60,7 +75,7 @@ void Application::OnRender() {
 
 	
 	
-	sprite->OnRender(*camera);
+	//sprite->OnRender(*camera);
 
 
 	
@@ -72,10 +87,10 @@ void Application::Run() {
     while (window->isOpen()) {
 
 		sf::Clock clock;
-		float time =float(clock.getElapsedTime().asMicroseconds());
+		float time = clock.getElapsedTime().asMicroseconds();
 		clock.restart();
 		time = time / 800;
-    	
+
 		camera->Update(time);
         window->PollEvent(*event);
 		window->Clear({ 34, 38, 35,1 });
@@ -84,24 +99,31 @@ void Application::Run() {
 
 		if (Collision::Intersects(sprite->GetBounds(), sprite2->GetBounds()))
 		{
-			std::cout << "Hello world is Collision" << std::endl;
+			entity->GetSprite()->SetPosition({ sprite->GetPosition().x - 1, sprite->GetPosition().y });
 		}
 
-    	if(Input::IsKeyPressed(FATON_KEY_T))
+		entity->Update(time);
+
+		entity->OnRender(*camera);
+
+
+    	
+
+		if(Input::IsKeyPressed(FATON_KEY_T))
     	{
-			sprite->MoveUp(1, 0.05f);
+			entity->Move(Entity::MovementDirections::UP, 0.1, 1);
     	}
 		else if(Input::IsKeyPressed(FATON_KEY_G))
 		{
-			sprite->MoveDown(1, 0.05f);
+			entity->Move(Entity::MovementDirections::DOWN, 0.1, 1);
 		}
 		else if(Input::IsKeyPressed(FATON_KEY_F))
 		{
-			sprite->MoveRight(1, 0.05f);
+			entity->Move(Entity::MovementDirections::LEFT, 0.1, 1);
 		}
 		else if(Input::IsKeyPressed(FATON_KEY_H))
     	{
-    		sprite->MoveLeft(1,0.05f);
+			entity->Move(Entity::MovementDirections::RIGHT, 0.1, 1);
     	}
     	
         window->Show();
