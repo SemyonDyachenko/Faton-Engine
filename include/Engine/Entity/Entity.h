@@ -55,12 +55,14 @@ namespace Engine
 			
 			void Update(float DeltaTime);
 
+			MovementComponent& GetMovementComponent() const;
+
 			Sprite * GetSprite();
 
 			
 			void OnGravity(bool gravity);
 			
-			void Move(MovementDirections dir,float velocity,float DeltaTime);
+			void Move(float x,float y,float DeltaTime);
 			
 			void OnRender(Camera2D & camera);
 		};

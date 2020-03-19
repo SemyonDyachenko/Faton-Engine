@@ -99,7 +99,23 @@ void Application::Run() {
 
 		if (Collision::Intersects(sprite->GetBounds(), sprite2->GetBounds()))
 		{
-			entity->GetSprite()->SetPosition({ sprite->GetPosition().x - 1, sprite->GetPosition().y });
+			float push = std::min(std::max(1.0f, 0.0f), 1.0f);
+			if (entity->GetMovementComponent().GetVelocity().x > 0)
+			{
+				sprite->Move(-0.1*push, 0);
+			}
+			else if(entity->GetMovementComponent().GetVelocity().x < 0)
+			{
+				sprite->Move(0.1*push, 0);
+			}
+			else if(entity->GetMovementComponent().GetVelocity().y > 0)
+			{
+				sprite->Move(0.0f, -0.1f*push);
+			}
+			else if(entity->GetMovementComponent().GetVelocity().y < 0)
+			{
+				sprite->Move(0.0f, 0.1f*push);
+			}
 		}
 
 		entity->Update(time);
@@ -111,19 +127,19 @@ void Application::Run() {
 
 		if(Input::IsKeyPressed(FATON_KEY_T))
     	{
-			entity->Move(Entity::MovementDirections::UP, 0.1, 1);
+			entity->Move(0.0f, 0.1f, 1);
     	}
 		else if(Input::IsKeyPressed(FATON_KEY_G))
 		{
-			entity->Move(Entity::MovementDirections::DOWN, 0.1, 1);
+			entity->Move(0.0f, -0.1f, 1);
 		}
 		else if(Input::IsKeyPressed(FATON_KEY_F))
 		{
-			entity->Move(Entity::MovementDirections::LEFT, 0.1, 1);
+			entity->Move(-0.1f, 0.0f, 1);
 		}
 		else if(Input::IsKeyPressed(FATON_KEY_H))
     	{
-			entity->Move(Entity::MovementDirections::RIGHT, 0.1, 1);
+			entity->Move(0.1f, 0.0f, 1);
     	}
     	
         window->Show();

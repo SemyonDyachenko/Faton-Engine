@@ -28,6 +28,14 @@ namespace Engine
 		return m_Velocity;
 	}
 
+	void MovementComponent::Move(const float x, const float y, float DeltaTime)
+	{
+		
+			this->m_Velocity.x =  x;
+			this->m_Velocity.y =  y;
+		
+	}
+
 
 	void MovementComponent::StopVelocityX()
 	{

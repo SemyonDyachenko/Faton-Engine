@@ -70,6 +70,12 @@ namespace Engine
 		TransformRecalculate();
 	}
 
+	void Sprite::Move(float velocity_x, float velocity_y)
+	{
+		bounds.x += velocity_x;
+		bounds.y += velocity_y;
+		TransformRecalculate();
+	}
 
 
 	void Sprite::TransformRecalculate()

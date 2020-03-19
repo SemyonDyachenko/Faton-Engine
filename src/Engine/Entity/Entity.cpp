@@ -56,6 +56,11 @@ namespace Engine
 			}
 		}
 
+		MovementComponent& Entity::GetMovementComponent() const
+		{
+			return *m_MovComponent;
+		}
+
 		Sprite* Entity::GetSprite()
 		{
 			if (m_Sprite != nullptr)
@@ -72,26 +77,12 @@ namespace Engine
 		{
 		}
 
-		void Entity::Move(MovementDirections dir, float velocity, float DeltaTime)
+		void Entity::Move(float x, float y, float DeltaTime)
 		{
 			if (m_Sprite != nullptr && this->m_MovComponent)
 			{
-				if(dir == MovementDirections::UP)
-				{
-					m_Sprite->MoveUp(DeltaTime, velocity);
-				}
-				else if(dir == MovementDirections::DOWN)
-				{
-					m_Sprite->MoveDown(DeltaTime, velocity);
-				}
-				else if(dir == MovementDirections::LEFT)
-				{
-					m_Sprite->MoveLeft(DeltaTime, velocity);
-				}
-				else if(dir == MovementDirections::RIGHT)
-				{
-					m_Sprite->MoveRight(DeltaTime, velocity);
-				}
+				this->m_MovComponent->Move(x, y, DeltaTime);
+				this->m_Sprite->Move(m_MovComponent->GetVelocity().x, m_MovComponent->GetVelocity().y);
 			}
 		}
 

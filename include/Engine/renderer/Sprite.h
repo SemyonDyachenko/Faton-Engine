@@ -33,6 +33,8 @@ namespace Engine
 		void MoveRight(float time, float speed);
 		void MoveUp(float time,float speed);
 		void MoveDown(float time,float speed);
+
+		void Move(float velocity_x, float velocity_y);
 		
 		void TransformRecalculate();
 
