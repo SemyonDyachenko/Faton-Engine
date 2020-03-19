@@ -37,7 +37,9 @@ Application::Application() {
 
 	entity->AddMovementComponent(component);
 
+	entity->AddBoxColliderComponent();
 	
+	entity->OnGravity(false);
 	
 	camera = new Camera2D(window->GetWidth() / window->GetHeight());
 	
@@ -97,7 +99,9 @@ void Application::Run() {
 		OnUpdate();
         OnRender();
 
-		if (Collision::Intersects(sprite->GetBounds(), sprite2->GetBounds()))
+		BoxCollider2D collider(sprite2->GetBounds());
+
+    	if (Collision::Intersects(entity->GetCollider2D(), collider))
 		{
 			float push = std::min(std::max(1.0f, 0.0f), 1.0f);
 			if (entity->GetMovementComponent().GetVelocity().x > 0)
@@ -118,7 +122,7 @@ void Application::Run() {
 			}
 		}
 
-		entity->Update(time);
+		//entity->Update(time);
 
 		entity->OnRender(*camera);
 

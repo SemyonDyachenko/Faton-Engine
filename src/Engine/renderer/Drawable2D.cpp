@@ -27,7 +27,7 @@ namespace Engine
 		return Math::Vec2f(bounds.w, bounds.h);
 	}
 
-	const Math::FloatRect& Drawable2D::GetBounds()
+	Math::FloatRect& Drawable2D::GetBounds()
 	{
 		return bounds;
 	}

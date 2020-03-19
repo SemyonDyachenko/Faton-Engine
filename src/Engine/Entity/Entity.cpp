@@ -1,6 +1,8 @@
 #include "..\..\..\include\Engine\Entity\Entity.h"
 
 
+
+
 namespace Engine
 {
 
@@ -12,6 +14,8 @@ namespace Engine
 
 			m_Sprite = nullptr;
 			m_MovComponent = nullptr;
+
+			
 			
 			if(m_Sprite != nullptr)
 			{
@@ -38,9 +42,19 @@ namespace Engine
 			m_MovComponent = component;
 		}
 
-		void Entity::AddBoxColliderComponent(Physics::BoxCollider2D& body)
+		void Entity::AddBoxColliderComponent()
 		{
-			m_BoxCollider =&body;
+			if(m_Sprite != nullptr)
+				m_BoxCollider = new Physics::BoxCollider2D(m_Sprite->GetBounds());
+		}
+
+		Physics::BoxCollider2D& Entity::GetCollider2D() const
+		{
+			if (m_BoxCollider != nullptr)
+			{
+				return *m_BoxCollider;
+			}
+			
 		}
 
 		void Entity::Update(float DeltaTime)
@@ -50,10 +64,7 @@ namespace Engine
 				
 			}
 
-			if(m_Sprite != nullptr && this->onGravity)
-			{
-				m_Sprite->MoveDown(DeltaTime,0.98);
-			}
+			
 		}
 
 		MovementComponent& Entity::GetMovementComponent() const
@@ -75,6 +86,7 @@ namespace Engine
 
 		void Entity::OnGravity(bool gravity)
 		{
+			onGravity = gravity;
 		}
 
 		void Entity::Move(float x, float y, float DeltaTime)

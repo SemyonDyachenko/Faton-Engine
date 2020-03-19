@@ -8,9 +8,9 @@ namespace Engine
 {
 	namespace Physics
 	{
-		bool Collision::Intersects(const Math::FloatRect& rectA, const Math::FloatRect& rectB)
+		bool Collision::Intersects(BoxCollider2D& colliderA, BoxCollider2D & colliderB)
 		{
-			if((rectA.x + rectA.w) >= rectB.x && ((rectB.x+rectB.w) > rectA.x) && (rectA.y + rectA.h) >= rectB.y && (rectA.y < (rectB.y+rectB.h)))
+			if((colliderA.GetBounds().x + colliderA.GetBounds().w) >= colliderB.GetBounds().x && ((colliderB.GetBounds().x+ colliderB.GetBounds().w) > colliderA.GetBounds().x) && (colliderA.GetBounds().y + colliderA.GetBounds().h) >= colliderB.GetBounds().y && (colliderA.GetBounds().y < (colliderB.GetBounds().y+ colliderB.GetBounds().h)))
 			{
 				return true;
 			}

@@ -56,7 +56,10 @@ namespace Engine
 
 	void MovementComponent::Destroy()
 	{
-
+		m_Acceleration = 0.0f;
+		m_Velocity = { 0.0f,0.0f };
+		m_Decceleration = 0.0f;
+		m_MaxVelocity = 0.0f;
 	}
 
 

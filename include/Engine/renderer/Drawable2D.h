@@ -31,7 +31,7 @@ namespace Engine
 
 		const Math::Vec2f& GetSize() const;
 
-		const Math::FloatRect & GetBounds();
+		Math::FloatRect & GetBounds();
 
 		std::shared_ptr<Texture2D> GetTexture();
 

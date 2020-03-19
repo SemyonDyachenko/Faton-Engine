@@ -7,12 +7,8 @@
 #include "Components/Component.h"
 #include "Components/MovementComponent.h"
 #include "../renderer/Sprite.h"
+#include "../../../include/Engine/Physics/BoxCollider2D.h"
 
-namespace Engine {
-	namespace Physics {
-		class BoxCollider2D;
-	}
-}
 
 namespace Engine
 {
@@ -49,9 +45,12 @@ namespace Engine
 			
 			void AddComponent(ComponentType type,Component * component);
 
+			
 			void AddMovementComponent(MovementComponent * component);
 
-			void AddBoxColliderComponent(Physics::BoxCollider2D & body);
+			void AddBoxColliderComponent();
+
+			Physics::BoxCollider2D& GetCollider2D() const;
 			
 			void Update(float DeltaTime);
 
