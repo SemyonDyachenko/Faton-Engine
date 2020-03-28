@@ -6,6 +6,8 @@
 
 class Editor
 {
+private:
+	std::string mapPath;
 public:
 	Editor();
 	

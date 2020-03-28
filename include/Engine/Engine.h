@@ -29,8 +29,6 @@
 
 
 //---------Renderer---------
-#include "Physics/Collider2D.h"
-#include "Physics/BoxCollider2D.h"
 #include "renderer/Renderer2D.h"
 #include "renderer/RendererAPI.h"
 #include "renderer/Sprite.h"
@@ -39,6 +37,11 @@
 #include "renderer/VertexArray.h"
 #include "renderer/RectangleShape.h"
 #include "renderer/Drawable.h"
+
+//-------Physics Engine --------
+#include "Physics/Collider2D.h"
+#include "Physics/BoxCollider2D.h"
+#include "Physics/Collision.h"
 
 
 //----PLATFORM----------------

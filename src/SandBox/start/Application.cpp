@@ -43,21 +43,11 @@ Application::Application() {
 	
 	camera = new Camera2D(window->GetWidth() / window->GetHeight());
 	
-	
 
-	
-
-
-	
 	
 	sprite2 = new Sprite(5,5,texture);	
 
 
-	
-	
-	std::cout << "Width: " << sprite->GetBounds().w << " " << "Height: " << sprite->GetBounds().h << "\n";
-	std::cout << "X: " << sprite->GetBounds().x << " " << "Y: " << sprite->GetBounds().y << "\n";
-	
 
 }
 
@@ -106,11 +96,11 @@ void Application::Run() {
 			float push = std::min(std::max(1.0f, 0.0f), 1.0f);
 			if (entity->GetMovementComponent().GetVelocity().x > 0)
 			{
-				sprite->Move(-0.1*push, 0);
+				sprite->Move(-0.1f*push, 0.0f);
 			}
 			else if(entity->GetMovementComponent().GetVelocity().x < 0)
 			{
-				sprite->Move(0.1*push, 0);
+				sprite->Move(0.1f*push, 0.0f);
 			}
 			else if(entity->GetMovementComponent().GetVelocity().y > 0)
 			{
