@@ -1,6 +1,6 @@
 short_name = "faton"
 name = "Faton Game Engine"
 status = "in development"
-year = "2019"
+year = "2020"
 website = "http://www.semyondyachenko.info"
-development_platform = "linux 64 (Ubuntu 16.04)"
+development_platform = "win 64 (Microsoft Windows 10 pro)"
