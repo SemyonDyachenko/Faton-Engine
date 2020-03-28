@@ -7,7 +7,14 @@ namespace Engine
 	{
 		RigidBody::RigidBody(RigidBodyType type)
 		{
+			
 			this->type = type;
+
+			if(this->type == RigidBodyType::rd_kinematicBody)
+			{
+				this->mass = 0.0f;
+			}
+			
 			this->Enabled = false;
 			this->sleep = false;
 		}
@@ -40,6 +47,9 @@ namespace Engine
 		{
 			this->force.x = x;
 			this->force.y = y;
+
+			position.x += force.x;
+			position.y += force.y;
 		}
 
 		void RigidBody::AddRelativeForce(Math::Vec2f force, ForceMode)

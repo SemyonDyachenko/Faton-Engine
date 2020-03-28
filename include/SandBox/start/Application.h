@@ -9,6 +9,8 @@
 #include "../../../include/Engine/Engine.h"
 #include "../../../include/Engine/Entity/Entity.h"
 
+#include <glfw3.h>
+
 using namespace Engine;
 using namespace Math;
 using namespace Physics;

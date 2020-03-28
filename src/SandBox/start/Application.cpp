@@ -7,6 +7,7 @@
 #include "../../../include/Engine/Physics/Collision.h"
 #include "../../../include/Engine/Entity/Components/MovementComponent.h"
 
+
 namespace Engine {
 	
 }
@@ -79,7 +80,7 @@ void Application::Run() {
     while (window->isOpen()) {
 
 		sf::Clock clock;
-		float time = clock.getElapsedTime().asMicroseconds();
+		float time = glfw
 		clock.restart();
 		time = time / 800;
 
