@@ -45,7 +45,7 @@ namespace Engine
 			{
 				while(true)
 				{
-					for(int )
+					
 				}
 			}
 			void Pause()

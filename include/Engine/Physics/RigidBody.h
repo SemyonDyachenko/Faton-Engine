@@ -1,6 +1,8 @@
 #ifndef ENGINE_RIGIDBODY_H
 #define ENGINE_RIGIDBODY_H
 #include "../Math/Math.h"
+#include "../Core/Core.h"
+
 
 
 namespace  Engine
@@ -30,6 +32,8 @@ namespace  Engine
 			RigidBody(RigidBodyType type);
 			virtual ~RigidBody();
 
+			void OnUpdate(float DeltaTime);
+
 			void Enable();
 			void Disable();
 			bool IsEnabled();
@@ -45,10 +49,13 @@ namespace  Engine
 			void PointVelocity();
 			bool IsSleeping();
 			void MovePosition(Math::Vec2f position);
-			void MoveRotation();
+			void MoveRotation(float rotationAngle);
 			void Sleep();
 			void WakeUp();
 
+			void SetPosition(Math::Vec2f position);
+			void SetPosition(float x, float y);
+			void SetRotation(float angle);
 
 			void SetType(RigidBodyType type);
 
@@ -60,10 +67,12 @@ namespace  Engine
 			void AddAngularImpulse(float impulse, bool wake);
 			void AddLinearImpulse(const Math::Vec2f impulse, const Math::Vec2f point, bool wake);
 
-			
+			void SetSleepTime(float time);
 			
 			void Destroy();
 		private:
+			
+			
 			RigidBodyType type;
 
 			Math::Vec2f position;

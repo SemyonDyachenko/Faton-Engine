@@ -8,7 +8,9 @@
 
 #include "../../include/Engine/renderer/RendererAPI.h"
 
+
 #include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 class OpenGLRendererAPI : public Engine::RendererAPI {
 

@@ -10,11 +10,13 @@ void OpenGLRendererAPI::Init() {
 
     glEnable(GL_DEPTH_TEST);
 
-
+	
 
 	glewExperimental = GL_TRUE;
 	if (glewInit() != GLEW_OK)
 		printf("Error\n");
+
+	glfwInit();
 
 }
 

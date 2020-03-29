@@ -33,7 +33,7 @@
 
 #define FATON_ERROR_01 std::cout << "ERROR_01: None API , or Engine does not see his, or API is currently not ssupported!" << std::endl  // Engine not use , or does not see API
 #define FATON_ERROR_02(filename) std::cout << "ERROR_02: Error load data from file " << filename << std::endl
-
+#define FATON_ERROR_03 std::cout << "RIGIDBODY ERROR: This rigid body is not a dynamic type.\n It is impossible to attach the value of mass\n" // error 1 for rigid body
 
 //typedef
 

@@ -80,7 +80,11 @@ void Application::Run() {
     while (window->isOpen()) {
 
 		sf::Clock clock;
-		float time = glfw
+		float time = (float)glfwGetTime();
+		Time deltaTime = float(time - lastFrameTime) / 1000;
+		lastFrameTime = time;
+
+    	
 		clock.restart();
 		time = time / 800;
 
@@ -117,24 +121,24 @@ void Application::Run() {
 
 		entity->OnRender(*camera);
 
-
+		std::cout << "Delta Time: " << deltaTime.AsMicroseconds() << std::endl;
     	
 
 		if(Input::IsKeyPressed(FATON_KEY_T))
     	{
-			entity->Move(0.0f, 0.1f, 1);
+			entity->Move(0.0f, 0.1f, deltaTime.AsMicroseconds());
     	}
 		else if(Input::IsKeyPressed(FATON_KEY_G))
 		{
-			entity->Move(0.0f, -0.1f, 1);
+			entity->Move(0.0f, -0.1f, deltaTime.AsMicroseconds());
 		}
 		else if(Input::IsKeyPressed(FATON_KEY_F))
 		{
-			entity->Move(-0.1f, 0.0f, 1);
+			entity->Move(-0.1f, 0.0f, deltaTime.AsMicroseconds());
 		}
 		else if(Input::IsKeyPressed(FATON_KEY_H))
     	{
-			entity->Move(0.1f, 0.0f, 1);
+			entity->Move(0.1f, 0.0f, deltaTime.AsMicroseconds());
     	}
     	
         window->Show();
