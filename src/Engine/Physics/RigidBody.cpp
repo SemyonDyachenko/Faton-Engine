@@ -19,7 +19,7 @@ namespace Engine
 			this->sleep = false;
 
 			this->SleepTime = 0.0f;
-			this->FixedRotation = 0.0f;
+			this->FixedRotation = false;
 			this->Angle = 0.0f;
 			this->Rotation = 0.0f;
 		}
@@ -128,6 +128,16 @@ namespace Engine
 		RigidBodyType RigidBody::GetType() const
 		{
 			return this->type;
+		}
+
+		Math::Vec2f& RigidBody::GetPosition() 
+		{
+			return position;
+		}
+
+		float RigidBody::GetRotation() const
+		{
+			return Rotation;
 		}
 
 		float RigidBody::GetMass() const

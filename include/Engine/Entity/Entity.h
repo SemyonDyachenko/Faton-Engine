@@ -8,6 +8,7 @@
 #include "Components/MovementComponent.h"
 #include "../renderer/Sprite.h"
 #include "../../../include/Engine/Physics/BoxCollider2D.h"
+#include "../Physics/RigidBody.h"
 
 
 namespace Engine
@@ -33,6 +34,8 @@ namespace Engine
 
 			Physics::BoxCollider2D * m_BoxCollider;
 
+			Physics::RigidBody * m_rigidBody;
+			
 			MovementComponent * m_MovComponent;
 
 			bool onGravity = false;
@@ -45,18 +48,20 @@ namespace Engine
 			
 			void AddComponent(ComponentType type,Component * component);
 
-			
+			void AddRigidBodyComponent(Physics::RigidBody * body);
 			void AddMovementComponent(MovementComponent * component);
 
 			void AddBoxColliderComponent();
 
 			Physics::BoxCollider2D& GetCollider2D() const;
+
+			Physics::RigidBody& GetRigidBody() const;
 			
 			void Update(float DeltaTime);
 
 			MovementComponent& GetMovementComponent() const;
 
-			Sprite * GetSprite();
+			Sprite * GetSprite() const;
 
 			
 			void OnGravity(bool gravity);

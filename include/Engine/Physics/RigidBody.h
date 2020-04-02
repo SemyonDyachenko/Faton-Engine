@@ -61,6 +61,9 @@ namespace  Engine
 
 			RigidBodyType GetType() const;
 
+			Math::Vec2f& GetPosition();
+			float GetRotation() const;
+
 			float GetMass() const;
 			void SetMass(float mass);
 

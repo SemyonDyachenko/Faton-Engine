@@ -17,36 +17,32 @@ using namespace Physics;
 
 class Application {
 private:
+	unsigned int Win_Width, Win_Height;
+	unsigned int FrameRateLimit;
+	bool FullScreen;
+	bool Vsync;
+	std::string WinTittle;
     std::unique_ptr<Window> window;
+	Event *event;
 
-
-	std::shared_ptr<Shader> m_Shader;
-
-	Vec4f m_Color =  { 0.2f, 0.3f, 0.8f, 1.0f };
-
-	Camera2D * camera;
+    bool IsRunning = true;
+	Time *deltaTime;
+	float LastFrameTime;
 	
-    Event* event;
-
-	Sprite *sprite;
-	Sprite * sprite2;
-
-    bool is_Running = true;
-	Entity::Entity * entity;
-	
-	MovementComponent * component;
-
-	float lastFrameTime;
-	
-	void InitGraphics();
+	void InitAPI();
+	void InitWindow();
+	void InitStates();
 public:
     Application();
     virtual ~Application();
 
 
+	void UpdateDeltaTime();
 	
     void OnUpdate();
+	
     void OnRender();
+
     void Run();
 };
 

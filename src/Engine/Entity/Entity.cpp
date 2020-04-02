@@ -14,12 +14,12 @@ namespace Engine
 
 			m_Sprite = nullptr;
 			m_MovComponent = nullptr;
-
-			
+			m_rigidBody = nullptr;
+			m_BoxCollider = nullptr;
 			
 			if(m_Sprite != nullptr)
 			{
-			
+				
 			}
 		}
 
@@ -37,6 +37,11 @@ namespace Engine
 			m_Components[type] = component;
 		}
 
+		void Entity::AddRigidBodyComponent(Physics::RigidBody* body)
+		{
+			m_rigidBody = body;
+		}
+
 		void Entity::AddMovementComponent(MovementComponent* component)
 		{
 			m_MovComponent = component;
@@ -50,11 +55,12 @@ namespace Engine
 
 		Physics::BoxCollider2D& Entity::GetCollider2D() const
 		{
-			if (m_BoxCollider != nullptr)
-			{
-				return *m_BoxCollider;
-			}
-			
+			return *m_BoxCollider;
+		}
+
+		Physics::RigidBody& Entity::GetRigidBody() const
+		{
+			return *m_rigidBody;
 		}
 
 		void Entity::Update(float DeltaTime)
@@ -64,7 +70,17 @@ namespace Engine
 				
 			}
 
+			if(m_MovComponent)
+			{
+				m_MovComponent->OnUpdate(DeltaTime);
+			}
 			
+
+			if(m_rigidBody)
+			{
+				m_Sprite->SetPosition(m_rigidBody->GetPosition());
+			}
+
 		}
 
 		MovementComponent& Entity::GetMovementComponent() const
@@ -72,16 +88,14 @@ namespace Engine
 			return *m_MovComponent;
 		}
 
-		Sprite* Entity::GetSprite()
+		Sprite* Entity::GetSprite() const
 		{
 			if (m_Sprite != nullptr)
 			{
 				return m_Sprite;
 			}
-			else
-			{
-				return nullptr;
-			}
+
+			return nullptr;
 		}
 
 		void Entity::OnGravity(bool gravity)
