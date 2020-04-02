@@ -34,11 +34,10 @@ void Application::InitWindow()
 
 void Application::InitStates()
 {
+	//this->states.push(new MainMenuState());
 }
 
 Application::Application() {
-	
-    this->window = Window::Create(1280,720,"Faton Engine");
 	this->InitAPI();
 	this->InitWindow();
 	this->InitStates();
@@ -48,6 +47,12 @@ Application::Application() {
 
 Application::~Application() {
     this->window->Close();
+
+	while(!states.empty())
+	{
+		delete this->states.top();
+		this->states.pop();
+	}
 }
 
 void Application::UpdateDeltaTime()

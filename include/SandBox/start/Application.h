@@ -10,6 +10,8 @@
 #include "../../../include/Engine/Entity/Entity.h"
 #include <GLFW/glfw3.h>
 
+#include "../States/State.h"
+
 using namespace Engine;
 using namespace Math;
 using namespace Physics;
@@ -23,6 +25,8 @@ private:
 	bool Vsync;
 	std::string WinTittle;
     std::unique_ptr<Window> window;
+	std::stack<State*> states;
+	
 	Event *event;
 
     bool IsRunning = true;
