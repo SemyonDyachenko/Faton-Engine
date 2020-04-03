@@ -76,6 +76,14 @@ void Application::OnRender() {
 	
 	window->Clear({ 34, 38, 35,1 });
 
+
+	Camera2D * camera = new Camera2D(window->GetWidth() / window->GetHeight());
+
+	std::shared_ptr<Texture2D> t = Texture2D::Create("assets/pusheen.png");
+	Sprite *sprite = new Sprite(t);
+
+
+	
 	window->Show();
 }
 
