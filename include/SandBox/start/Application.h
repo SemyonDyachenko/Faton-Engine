@@ -36,6 +36,10 @@ private:
 	void InitAPI();
 	void InitWindow();
 	void InitStates();
+
+	std::shared_ptr<Texture2D> texture;
+	Camera2D * camera;
+	Sprite *sprite;
 public:
     Application();
     virtual ~Application();

@@ -37,7 +37,6 @@ SFMLWindow::SFMLWindow(float window_width, float window_height, const char *wind
     this->window->setVerticalSyncEnabled(this->vertical_sync);
     this->window->setFramerateLimit(this->frameRateLimit);
 
-
 }
 
 
@@ -76,13 +75,13 @@ bool SFMLWindow::isOpen() const {
 
 bool SFMLWindow::PollEvent(Engine::Event &event) {
     sf::Event sf_event;
-
     while(window->pollEvent(sf_event)) {
  	
         if (sf_event.type == sf::Event::Closed) {
             window->close();
         }
     }
+	
     return this->window->pollEvent(sf_event);
 
 }

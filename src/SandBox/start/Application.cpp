@@ -4,9 +4,12 @@
 
 
 #include "../../../include/SandBox/start/Application.h"
+
+
+
+
 #include "../../../include/Engine/Physics/Collision.h"
 #include "../../../include/Engine/Entity/Components/MovementComponent.h"
-
 
 
 
@@ -42,7 +45,17 @@ Application::Application() {
 	this->InitWindow();
 	this->InitStates();
 
+	Renderer2D::Init();
+	RenderCommand::Init();
+
 	this->deltaTime = new Time(0.0f);
+
+	camera = new Camera2D(window->GetWidth() / window->GetHeight());
+
+	texture = Texture2D::Create("assets/images/pusheen.png");
+
+
+	sprite = new Sprite(2, 2, texture);
 }
 
 Application::~Application() {
@@ -60,6 +73,7 @@ void Application::UpdateDeltaTime()
 	float time = (float)glfwGetTime();
 	deltaTime = new Time(float(time - LastFrameTime) / 1000);
 	LastFrameTime = time;
+
 }
 
 
@@ -77,12 +91,7 @@ void Application::OnRender() {
 	window->Clear({ 34, 38, 35,1 });
 
 
-	Camera2D * camera = new Camera2D(window->GetWidth() / window->GetHeight());
-
-	std::shared_ptr<Texture2D> t = Texture2D::Create("assets/pusheen.png");
-	Sprite *sprite = new Sprite(t);
-
-
+	sprite->OnRender(*camera);
 	
 	window->Show();
 }

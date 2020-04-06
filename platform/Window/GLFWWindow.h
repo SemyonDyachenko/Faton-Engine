@@ -14,12 +14,46 @@ class GLFWWindow : public Engine::Window {
 private:
 	GLFWWindow* window;
 
-	float Width, Height;
+	unsigned int Width, Height;
+	std::string Title;
+	bool Vsync;
 
 	unsigned int FrameRateLimit;
 
 	bool fullscreen;
 	bool resizable;
+public:
+	GLFWWindow(unsigned width, unsigned height, std::string& title);
+
+	virtual ~GLFWWindow();
+
+	Engine::Math::Vec2u GetSize() const;
+
+	bool IsVerticalSyncEnable() const override;
+
+	bool isOpen() const override;
+
+	void Clear(Engine::Math::Color3<float> color) override;
+
+	void SetFullscreen(bool is_fullscreen) override;
+
+	void SetResizable(bool resizable) override;
+
+	void SetTitle(const char* title) override;
+
+	void SetVerticalSync(bool enabled) override;
+
+	float GetHeight() const override;
+	float GetWidth() const override;
+
+	void ChangeFrameRateLimit(unsigned frameRateLimit) override;
+
+	bool PollEvent(Engine::Event& event) override;
+	
+	void Close() override;
+
+	void Draw(Engine::Sprite& sprite, Engine::Shader& shader) override;
+	void Draw(Engine::Sprite& sprite) override;
 
 };
 
