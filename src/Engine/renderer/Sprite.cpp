@@ -8,7 +8,7 @@
 
 namespace Engine
 {
-	Sprite::Sprite(std::shared_ptr<Texture2D> texture) :
+	Sprite::Sprite(std::shared_ptr<Texture2D> texture) : 
 	Drawable2D(Math::Vec2f(0.0,0.0),
 	Math::Vec2f(static_cast<float>(texture->GetSize().x),static_cast<float>(texture->GetSize().y)))
 	{
@@ -38,6 +38,12 @@ namespace Engine
 		m_Rect = new Rectangle(this->bounds.x, this->bounds.y, bounds.w, bounds.h);
 
 		m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
+	}
+
+	void Sprite::ChangeTexture(std::shared_ptr<Texture2D>& texture)
+	{
+		m_Texture = texture;
+		
 	}
 
 

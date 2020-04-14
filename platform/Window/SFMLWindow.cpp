@@ -12,7 +12,7 @@ void SFMLWindow::Init() {
 
 }
 
-SFMLWindow::SFMLWindow(float window_width, float window_height, const char *window_title) : width(window_width), height(window_height) {
+SFMLWindow::SFMLWindow(float window_width, float window_height, std::string& window_title) : width(window_width), height(window_height) {
     this->width = window_width;
     this->height = window_height;
     this->title = window_title;
@@ -124,10 +124,7 @@ void SFMLWindow::Draw(Engine::Sprite &sprite) {
 
 }
 
-std::unique_ptr<Engine::Window> Engine::Window::Create(const float width,const float height,const char*title) {
-    return  std::make_unique<SFMLWindow>(width,height,title);
+
+std::unique_ptr<Engine::Window> Engine::Window::Create(const float width, const float height, std::string&title) {
+	return  std::make_unique<SFMLWindow>(width, height, title);
 }
-
-
-
-

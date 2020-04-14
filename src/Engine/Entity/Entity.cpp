@@ -16,7 +16,8 @@ namespace Engine
 			m_MovComponent = nullptr;
 			m_rigidBody = nullptr;
 			m_BoxCollider = nullptr;
-			
+			m_AnimationComponent = nullptr;
+
 			if(m_Sprite != nullptr)
 			{
 				
@@ -27,7 +28,7 @@ namespace Engine
 		{
 		}
 
-		void Entity::AddSprite(Sprite* sprite)
+		void Entity::AddSpriteComponent(Sprite* sprite)
 		{
 			m_Sprite = sprite;
 		}
@@ -47,6 +48,11 @@ namespace Engine
 			m_MovComponent = component;
 		}
 
+		void Entity::AddAnimationCompoment(AnimationComponent* component)
+		{
+			m_AnimationComponent = component;
+		}
+
 		void Entity::AddBoxColliderComponent()
 		{
 			if(m_Sprite != nullptr)
@@ -63,7 +69,7 @@ namespace Engine
 			return *m_rigidBody;
 		}
 
-		void Entity::Update(float DeltaTime)
+		void Entity::OnUpdate(float DeltaTime)
 		{
 			if(m_Sprite != nullptr && this->m_MovComponent)
 			{

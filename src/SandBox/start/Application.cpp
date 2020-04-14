@@ -2,14 +2,8 @@
 // Created by semyon on 01.12.2019.
 //
 
-
 #include "../../../include/SandBox/start/Application.h"
 
-
-
-
-#include "../../../include/Engine/Physics/Collision.h"
-#include "../../../include/Engine/Entity/Components/MovementComponent.h"
 
 
 
@@ -21,14 +15,15 @@ void Application::InitAPI()
 
 void Application::InitWindow()
 {
-	this->Win_Width = 1280;
-	this->Win_Height = 720;
-	this->WinTittle = "Window";
+	this->Win_Width = 1440;
+	this->Win_Height = 900;
+	this->WinTittle = "Window title";
 	this->FullScreen = false;
 	this->FrameRateLimit = 120;
+	
 	this->Vsync = false;
 	
-	this->window = Window::Create(static_cast<float>(Win_Width),static_cast<float>(Win_Height), WinTittle.c_str());
+	this->window = Window::Create(static_cast<float>(Win_Width),static_cast<float>(Win_Height), WinTittle);
 	this->window->SetFullscreen(FullScreen);
 	this->window->SetVerticalSync(Vsync);
 	this->window->SetResizable(false);
@@ -45,17 +40,17 @@ Application::Application() {
 	this->InitWindow();
 	this->InitStates();
 
+	
 	Renderer2D::Init();
 	RenderCommand::Init();
 
 	this->deltaTime = new Time(0.0f);
 
+
+
 	camera = new Camera2D(window->GetWidth() / window->GetHeight());
 
-	texture = Texture2D::Create("assets/images/pusheen.png");
-
-
-	sprite = new Sprite(2, 2, texture);
+	player = new Player("assets/images/pusheen.png");
 }
 
 Application::~Application() {
@@ -66,6 +61,7 @@ Application::~Application() {
 		delete this->states.top();
 		this->states.pop();
 	}
+
 }
 
 void Application::UpdateDeltaTime()
@@ -74,6 +70,10 @@ void Application::UpdateDeltaTime()
 	deltaTime = new Time(float(time - LastFrameTime) / 1000);
 	LastFrameTime = time;
 
+
+	player->OnUpdate(deltaTime->AsMicroseconds());
+
+	camera->Update(deltaTime->AsMicroseconds());
 }
 
 
@@ -81,23 +81,24 @@ void Application::OnUpdate() {
 	
 	window->PollEvent(*event);
 	
+	
 } 
 
 
 
 
 void Application::OnRender() {
-	
-	window->Clear({ 34, 38, 35,1 });
+
+	window->Clear({ 34,38,35,1 });
 
 
-	sprite->OnRender(*camera);
+	player->OnRender(*camera);
 	
 	window->Show();
 }
 
 void Application::Run() {
-    while (window->isOpen()) {
+    while (window->isOpen()) {  // CHECK GLFWWINDOW CLASS AND isOpen function
 
 		this->UpdateDeltaTime();
 		OnUpdate();
@@ -172,3 +173,6 @@ void Application::Run() {
 		{
 			entity->Move(0.1f, 0.0f, float(deltaTime.AsMicroseconds()));
 		}*/
+
+
+

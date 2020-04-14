@@ -4,7 +4,7 @@ GameState::GameState(std::unique_ptr<Window>& window, std::stack<State*>* states
 	: State(window,states)
 {
 	m_MainCamera = new Camera2D(window->GetWidth()/window->GetHeight());
-	m_MainScene = new Scene2D(*m_MainCamera);
+	m_MainScene = new Entity::Scene2D(*m_MainCamera);
 }
 
 GameState::~GameState()
