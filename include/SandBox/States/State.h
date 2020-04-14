@@ -8,7 +8,6 @@
 using namespace Engine;
 using namespace Physics;
 using namespace Math;
-using namespace Entity;
 
 class State
 {

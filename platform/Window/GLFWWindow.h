@@ -8,11 +8,13 @@
 
 #include "../../include/Engine/Core/Window.h"
 
+#include <GLFW/glfw3.h>
+
 
 class GLFWWindow : public Engine::Window {
 
 private:
-	GLFWWindow* window;
+	GLFWwindow* Window;
 
 	unsigned int Width, Height;
 	std::string Title;
@@ -37,6 +39,9 @@ public:
 
 	void SetFullscreen(bool is_fullscreen) override;
 
+	void Show() override;
+
+	
 	void SetResizable(bool resizable) override;
 
 	void SetTitle(const char* title) override;

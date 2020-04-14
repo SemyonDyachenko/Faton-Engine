@@ -53,7 +53,7 @@ namespace Engine {
         virtual void Draw(Sprite& sprite,Shader & shader) = 0;
 
 
-        static std::unique_ptr<Window> Create(const float width,const float height,const char*title);
+        static std::unique_ptr<Window> Create(const float width,const float height,std::string&title);
 
 
         virtual void Show() = 0;

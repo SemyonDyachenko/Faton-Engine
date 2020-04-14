@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\include",
+    "\\include\\Engine\\Entity\\Components",
+    "\\include\\SandBox",
+    "\\include\\SandBox\\start",
+    "\\src",
+    "\\src\\Engine\\Events",
+    "\\src\\SandBox",
+    "\\src\\SandBox\\start"
+  ],
+  "SelectedNode": "\\include\\SandBox\\start\\Player.h",
+  "PreviewInSolutionExplorer": false
+}

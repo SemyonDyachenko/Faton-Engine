@@ -43,7 +43,7 @@ namespace Engine
 	void Sprite::ChangeTexture(std::shared_ptr<Texture2D>& texture)
 	{
 		m_Texture = texture;
-		
+		TextureRecalculate();
 	}
 
 
@@ -83,6 +83,12 @@ namespace Engine
 		TransformRecalculate();
 	}
 
+
+	void Sprite::TextureRecalculate()
+	{
+		bounds.w = static_cast<float>(m_Texture->GetSize().x) / 100;
+		bounds.h = static_cast<float>(m_Texture->GetSize().y) / 100;
+	}
 
 	void Sprite::TransformRecalculate()
 	{

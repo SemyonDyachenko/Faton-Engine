@@ -19,7 +19,7 @@ class SFMLWindow : public Engine::Window {
 private:
     sf::RenderWindow * window;
 
-    const char* title;
+	std::string title;
     float width,height;
     unsigned int frameRateLimit;
 
@@ -29,7 +29,7 @@ private:
 
     void Init();
 public:
-    SFMLWindow(float window_width,float window_height,const char * window_title);
+    SFMLWindow(float window_width,float window_height, std::string& window_title);
 
     virtual ~SFMLWindow();
 

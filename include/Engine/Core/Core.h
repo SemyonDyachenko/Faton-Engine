@@ -35,18 +35,18 @@
 #define FATON_ERROR_02(filename) std::cout << "ERROR_02: Error load data from file " << filename << std::endl
 #define FATON_ERROR_03 std::cout << "RIGIDBODY ERROR: This rigid body is not a dynamic type.\n It is impossible to attach the value of mass\n" // error 1 for rigid body
 
-//typedef
+
 
 #define FATON_PRINT(text) std::cout << text << std::endl
 
 
-
+//typedef
 
 namespace Engine
 {
-	//typedef signed char Int8;
+	typedef signed char Int8;
 
-	//typedef unsigned int Int32;
+	typedef unsigned int Int32;  // USED INT TEXT.h !!!
 
 
 }

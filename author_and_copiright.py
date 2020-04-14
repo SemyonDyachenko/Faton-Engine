@@ -1,5 +1,5 @@
 AUTHOR_NAME = "SEMYON DYACHENKO"
-COPIRIGHT = "@ 2019 open source"
+COPIRIGHT = "@ 2020 open source"
 
 PLATOFORMS = {
     'linux': ['linux_x64_gcc'],

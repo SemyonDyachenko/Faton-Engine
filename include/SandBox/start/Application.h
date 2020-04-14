@@ -6,15 +6,16 @@
 #define MY_OWN_GAME_APPLICATION_H
 
 
-#include "../../../include/Engine/Engine.h"
-#include "../../../include/Engine/Entity/Entity.h"
+#include "Player.h"
 #include <GLFW/glfw3.h>
 
 #include "../States/State.h"
 
+
 using namespace Engine;
 using namespace Math;
 using namespace Physics;
+
 
 
 class Application {
@@ -29,6 +30,12 @@ private:
 	
 	Event *event;
 
+	Sprite* test;
+
+	Player* player;
+
+
+
     bool IsRunning = true;
 	Time *deltaTime;
 	float LastFrameTime;
@@ -37,9 +44,8 @@ private:
 	void InitWindow();
 	void InitStates();
 
-	std::shared_ptr<Texture2D> texture;
-	Camera2D * camera;
-	Sprite *sprite;
+	Camera2D* camera;
+
 public:
     Application();
     virtual ~Application();

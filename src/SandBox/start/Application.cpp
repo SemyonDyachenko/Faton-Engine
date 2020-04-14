@@ -46,6 +46,7 @@ Application::Application() {
 
 	this->deltaTime = new Time(0.0f);
 
+	std::shared_ptr<Texture2D> platformTexture = Texture2D::Create("assets/images/milana.jpg");
 
 
 	camera = new Camera2D(window->GetWidth() / window->GetHeight());
@@ -73,6 +74,8 @@ void Application::UpdateDeltaTime()
 
 	player->OnUpdate(deltaTime->AsMicroseconds());
 
+
+
 	camera->Update(deltaTime->AsMicroseconds());
 }
 
@@ -80,8 +83,7 @@ void Application::UpdateDeltaTime()
 void Application::OnUpdate() {
 	
 	window->PollEvent(*event);
-	
-	
+
 } 
 
 
@@ -93,7 +95,7 @@ void Application::OnRender() {
 
 
 	player->OnRender(*camera);
-	
+
 	window->Show();
 }
 

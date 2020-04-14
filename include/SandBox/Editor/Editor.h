@@ -2,7 +2,8 @@
 #define ENGINE_EDITOR_H
 
 
-#include "../Engine/Engine.h"
+#include "../../Engine/Engine.h"
+
 
 class Editor
 {

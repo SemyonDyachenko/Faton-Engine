@@ -18,7 +18,7 @@ namespace Engine{
     	
 		ViewProjectionMatrix = ProjectionMatrix * ViewMatrix;
 
-		CameraSpeed = 0.1f;
+		CameraSpeed = 0.015f;
     }
 
 	Camera2D::~Camera2D()
@@ -31,36 +31,36 @@ namespace Engine{
     	//movement camera
     	if(Input::IsKeyPressed(FATON_KEY_A))
     	{
-			Position.x -= cos(glm::radians(Rotation)) * CameraSpeed;
-			Position.y -= sin(glm::radians(Rotation)) *CameraSpeed;
+			Position.x -= cos(glm::radians(Rotation)) * CameraSpeed* time;
+			Position.y -= sin(glm::radians(Rotation)) *CameraSpeed* time;
 			
     	}
 		else if (Input::IsKeyPressed(FATON_KEY_D))
 		{
-			Position.x += cos(glm::radians(Rotation)) * CameraSpeed;
-			Position.y += sin(glm::radians(Rotation)) * CameraSpeed;
+			Position.x += cos(glm::radians(Rotation)) * CameraSpeed* time;
+			Position.y += sin(glm::radians(Rotation)) * CameraSpeed* time;
 		}
 		else if(Input::IsKeyPressed(FATON_KEY_W))
     	{
-			Position.x += -sin(glm::radians(Rotation)) *CameraSpeed;
-			Position.y += cos(glm::radians(Rotation)) * CameraSpeed;
+			Position.x += -sin(glm::radians(Rotation)) *CameraSpeed* time;
+			Position.y += cos(glm::radians(Rotation)) * CameraSpeed* time;
 		
     	}
 		else if(Input::IsKeyPressed(FATON_KEY_S))
 		{
-			Position.x -= -sin(glm::radians(Rotation)) * CameraSpeed;
-			Position.y -= cos(glm::radians(Rotation)) *CameraSpeed;
+			Position.x -= -sin(glm::radians(Rotation)) * CameraSpeed* time;
+			Position.y -= cos(glm::radians(Rotation)) *CameraSpeed*time;
 			
 		}
 
 		if(Input::IsKeyPressed(FATON_KEY_UP))
 		{
-			ZoomFactor -= 0.1f;
+			ZoomFactor -= 0.05f*time;
 		}
 
 		else if(Input::IsKeyPressed(FATON_KEY_DOWN))
 		{
-			ZoomFactor += 0.1f;
+			ZoomFactor += 0.05f* time;
 		}
 
 		this->SetZoomFactor(ZoomFactor);

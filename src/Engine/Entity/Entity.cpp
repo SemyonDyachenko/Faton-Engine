@@ -53,6 +53,8 @@ namespace Engine
 			m_AnimationComponent = component;
 		}
 
+		
+
 		void Entity::AddBoxColliderComponent()
 		{
 			if(m_Sprite != nullptr)
@@ -79,6 +81,11 @@ namespace Engine
 			if(m_MovComponent)
 			{
 				m_MovComponent->OnUpdate(DeltaTime);
+			}
+
+			if (onGravity)
+			{
+				Move(0.0f, -0.098f, DeltaTime);
 			}
 			
 
