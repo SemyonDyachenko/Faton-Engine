@@ -4,6 +4,7 @@
 
 #include "Scene.h"
 
+#include <map>
 
 namespace Engine
 {
@@ -12,16 +13,24 @@ namespace Engine
 		class Scene2D : public Scene
 		{
 		public:
-			Scene2D(Camera2D & camera);
+			Scene2D();
+
+			Scene2D(const float aspectRatio);
 
 			virtual ~Scene2D();
+
+			void Update(float DeltaTime) override;
 			
-			void AddEntity(Entity& entity) override;
+			void AddEntity(std::string& entityName,Entity& entity) override;
 
 			void Start() override;
 
+			inline Camera2D* GetCamera();
+
+			inline std::map<std::string, Entity*>& GetEntities();
+
 		private:
-			std::vector<Entity*> m_Entities;
+			std::map<std::string,Entity*> m_Entities;
 
 			Camera2D *m_Camera;
 

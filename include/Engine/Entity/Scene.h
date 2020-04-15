@@ -19,7 +19,9 @@ namespace Engine {
 		class Scene
 		{
 		public:
-			virtual void AddEntity(Entity& entity) = 0;
+			virtual void AddEntity(std::string & entityName,Entity& entity) = 0;
+
+			virtual void Update(float DeltaTime) = 0;
 
 			virtual ~Scene() = default;
 

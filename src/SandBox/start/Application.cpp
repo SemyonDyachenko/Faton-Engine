@@ -17,7 +17,7 @@ void Application::InitWindow()
 {
 	this->Win_Width = 1440;
 	this->Win_Height = 900;
-	this->WinTittle = "Window title";
+	this->WinTittle = "Planet Saver";
 	this->FullScreen = false;
 	this->FrameRateLimit = 120;
 	
