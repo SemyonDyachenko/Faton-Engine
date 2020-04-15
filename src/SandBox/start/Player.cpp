@@ -41,7 +41,7 @@ Player::Player(std::string texturePath)
 
 	sprite = new Engine::Sprite(2, 2, texture);
 	
-	sprite->SetSize({ 2.2,2 });
+	
 
 	//ENTITY
 	entity = new Engine::Entity::Entity();
@@ -50,7 +50,9 @@ Player::Player(std::string texturePath)
 	entity->AddAnimationCompoment(animComponent);
 	entity->AddBoxColliderComponent();
 
-	
+	entity->GetSprite()->SetSize({ 2.2,2 });
+	entity->GetSprite()->TransformRecalculate();
+	entity->GetSprite()->TextureRecalculate();
 }
 
 
@@ -70,7 +72,8 @@ void Player::OnUpdate(float DT)
 	sprite->ChangeTexture(animComponent->GetNowTextureFrame());
 	entity->AddBoxColliderComponent();
 
-	sprite->SetSize({2.2,2});
+	entity->GetSprite()->SetSize({ 2.2,2 });
+
 	
 
 	//entity->OnGravity(true);

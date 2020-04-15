@@ -51,7 +51,7 @@ Application::Application() {
 
 	camera = new Camera2D(window->GetWidth() / window->GetHeight());
 
-	player = new Player("assets/images/pusheen.png");
+	player = new Player("assets/images/anim/test/right/adventurer-run-00.png");
 }
 
 Application::~Application() {
