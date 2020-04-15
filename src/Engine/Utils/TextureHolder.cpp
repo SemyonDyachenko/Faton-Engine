@@ -1,4 +1,5 @@
 #include "..\..\..\include\Engine\Utils\TextureHolder.h"
+#include <cassert>
 
 namespace Engine
 {
@@ -16,6 +17,7 @@ namespace Engine
 		const std::shared_ptr<Texture2D>& Engine::Utils::TextureHolder::Get(Textures::TextureID id) const
 		{
 			auto found = m_TextureMap.find(id);
+			assert(found != m_TextureMap.end());
 			return found->second;
 		}
 

@@ -24,6 +24,10 @@ namespace Engine
 			std::vector<Entity*> m_Entities;
 
 			Camera2D *m_Camera;
+
+			bool m_ScenePause;
+
+			
 		};
 		
 	}

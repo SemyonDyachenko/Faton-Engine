@@ -28,6 +28,8 @@ private:
     std::unique_ptr<Window> window;
 	std::stack<State*> states;
 	
+	std::shared_ptr<Text> text;
+
 	Event *event;
 
 	Sprite* test;
