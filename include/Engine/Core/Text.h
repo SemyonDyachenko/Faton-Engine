@@ -24,7 +24,9 @@ namespace Engine
 
 		virtual void Load(std::string font, unsigned int characterSize) = 0;
 
-		virtual void RenderText(Engine::Camera2D& camera,std::string text, float x, float y, float scale, glm::vec3 color = glm::vec3(1.0f)) = 0;
+		virtual void IsStatic(bool staticVal) = 0;
+
+		virtual void RenderText(const glm::mat4& projection,std::string text, float x, float y, float scale, glm::vec3 color = glm::vec3(1.0f)) = 0;
 			
 		
 	};

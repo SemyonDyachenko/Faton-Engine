@@ -46,11 +46,8 @@ Application::Application() {
 
 	this->deltaTime = new Time(0.0f);
 
-	//std::shared_ptr<Texture2D> platformTexture = Texture2D::Create("assets/images/milana.jpg");
+	std::shared_ptr<Texture2D> platformTexture = Texture2D::Create("assets/images/milana.jpg");
 
-	text = Text::Create(10,10);
-
-	text->Load("assets/fonts/font.ttf", 40);
 
 	camera = new Camera2D(window->GetWidth() / window->GetHeight());
 
@@ -97,9 +94,8 @@ void Application::OnRender() {
 	window->Clear({ 34,38,35,1 });
 
 
-//	player->OnRender(*camera);
+	player->OnRender(*camera);
 
-	text->RenderText(*camera,"Hello world", 5.0f, 5.0f, 1.0f);
 
 	window->Show();
 }

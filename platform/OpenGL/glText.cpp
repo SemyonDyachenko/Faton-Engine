@@ -11,12 +11,16 @@
 
 glText::glText(GLuint width, GLuint height)
 {
-    // Load and configure shader
+    
     this->TextShader = new OpenGLShader("Shaders/Text/textVs.glsl", "Shaders/Text/textFs.glsl");
-    //this->TextShader->SetMat4("projection", glm::ortho(0.0f, static_cast<GLfloat>(width), static_cast<GLfloat>(height), 0.0f), GL_TRUE);
     this->TextShader->Bind();
+    if (m_IsStatic)
+    {
+        this->TextShader->SetMat4("projection", glm::ortho(0.0f, static_cast<GLfloat>(width), static_cast<GLfloat>(height), 0.0f));
+    }
     this->TextShader->SetInt("text", 0);
-    // Configure VAO/VBO for texture quads
+    this->TextShader->Unbind();
+
     glGenVertexArrays(1, &this->VAO);
     glGenBuffers(1, &this->VBO);
     glBindVertexArray(this->VAO);
@@ -28,23 +32,28 @@ glText::glText(GLuint width, GLuint height)
     glBindVertexArray(0);
 }
 
+void glText::IsStatic(bool staticVal)
+{
+    m_IsStatic = staticVal;
+}
+
 void glText::Load(std::string font, GLuint fontSize)
 {
-    // First clear the previously loaded Characters
+   
     this->Characters.clear();
-    // Then initialize and load the FreeType library
+
     FT_Library ft;
-    if (FT_Init_FreeType(&ft)) // All functions return a value different than 0 whenever an error occurred
+    if (FT_Init_FreeType(&ft)) 
         std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
-    // Load font as face
+
     FT_Face face;
     if (FT_New_Face(ft, font.c_str(), 0, &face))
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
-    // Set size to load glyphs as
+
     FT_Set_Pixel_Sizes(face, 0, fontSize);
-    // Disable byte-alignment restriction
+
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-    // Then for the first 128 ASCII characters, pre-load/compile their characters and store them
+
     for (GLubyte c = 0; c < 128; c++) // lol see what I did there 
     {
         // Load character glyph 
@@ -71,13 +80,13 @@ void glText::Load(std::string font, GLuint fontSize)
             GL_UNSIGNED_BYTE,
             face->glyph->bitmap.buffer
         );
-        // Set texture options
+
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-        // Now store character for later use
+  
         Character character = {
             texture,
             glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
@@ -92,13 +101,16 @@ void glText::Load(std::string font, GLuint fontSize)
     FT_Done_FreeType(ft);
 }
 
-void glText::RenderText(Engine::Camera2D& camera,std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
+void glText::RenderText(const glm::mat4& projection,std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
 
     // Activate corresponding render state	
     this->TextShader->Bind();
     this->TextShader->SetFloat3("textColor", Engine::Math::Vec3f(color.x,color.y,color.z));
-    this->TextShader->SetMat4("projection", camera.GetViewProjectionMatrix());
+    if (!m_IsStatic)
+    {
+        this->TextShader->SetMat4("projection", projection);
+    }
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(this->VAO);
 
