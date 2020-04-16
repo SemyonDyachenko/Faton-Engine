@@ -2,6 +2,7 @@
 
 GameLevel::GameLevel()
 {
+	m_Loading = true;
 }
 
 GameLevel::~GameLevel()
@@ -10,6 +11,16 @@ GameLevel::~GameLevel()
 
 void GameLevel::OnUpdate(float DeltaTime)
 {
+}
+
+bool GameLevel::IsLoaded()
+{
+	return m_Loading;
+}
+
+void GameLevel::PreLoadingRender()
+{
+
 }
 
 void GameLevel::OnRender()

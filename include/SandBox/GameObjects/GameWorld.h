@@ -12,16 +12,20 @@ public:
 
 	void SetCurrentLevel(std::string& levelName);
 
+	GameLevel* GetCurrentLevel();
+
 	void AddLevel(std::string& levelName,GameLevel * level);
 
 	virtual ~GameWorld();
+
+	void Update(float DeltaTime);
+
+	void Render();
 
 protected:
 
 private:
 	std::string m_CurrentLevelName;
-	GameLevel* m_CurrentLevel;
-
 
 	std::map<std::string, GameLevel*> m_Levels;
 

@@ -64,6 +64,6 @@
 #include "Entity/Scene3D.h"
 #include "Entity/Components/AnimationComponent.h"
 #include "Entity/Components/Component.h"
-#include "Entity/Components/AnimationComponent.h"
+#include "Entity/Components/MovementComponent.h"
 
 #endif //MY_OWN_GAME_ENGINE_H

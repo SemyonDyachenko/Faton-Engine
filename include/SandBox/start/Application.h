@@ -10,7 +10,7 @@
 #include <GLFW/glfw3.h>
 
 #include "../States/State.h"
-
+#include "../States/GameState.h"
 
 using namespace Engine;
 using namespace Math;
@@ -27,14 +27,11 @@ private:
 	std::string WinTittle;
     std::unique_ptr<Window> window;
 	std::stack<State*> states;
-	
-	std::shared_ptr<Text> text;
-
 	Event *event;
 
-	Sprite* test;
+	//Sprite* test;
 
-	Player* player;
+	//Player* player;
 
 
 

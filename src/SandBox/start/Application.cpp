@@ -32,7 +32,7 @@ void Application::InitWindow()
 
 void Application::InitStates()
 {
-	//this->states.push(new MainMenuState());
+	this->states.push(new GameState(window,&states));
 }
 
 Application::Application() {
@@ -40,18 +40,8 @@ Application::Application() {
 	this->InitWindow();
 	this->InitStates();
 
-	
-	Renderer2D::Init();
-	RenderCommand::Init();
 
 	this->deltaTime = new Time(0.0f);
-
-	std::shared_ptr<Texture2D> platformTexture = Texture2D::Create("assets/images/milana.jpg");
-
-
-	camera = new Camera2D(window->GetWidth() / window->GetHeight());
-
-	player = new Player("assets/images/anim/test/right/adventurer-run-00.png");
 }
 
 Application::~Application() {
@@ -72,17 +62,29 @@ void Application::UpdateDeltaTime()
 	LastFrameTime = time;
 
 
-	player->OnUpdate(deltaTime->AsMicroseconds());
-
-
-
-	camera->Update(deltaTime->AsMicroseconds());
 }
 
 
 void Application::OnUpdate() {
 	
 	window->PollEvent(*event);
+
+	if (!this->states.empty())
+	{
+		this->states.top()->OnUpdate(deltaTime->AsMicroseconds());
+
+		if (this->states.top()->GetQuit())
+		{
+
+			this->states.top()->EndState();
+			delete this->states.top();
+			this->states.pop();
+		}
+	}
+	//App end
+	else {
+		this->window->Close();
+	}
 
 } 
 
@@ -93,8 +95,9 @@ void Application::OnRender() {
 
 	window->Clear({ 34,38,35,1 });
 
-
-	player->OnRender(*camera);
+	if (!this->states.empty()) {
+		this->states.top()->OnRender(window);
+	}
 
 
 	window->Show();
