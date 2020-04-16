@@ -6,7 +6,6 @@
 #define MY_OWN_GAME_APPLICATION_H
 
 
-#include "Player.h"
 #include <GLFW/glfw3.h>
 
 #include "../States/State.h"
@@ -29,11 +28,9 @@ private:
 	std::stack<State*> states;
 	Event *event;
 
-	//Sprite* test;
-
-	//Player* player;
-
-
+	GameState* gamestate;
+	
+	GameWorld* world;
 
     bool IsRunning = true;
 	Time *deltaTime;
@@ -42,8 +39,6 @@ private:
 	void InitAPI();
 	void InitWindow();
 	void InitStates();
-
-	Camera2D* camera;
 
 public:
     Application();

@@ -35,7 +35,6 @@ private:
 	Engine::Math::Vec2f m_Velocity;
 	Engine::Math::Vec2f m_Position;
 	
-	Engine::Sprite* m_Sprite;
 
 	float m_Gravity = 0.0f;
 

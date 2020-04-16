@@ -21,7 +21,7 @@ Player::Player(std::string texturePath)
 
 
 	//components
-	texture = Engine::Texture2D::Create(texturePath.c_str());
+	texture = Engine::Texture2D::Create("assets/images/anim/test/left/left0.png");
 	
 	movComponent = new Engine::MovementComponent(*sprite, 3.0f, 0.25f);
 	animComponent = new Engine::AnimationComponent();

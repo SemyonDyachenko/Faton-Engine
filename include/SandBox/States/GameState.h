@@ -19,7 +19,7 @@ public:
 	void OnUpdate(float DeltaTime) override;
 	void OnRender(std::unique_ptr<Window>& window) override;
 private:
-	GameWorld* m_World;
+	GameWorld * m_World;
 };
 
 

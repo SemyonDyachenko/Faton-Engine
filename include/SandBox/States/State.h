@@ -12,7 +12,7 @@ using namespace Math;
 class State
 {
 public:
-	State(std::unique_ptr<Window>& window, std::stack<State*>* states);
+	State(std::unique_ptr<Window>&  window, std::stack<State*>* states);
 
 	virtual ~State();
 

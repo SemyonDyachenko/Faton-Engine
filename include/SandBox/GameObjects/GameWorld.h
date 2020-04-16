@@ -5,10 +5,12 @@
 #include <map>
 #include "GameLevel.h"
 
+#include "Space.h"
+
 class GameWorld
 {
 public:
-	GameWorld();
+	GameWorld(float aspectRatio);
 
 	void SetCurrentLevel(std::string& levelName);
 
@@ -26,6 +28,8 @@ protected:
 
 private:
 	std::string m_CurrentLevelName;
+
+	SpaceArea* globalLevel;
 
 	std::map<std::string, GameLevel*> m_Levels;
 

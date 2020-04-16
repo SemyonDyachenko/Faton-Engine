@@ -4,8 +4,7 @@ RocketMainCharacter::RocketMainCharacter(float x,float y)
 {
 	m_Position = { x,y };
 	m_Velocity = { 0.0f,0.0f };
-
-	m_Sprite = GetSprite();
+	//m_Sprite = GetSprite();
 
 
 }
@@ -13,6 +12,7 @@ RocketMainCharacter::RocketMainCharacter(float x,float y)
 void RocketMainCharacter::SetVerticalVelocity(float velocity)
 {
 	m_Velocity.x = velocity;
+	
 }
 
 void RocketMainCharacter::SetHorizontalVelocity(float velocity)

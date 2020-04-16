@@ -20,9 +20,7 @@ void Application::InitWindow()
 	this->WinTittle = "Planet Saver";
 	this->FullScreen = false;
 	this->FrameRateLimit = 120;
-	
 	this->Vsync = false;
-	
 	this->window = Window::Create(static_cast<float>(Win_Width),static_cast<float>(Win_Height), WinTittle);
 	this->window->SetFullscreen(FullScreen);
 	this->window->SetVerticalSync(Vsync);
@@ -32,16 +30,18 @@ void Application::InitWindow()
 
 void Application::InitStates()
 {
-	this->states.push(new GameState(window,&states));
+	//this->states.push(new GameState(window,&states));
 }
 
 Application::Application() {
 	this->InitAPI();
 	this->InitWindow();
 	this->InitStates();
+	Renderer2D::Init();
+	RenderCommand::Init();
 
 
-	this->deltaTime = new Time(0.0f);
+	world = new GameWorld(window->GetWidth() / window->GetHeight());
 }
 
 Application::~Application() {
@@ -69,23 +69,25 @@ void Application::OnUpdate() {
 	
 	window->PollEvent(*event);
 
-	if (!this->states.empty())
-	{
-		this->states.top()->OnUpdate(deltaTime->AsMicroseconds());
+	//if (!this->states.empty())
+	//{
+	//	this->states.top()->OnUpdate(deltaTime->AsMicroseconds());
+//
+	//	if (this->states.top()->GetQuit())
+//		{
 
-		if (this->states.top()->GetQuit())
-		{
-
-			this->states.top()->EndState();
-			delete this->states.top();
-			this->states.pop();
-		}
-	}
+	//		this->states.top()->EndState();
+	//		delete this->states.top();
+	//		this->states.pop();
+	//	}
+	//}
 	//App end
-	else {
-		this->window->Close();
-	}
+//	else {
+//		this->window->Close();	
+//	}
 
+	
+	world->Update(deltaTime->AsMicroseconds());
 } 
 
 
@@ -95,16 +97,17 @@ void Application::OnRender() {
 
 	window->Clear({ 34,38,35,1 });
 
-	if (!this->states.empty()) {
-		this->states.top()->OnRender(window);
-	}
+	//if (!this->states.empty()) {
+	//	this->states.top()->OnRender(window);
+	//}
 
+	world->Render();
 
 	window->Show();
 }
 
 void Application::Run() {
-    while (window->isOpen()) {  // CHECK GLFWWINDOW CLASS AND isOpen function
+    while (window->isOpen()) {  
 
 		this->UpdateDeltaTime();
 		OnUpdate();

@@ -3,7 +3,7 @@
 GameState::GameState(std::unique_ptr<Window>& window, std::stack<State*>* states)
 	: State(window,states)
 {
-	m_World = new GameWorld();
+	m_World = new GameWorld(window->GetWidth()/window->GetHeight());
 }
 
 GameState::~GameState()
@@ -22,6 +22,7 @@ void GameState::UpdateInput(float DeltaTime)
 
 void GameState::UpdateMousePosition(Camera2D* camera)
 {
+
 }
 
 void GameState::OnUpdate(float DeltaTime)
