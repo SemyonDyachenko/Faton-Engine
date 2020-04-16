@@ -18,9 +18,6 @@ public:
 	void OnUpdate(float DeltaTime) override;
 	void OnRender(std::unique_ptr<Window>& window) override;
 private:
-	Entity::Scene2D * m_MainScene;
-	Camera2D * m_MainCamera;
-	std::stack<Entity::Scene2D*> scenes;
 };
 
 

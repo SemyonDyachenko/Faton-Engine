@@ -14,10 +14,11 @@ namespace Engine
 		m_Entities.clear();
 	}
 
-	void Entity::Scene3D::AddEntity(Entity& entity)
+	void Entity::Scene3D::AddEntity(std::string& entityName, Entity& entity)
 	{
-		m_Entities.push_back(&entity);
 	}
+
+
 
 	void Entity::Scene3D::Start()
 	{

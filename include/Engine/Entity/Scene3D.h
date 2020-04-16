@@ -18,7 +18,7 @@ namespace Engine
 
 			virtual ~Scene3D();
 			
-			void AddEntity(Entity& entity) override;
+			void AddEntity(std::string& entityName,Entity& entity) override;
 
 			void Start() override;
 		private:

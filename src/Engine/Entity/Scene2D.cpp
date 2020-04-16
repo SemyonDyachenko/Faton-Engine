@@ -41,7 +41,7 @@ namespace Engine
 		}
 
 		void Scene2D::AddEntity(std::string& entityName, Entity& entity)
-		{
+		{ 
 			m_Entities[entityName] = &entity;
 		}
 
