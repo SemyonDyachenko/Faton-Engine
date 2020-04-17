@@ -18,12 +18,6 @@ public:
 	void Render();
 private:
 
-	ParticleSystem *m_ParticleSystem;
-	Props m_SmokeProps;
-
-	float m_Time = 0.0f;
-	float m_SmokeEmitInterval = 0.4f;
-	float m_SmokeNextEmitTime = m_SmokeEmitInterval;
 
 	Engine::Camera2D* m_Camera;
 

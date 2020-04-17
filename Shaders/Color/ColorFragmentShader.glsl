@@ -6,5 +6,5 @@ uniform vec4 u_Color;
 	
 void main()
 {
-	color = u_Color;
+	gl_FragColor = u_Color;
 }

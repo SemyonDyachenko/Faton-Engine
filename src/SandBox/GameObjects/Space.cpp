@@ -8,14 +8,7 @@ SpaceArea::SpaceArea(float aspectRatio, float rocketX, float rocketY)
 
 	AnimationSpeed = 0.07f;
 
-	m_ParticleSystem = new ParticleSystem();
 
-	m_SmokeProps.Position = { 5.0f, 5.0f };
-	m_SmokeProps.Velocity = { -2.0f,3.0f }, m_SmokeProps.VelocityVar = { 3.0f, 1.0f };
-	m_SmokeProps.SizeBegin = 0.5f, m_SmokeProps.SizeEnd = 0.0f, m_SmokeProps.SizeVar = 0.3f;
-	m_SmokeProps.ColorBegin = { 254 / 255.0f, 109 / 255.0f, 41 / 255.0f, 1.0f };
-	m_SmokeProps.ColorEnd = { 254 / 255.0f, 212 / 255.0f, 123 / 255.0f , 1.0f };
-	m_SmokeProps.LifeTime = 1.0f;
 
 
 	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test2/Asset 1.png"));
@@ -85,7 +78,6 @@ SpaceArea::~SpaceArea()
   
 void SpaceArea::Update(float DeltaTime)
 {
-	m_Time += DeltaTime;
 
 	m_Camera->Update(DeltaTime);
 
@@ -101,7 +93,7 @@ void SpaceArea::Update(float DeltaTime)
 
 	m_RocketCharacter->GetSprite()->SetSize({ 2,1.5 });
 
-	m_ParticleSystem->OnUpdate(DeltaTime);
+
 
 
 	if (Engine::Input::IsKeyPressed(FATON_KEY_T))
@@ -114,16 +106,6 @@ void SpaceArea::Update(float DeltaTime)
 	}
 	else  if (Engine::Input::IsKeyPressed(FATON_KEY_H))
 	{
-		glm::vec2 emissionPoint = { 0.0f, -0.6f };
-		float rotation = glm::radians(0.02f * 4.0f - 90.0f);
-		glm::vec4 rotated = glm::rotate(glm::mat4(1.0f), rotation, { 0.0f, 0.0f, 1.0f }) * glm::vec4(emissionPoint, 0.0f, 1.0f);
-
-		m_SmokeProps.Position.x = m_RocketCharacter->GetSprite()->GetPosition().x + rotated.x;
-		m_SmokeProps.Position.y = m_RocketCharacter->GetSprite()->GetPosition().y + rotated.y;
-		m_SmokeProps.Velocity.y = 0.02f * 0.2f - 0.2f;
-		m_ParticleSystem->Emit(m_SmokeProps);
-
-
 		m_RocketCharacter->Move(0.02f, 0.0f, DeltaTime);
 		m_RocketAnimationComponent->SetAnimation(m_RightAnimName);
 		m_RocketAnimationComponent->Play(m_RightAnimName);
@@ -131,12 +113,6 @@ void SpaceArea::Update(float DeltaTime)
 
 	}
 
-	if (m_Time > m_SmokeNextEmitTime)
-	{
-		m_SmokeProps.Position = m_RocketCharacter->GetSprite()->GetPosition();
-		m_ParticleSystem->Emit(m_SmokeProps);
-		m_SmokeNextEmitTime += m_SmokeEmitInterval;
-	}
 
 
 
@@ -144,12 +120,7 @@ void SpaceArea::Update(float DeltaTime)
 
 void SpaceArea::Render()
 {
-	m_ParticleSystem->OnRender(*m_Camera);
-
-
 	m_RocketCharacter->OnRender(*m_Camera);
 
-	
-
-
+	Engine::Renderer2D::DrawLight(*m_Camera, { 4,4 }, { 5,5 }, { 255,255,255,1 });
 }
