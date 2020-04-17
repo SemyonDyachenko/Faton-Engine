@@ -30,7 +30,7 @@ namespace Engine {
         static void EndScene();
 
         static void DrawRect(Camera2D & camera,Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size);
-        static void DrawRect(Camera2D & camera,Engine::Math::Vector2<float>& positions,Engine::Math::Vector2<float>&size,Engine::Math::Color3<float>& color3);
+        static void DrawRect(Camera2D & camera,Engine::Math::Vector2<float> positions,Engine::Math::Vector2<float>size, Math::Vec4f color);
 
 		static void Render(Engine::Shape& primitive);
 

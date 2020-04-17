@@ -86,6 +86,7 @@ void Application::OnUpdate() {
 //		this->window->Close();	
 //	}
 
+
 	
 	world->Update(deltaTime->AsMicroseconds());
 } 
@@ -95,7 +96,7 @@ void Application::OnUpdate() {
 
 void Application::OnRender() {
 
-	window->Clear({ 34,38,35,1 });
+	window->Clear({ 0,0,0,1 });
 
 	//if (!this->states.empty()) {
 	//	this->states.top()->OnRender(window);

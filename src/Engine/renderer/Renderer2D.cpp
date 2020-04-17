@@ -29,7 +29,7 @@ namespace Engine
     void Renderer2D::DrawRect(Camera2D& camera, Engine::Math::Vector2<float>& positions,
 	    Engine::Math::Vector2<float>& size)
     {
-		std::shared_ptr<Shader> m_Shader = Shader::Create("Shaders/Texture/TextureVertexShader.glsl", "Shaders/Texture/TextureFragmentShader.glsl");
+        std::shared_ptr<Shader> m_Shader = Shader::Create("Shaders/Color/ColorVertexShader.glsl", "Shaders/Color/ColorFragmentShader.glsl");
 
 		Rectangle * m_rect = new Rectangle(positions.x, positions.y, size.x, size.y);
     	
@@ -39,7 +39,7 @@ namespace Engine
 
 		m_Shader->SetMat4("ViewProjectionMatrix", camera.GetViewProjectionMatrix());
 
-		m_Shader->SetFloat4("m_Color", { 23,120,65,1 });
+		m_Shader->SetFloat4("u_Color", { 23,120,65,1 });
     	
 		m_Shader->SetMat4("Transform", m_rect->GetTransform());
 
@@ -48,10 +48,26 @@ namespace Engine
 		m_Shader->Unbind();
     }
 
-    void Renderer2D::DrawRect(Camera2D& camera, Engine::Math::Vector2<float>& positions,
-	    Engine::Math::Vector2<float>& size, Engine::Math::Color3<float>& color3)
+    void Renderer2D::DrawRect(Camera2D& camera, Engine::Math::Vector2<float> positions,
+	    Engine::Math::Vector2<float> size,Math::Vec4f color)
     {
-    	
+        std::shared_ptr<Shader> m_Shader = Shader::Create("Shaders/Color/ColorVertexShader.glsl", "Shaders/Color/ColorFragmentShader.glsl");
+
+        Rectangle* m_rect = new Rectangle(positions.x, positions.y, size.x, size.y);
+
+        glm::mat4 m_Transform = translate(glm::mat4(1.0f), { positions.x,positions.y,0 }) * scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
+
+        m_Shader->Bind();
+
+        m_Shader->SetMat4("ViewProjectionMatrix", camera.GetViewProjectionMatrix());
+
+        m_Shader->SetFloat4("u_Color", color);
+
+        m_Shader->SetMat4("Transform", m_rect->GetTransform());
+
+        Render(*m_rect);
+
+        m_Shader->Unbind();
     }
 
 
