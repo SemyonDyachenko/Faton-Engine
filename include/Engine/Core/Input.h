@@ -10,6 +10,20 @@
 
 namespace Engine
 {
+
+    enum {Count = 8,ButtonCount = 32,AxisCount =8};
+
+    namespace Gamepad
+    {
+
+        enum Axis {
+            X, Y, Z, R,
+            U, V,
+            PovX, PovY
+        };
+    }
+
+
     class Input
     {
   
@@ -35,6 +49,31 @@ namespace Engine
             return instance->GetMousePositionImplementation();
         }
 
+        static bool GamepadIsConnected(unsigned int gamepad)
+        {
+            return instance->GamepadIsConnectedImplementation(gamepad);
+        }
+
+        static unsigned int GetGamepadButtonCount(unsigned int gamepad)
+        {
+            return instance->GetGamepadButtonCountImplementation(gamepad);
+        }
+
+        static bool GamepadHasAxis(unsigned int gamepad, Gamepad::Axis axis)
+        {
+            return instance->GamepadHasAxisImplementation(gamepad, axis);
+        }
+
+        static bool GamepadIsButtonPressed(unsigned int gamepad, unsigned int button)
+        {
+            return instance->GamepadIsButtonPressedInplementation(gamepad, button);
+        }
+        
+        static float GamepadGetAxisPosition(unsigned int gamepad, Gamepad::Axis axis)
+        {
+            instance->GamepadGetAxisPositionImplementation(gamepad, axis);
+        }
+
         static float GetMousePositionX()
         {
             return instance->GetMousePositionXImplementation();
@@ -50,11 +89,15 @@ namespace Engine
     protected:
 		virtual bool isKeyPressedImplementation(int key) = 0;
 		virtual bool isButtonPressedImplementation(int button) = 0;
-		virtual Engine::Math::Vector2<float> GetMousePositionImplementation() = 0;
+		virtual Math::Vector2<float> GetMousePositionImplementation() = 0;
 		virtual float GetMousePositionXImplementation() = 0;
 		virtual float GetMousePositionYImplementation() = 0;
-
-		
+        virtual bool GamepadIsConnectedImplementation(unsigned int gamepad) = 0;
+        virtual unsigned int GetGamepadButtonCountImplementation(unsigned int gamepad);
+        virtual bool GamepadHasAxisImplementation(unsigned int gamepad, Gamepad::Axis axis);
+        virtual bool GamepadIsButtonPressedInplementation(unsigned int gamepad, unsigned int button);
+        virtual float GamepadGetAxisPositionImplementation(unsigned int gamepad, Gamepad::Axis axis);
+        
 		
 	private:
 		static std::unique_ptr<Input> instance;

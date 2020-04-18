@@ -7,6 +7,8 @@
 
 #include "../../include/Engine/Core/Input.h"
 
+#include <SFML/Window/Joystick.hpp>
+
 class SFMLInput : public Engine::Input
 {
 protected:
@@ -20,6 +22,15 @@ protected:
 
 	float GetMousePositionYImplementation() override;
 
+	bool GamepadIsConnectedImplementation(unsigned int gamepad) override;
+
+	unsigned int GetGamepadButtonCountImplementation(unsigned int gamepad) override;
+
+	bool GamepadHasAxisImplementation(unsigned int gamepad,Engine::Gamepad::Axis axis) override;
+
+	bool GamepadIsButtonPressedInplementation(unsigned int gamepad, unsigned int button) override;
+
+	float GamepadGetAxisPositionImplementation(unsigned int gamepad, Engine::Gamepad::Axis axis) override;
 };
 
 

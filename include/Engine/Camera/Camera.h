@@ -55,6 +55,7 @@ namespace Engine {
 		void MoveDown(float speed, float DeltaTime);
 		void MoveUp(float speed, float DeltaTime);
 
+		const bool& IsControl();
 
 		const float& GetZoomFactor() const;
 

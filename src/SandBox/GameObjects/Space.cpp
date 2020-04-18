@@ -80,7 +80,7 @@ SpaceArea::~SpaceArea()
   
 void SpaceArea::Update(float DeltaTime)
 {
-
+	m_Camera->OnControl(true);
 
 	m_Camera->Update(DeltaTime);
 
@@ -101,7 +101,11 @@ void SpaceArea::Update(float DeltaTime)
 
 	m_RocketCharacter->GetSprite()->SetSize({ 2,1.5 });
 
-	
+	//m_Camera->MoveRight(0.015f, DeltaTime);
+
+	m_RocketCharacter->Move(0.02f, 0.0f, DeltaTime);
+	m_RocketAnimationComponent->SetAnimation(m_RightAnimName);
+	m_RocketAnimationComponent->Play(m_RightAnimName);
 
 
 	if (Engine::Input::IsKeyPressed(FATON_KEY_T))

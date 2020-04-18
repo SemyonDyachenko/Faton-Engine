@@ -106,8 +106,8 @@ namespace Engine{
 
 	void Camera2D::MoveLeft(float speed, float DeltaTime)
 	{
-		Position.x -= cos(glm::radians(Rotation)) * speed * DeltaTime;
-		Position.y -= sin(glm::radians(Rotation)) * speed * DeltaTime;
+		Position.x += cos(glm::radians(Rotation)) * speed * DeltaTime;
+		Position.y += sin(glm::radians(Rotation)) * speed * DeltaTime;
 
 		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
 		this->SetPosition(Position);
@@ -115,8 +115,8 @@ namespace Engine{
 
 	void Camera2D::MoveRight(float speed, float DeltaTime)
 	{
-		Position.x += cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
-		Position.y += sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+		Position.x += cos(glm::radians(Rotation)) * speed * DeltaTime;
+		Position.y += sin(glm::radians(Rotation)) * speed * DeltaTime;
 
 		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
 		this->SetPosition(Position);
@@ -124,8 +124,8 @@ namespace Engine{
 
 	void Camera2D::MoveDown(float speed, float DeltaTime)
 	{
-		Position.x -= -sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
-		Position.y -= cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+		Position.x += -sin(glm::radians(Rotation)) * speed * DeltaTime;
+		Position.y += cos(glm::radians(Rotation)) * speed * DeltaTime;
 
 		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
 		this->SetPosition(Position);
@@ -133,11 +133,16 @@ namespace Engine{
 
 	void Camera2D::MoveUp(float speed, float DeltaTime)
 	{
-		Position.x += -sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
-		Position.y += cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+		Position.x += -sin(glm::radians(Rotation)) * speed * DeltaTime;
+		Position.y += cos(glm::radians(Rotation)) * speed * DeltaTime;
 
 		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
 		this->SetPosition(Position);
+	}
+
+	const bool& Camera2D::IsControl()
+	{
+		return onControl;
 	}
 
   
