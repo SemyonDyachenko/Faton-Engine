@@ -15,8 +15,8 @@ void Application::InitAPI()
 
 void Application::InitWindow()
 {
-	this->Win_Width = 1440;
-	this->Win_Height = 900;
+	this->Win_Width = 1920;
+	this->Win_Height = 1080;
 	this->WinTittle = "Planet Saver";
 	this->FullScreen = false;
 	this->FrameRateLimit = 120;
@@ -97,6 +97,7 @@ void Application::OnUpdate() {
 void Application::OnRender() {
 
 	window->Clear({ 0,0,0,1 });
+
 
 	//if (!this->states.empty()) {
 	//	this->states.top()->OnRender(window);

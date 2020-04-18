@@ -145,6 +145,7 @@ void OpenGLShader::SetMat4(const char* name, const glm::mat4& value)
 	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
 }
 
+
 std::string OpenGLShader::GetName() const
 {
 	return this->name;

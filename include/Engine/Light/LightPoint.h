@@ -3,6 +3,8 @@
 
 
 #include "../Math/Math.h"
+#include "../renderer/Shader.h"
+#include "../Camera/Camera.h"
 
 namespace Engine
 {
@@ -10,7 +12,7 @@ namespace Engine
 	class LightPoint
 	{
 	public:
-		LightPoint(Engine::Math::Vec2f& positon, Engine::Math::Color3f& colour);
+		LightPoint(Math::Vec2f& positon, Math::Color3f& colour);
 
 		Engine::Math::Vec2f& GetPosition();
 
@@ -19,10 +21,13 @@ namespace Engine
 		void SetPosition(Engine::Math::Vec2f& position);
 
 
+		void OnRender(Camera2D& camera);
 	private:
-		Engine::Math::Vec2f m_Position;
-		Engine::Math::Color3f m_Colour;
-		Engine::Math::Vec2f attenuation = { 1,0 };
+		Math::Vec2f m_Position;
+		Math::Color3f m_Colour;
+		Math::Vec2f attenuation = { 1,0 };
+
+		std::shared_ptr<Shader> lightShader;
 	};
 
 }

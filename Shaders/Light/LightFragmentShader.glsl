@@ -9,7 +9,7 @@ uniform vec4 u_Color;
 
 void main()
 {
-	float dist = 1.0f - distance(v_ScreenPos * 0.8f,vec2(0.0f));
+	float dist = 1.0f - distance(v_ScreenPos * 1.6f,vec2(0.0f));
 	dist = clamp(dist,0.0f,1.0f);
 
 	dist = sqrt(dist);

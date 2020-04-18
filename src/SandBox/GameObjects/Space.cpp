@@ -11,11 +11,11 @@ SpaceArea::SpaceArea(float aspectRatio, float rocketX, float rocketY)
 
 
 
-	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test2/Asset 1.png"));
-	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test2/Asset 2.png"));
-	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test2/Asset 3.png"));;
-	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test2/Asset 4.png"));
-	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test2/Asset 5.png"));
+	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test3/Fly 1.png"));
+	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test3/Fly 2.png"));
+	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test3/Fly 1.png"));;
+	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test3/Fly 2.png"));
+	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test3/Fly 1.png"));
 
 
 
@@ -68,6 +68,8 @@ SpaceArea::SpaceArea(float aspectRatio, float rocketX, float rocketY)
 
 	m_RocketCharacter->GetSprite()->TransformRecalculate();
 	m_RocketCharacter->GetSprite()->TextureRecalculate();
+
+
 	
 }
 
@@ -89,20 +91,20 @@ void SpaceArea::Update(float DeltaTime)
 	m_RocketCharacter->AddBoxColliderComponent();
 
 
-	m_Camera->SetPosition({ m_RocketCharacter->GetSprite()->GetPosition().x,m_Camera->GetPosition().y,0 });
+	//m_Camera->SetPosition({ m_RocketCharacter->GetSprite()->GetPosition().x,m_Camera->GetPosition().y,0 });
 
 	m_RocketCharacter->GetSprite()->SetSize({ 2,1.5 });
 
-
+	
 
 
 	if (Engine::Input::IsKeyPressed(FATON_KEY_T))
 	{
-		m_RocketCharacter->Move(0.0f, 0.1f, DeltaTime);
+		m_RocketCharacter->Move(0.0f, 0.05f, DeltaTime);
 	}
 	else if (Engine::Input::IsKeyPressed(FATON_KEY_G))
 	{
-		m_RocketCharacter->Move(0.0f, -0.1f, DeltaTime);
+		m_RocketCharacter->Move(0.0f, -0.05f, DeltaTime);
 	}
 	else  if (Engine::Input::IsKeyPressed(FATON_KEY_H))
 	{
@@ -120,7 +122,10 @@ void SpaceArea::Update(float DeltaTime)
 
 void SpaceArea::Render()
 {
-	m_RocketCharacter->OnRender(*m_Camera);
 
-	Engine::Renderer2D::DrawLight(*m_Camera, { 4,4 }, { 5,5 }, { 255,255,255,1 });
+
+	//Engine::Renderer2D::DrawRect(*m_Camera, { 10.0f,-8 }, { 1920,1080 }, { 0,0,0,1 });
+
+
+	m_RocketCharacter->OnRender(*m_Camera);
 }
