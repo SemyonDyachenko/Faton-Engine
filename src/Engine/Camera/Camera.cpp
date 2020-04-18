@@ -18,49 +18,58 @@ namespace Engine{
     	
 		ViewProjectionMatrix = ProjectionMatrix * ViewMatrix;
 
-		CameraSpeed = 0.015f;
+		CameraSpeed = 0.0f;
+		ZoomSpeed = 0.0f;
+
+		onControl = true;
     }
 
 	Camera2D::~Camera2D()
     {
     }
 
-    void Camera2D::Update(float time)
+    void Camera2D::Update(float DeltaTime)
     {
 
     	//movement camera
-    	if(Input::IsKeyPressed(FATON_KEY_A))
-    	{
-			Position.x -= cos(glm::radians(Rotation)) * CameraSpeed* time;
-			Position.y -= sin(glm::radians(Rotation)) *CameraSpeed* time;
-			
-    	}
-		else if (Input::IsKeyPressed(FATON_KEY_D))
-		{
-			Position.x += cos(glm::radians(Rotation)) * CameraSpeed* time;
-			Position.y += sin(glm::radians(Rotation)) * CameraSpeed* time;
-		}
-		else if(Input::IsKeyPressed(FATON_KEY_W))
-    	{
-			Position.x += -sin(glm::radians(Rotation)) *CameraSpeed* time;
-			Position.y += cos(glm::radians(Rotation)) * CameraSpeed* time;
 		
-    	}
-		else if(Input::IsKeyPressed(FATON_KEY_S))
+		if (onControl)
 		{
-			Position.x -= -sin(glm::radians(Rotation)) * CameraSpeed* time;
-			Position.y -= cos(glm::radians(Rotation)) *CameraSpeed*time;
-			
-		}
 
-		if(Input::IsKeyPressed(FATON_KEY_UP))
-		{
-			ZoomFactor -= 0.05f*time;
-		}
+			if (Input::IsKeyPressed(FATON_KEY_A))
+			{
+				Position.x -= cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+				Position.y -= sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
 
-		else if(Input::IsKeyPressed(FATON_KEY_DOWN))
-		{
-			ZoomFactor += 0.05f* time;
+			}
+			else if (Input::IsKeyPressed(FATON_KEY_D))
+			{
+				Position.x += cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+				Position.y += sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+			}
+			else if (Input::IsKeyPressed(FATON_KEY_W))
+			{
+				Position.x += -sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+				Position.y += cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+
+			}
+			else if (Input::IsKeyPressed(FATON_KEY_S))
+			{
+				Position.x -= -sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+				Position.y -= cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+
+			}
+
+			if (Input::IsKeyPressed(FATON_KEY_UP))
+			{
+				ZoomFactor -= ZoomSpeed * DeltaTime;
+			}
+
+			else if (Input::IsKeyPressed(FATON_KEY_DOWN))
+			{
+				ZoomFactor += ZoomSpeed * DeltaTime;
+			}
+
 		}
 
 		this->SetZoomFactor(ZoomFactor);
@@ -69,8 +78,7 @@ namespace Engine{
 
 		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio*ZoomFactor, -ZoomFactor, ZoomFactor);
 
-		
-
+	
     	
 		this->SetPosition(Position);
 		
@@ -96,6 +104,42 @@ namespace Engine{
 		return ViewProjectionMatrix;
     }
 
+	void Camera2D::MoveLeft(float speed, float DeltaTime)
+	{
+		Position.x -= cos(glm::radians(Rotation)) * speed * DeltaTime;
+		Position.y -= sin(glm::radians(Rotation)) * speed * DeltaTime;
+
+		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
+		this->SetPosition(Position);
+	}
+
+	void Camera2D::MoveRight(float speed, float DeltaTime)
+	{
+		Position.x += cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+		Position.y += sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+
+		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
+		this->SetPosition(Position);
+	}
+
+	void Camera2D::MoveDown(float speed, float DeltaTime)
+	{
+		Position.x -= -sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+		Position.y -= cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+
+		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
+		this->SetPosition(Position);
+	}
+
+	void Camera2D::MoveUp(float speed, float DeltaTime)
+	{
+		Position.x += -sin(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+		Position.y += cos(glm::radians(Rotation)) * CameraSpeed * DeltaTime;
+
+		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
+		this->SetPosition(Position);
+	}
+
   
     const float& Camera2D::GetZoomFactor() const
     {
@@ -111,6 +155,31 @@ namespace Engine{
     {
 		return this->Rotation;
     }
+
+	void Camera2D::Zoom(float zoomSpeed,float DeltaTime)
+	{
+		ZoomFactor += ZoomSpeed * DeltaTime;
+		this->SetZoomFactor(ZoomFactor);
+
+		this->ZoomFactor = std::max(ZoomFactor, 0.25f);
+
+		this->SetPojection(-AspectRatio * ZoomFactor, AspectRatio * ZoomFactor, -ZoomFactor, ZoomFactor);
+
+	}
+
+	void Camera2D::OnControl(bool control)
+	{
+		onControl = control;
+	}
+
+	void Camera2D::SetCameraSpeed(float cameraSpeed)
+	{
+		CameraSpeed = cameraSpeed;
+	}
+
+	void Camera2D::SetZoomSpeed(float zoomSpeed)
+	{
+	}
 
     void Camera2D::SetPojection(float left, float right, float bottom, float top)
     {

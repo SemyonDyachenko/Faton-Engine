@@ -81,7 +81,13 @@ SpaceArea::~SpaceArea()
 void SpaceArea::Update(float DeltaTime)
 {
 
+
 	m_Camera->Update(DeltaTime);
+
+	m_Camera->SetCameraSpeed(0.015f);
+	m_Camera->SetZoomSpeed(0.05f);
+
+	m_Camera->SetZoomFactor(6.0f);
 
 	m_RocketCharacter->OnUpdate(DeltaTime);
 	m_RocketMovementComponent->OnUpdate(DeltaTime);
