@@ -38,11 +38,25 @@ private:
 	std::vector<std::shared_ptr<Engine::Texture2D>> m_TopAnimationTextures;
 	std::vector<std::shared_ptr<Engine::Texture2D>> m_BottomAnimationTextures;
 	std::vector<std::shared_ptr<Engine::Texture2D>> m_RightAnimationTextures;
-
+	
+	std::shared_ptr<Engine::Texture2D> backgroundTexture;
+	Engine::Sprite* background;
+	Engine::Sprite* background1;
 
 	Engine::Animation* m_MoveTopAnimation;
 	Engine::Animation* m_MoveBottomAnimation;
 	Engine::Animation* m_MoveRightAnimation;
+
+	//particle
+
+	float m_Time = 0.0f;
+	float m_SmokeEmitInterval = 0.4f;
+	float m_SmokeNextEmitTime = m_SmokeEmitInterval;
+
+	ParticleSystem* m_RocketSmokeSystem;
+	ParticleProps m_EngineParticle;
+	ParticleProps m_RocketSmokeProps;
+
 };
 
 

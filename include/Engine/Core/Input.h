@@ -71,7 +71,7 @@ namespace Engine
         
         static float GamepadGetAxisPosition(unsigned int gamepad, Gamepad::Axis axis)
         {
-            instance->GamepadGetAxisPositionImplementation(gamepad, axis);
+            return instance->GamepadGetAxisPositionImplementation(gamepad, axis);
         }
 
         static float GetMousePositionX()
@@ -93,10 +93,10 @@ namespace Engine
 		virtual float GetMousePositionXImplementation() = 0;
 		virtual float GetMousePositionYImplementation() = 0;
         virtual bool GamepadIsConnectedImplementation(unsigned int gamepad) = 0;
-        virtual unsigned int GetGamepadButtonCountImplementation(unsigned int gamepad);
-        virtual bool GamepadHasAxisImplementation(unsigned int gamepad, Gamepad::Axis axis);
-        virtual bool GamepadIsButtonPressedInplementation(unsigned int gamepad, unsigned int button);
-        virtual float GamepadGetAxisPositionImplementation(unsigned int gamepad, Gamepad::Axis axis);
+        virtual unsigned int GetGamepadButtonCountImplementation(unsigned int gamepad) = 0;
+        virtual bool GamepadHasAxisImplementation(unsigned int gamepad, Gamepad::Axis axis) = 0;;
+        virtual bool GamepadIsButtonPressedInplementation(unsigned int gamepad, unsigned int button) = 0;
+        virtual float GamepadGetAxisPositionImplementation(unsigned int gamepad, Gamepad::Axis axis) = 0;
         
 		
 	private:

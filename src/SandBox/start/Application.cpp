@@ -26,6 +26,7 @@ void Application::InitWindow()
 	this->window->SetVerticalSync(Vsync);
 	this->window->SetResizable(false);
 	this->window->ChangeFrameRateLimit(FrameRateLimit);
+
 }
 
 void Application::InitStates()
@@ -96,7 +97,7 @@ void Application::OnUpdate() {
 
 void Application::OnRender() {
 
-	window->Clear({ 0,0,0,1 });
+	window->Clear({ 255,255,255,1 });
 
 
 	//if (!this->states.empty()) {

@@ -6,10 +6,22 @@ SpaceArea::SpaceArea(float aspectRatio, float rocketX, float rocketY)
 {
 	m_Camera = new Engine::Camera2D(aspectRatio);
 
-	AnimationSpeed = 0.07f;
+	AnimationSpeed = 0.09f;
 
+	m_RocketSmokeSystem = new ParticleSystem();
 
+	m_RocketSmokeProps.Position = { 0.0f, 0.0f };
+	m_RocketSmokeProps.Velocity = { -2.0f, 0.0f }, m_RocketSmokeProps.VelocityVar = { 4.0f, 2.0f };
+	m_RocketSmokeProps.SizeBirth = 0.2f, m_RocketSmokeProps.SizeDeath = 0.0f, m_RocketSmokeProps.SizeVar = 0.15f;
+	m_RocketSmokeProps.BirthColor = { 255.f,0.0f,0.0f, 1.0f };
+	m_RocketSmokeProps.DeathColor = { 0.0f, 0.0f, 0.0f, 1.0f };
+	m_RocketSmokeProps.LifeTime = 4.0f;
 
+	backgroundTexture = Engine::Texture2D::Create("assets/images/background.jpg");
+	background = new Engine::Sprite(0,0,backgroundTexture);
+	background1 = new Engine::Sprite(background->GetPosition().x+background->GetSize().x,0,backgroundTexture);
+	background->SetSize({ 1920,1080 });
+	background1->SetSize({ 1920,1080 });
 
 	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test3/Fly 1.png"));
 	m_RightAnimationTextures.push_back(Engine::Texture2D::Create("assets/images/anim/test3/Fly 2.png"));
@@ -80,7 +92,9 @@ SpaceArea::~SpaceArea()
   
 void SpaceArea::Update(float DeltaTime)
 {
-	m_Camera->OnControl(true);
+	m_Time += DeltaTime;
+
+	m_Camera->OnControl(false);
 
 	m_Camera->Update(DeltaTime);
 
@@ -96,37 +110,81 @@ void SpaceArea::Update(float DeltaTime)
 	m_RocketCharacter->GetSprite()->ChangeTexture(m_RocketAnimationComponent->GetNowTextureFrame());
 	m_RocketCharacter->AddBoxColliderComponent();
 
+	background->SetSize({ 59.2,15.8 });
+	background->TransformRecalculate();
+	background->TextureRecalculate();
+
+	background1->SetSize({ 59.2,15.8 });
+	background1->TransformRecalculate();
+	background1->TextureRecalculate();
 
 	//m_Camera->SetPosition({ m_RocketCharacter->GetSprite()->GetPosition().x,m_Camera->GetPosition().y,0 });
 
 	m_RocketCharacter->GetSprite()->SetSize({ 2,1.5 });
 
-	//m_Camera->MoveRight(0.015f, DeltaTime);
+	m_Camera->MoveRight(0.003f, DeltaTime);
+	
+	
 
-	m_RocketCharacter->Move(0.02f, 0.0f, DeltaTime);
+	m_RocketCharacter->Move(0.025f, 0.0f, DeltaTime);
 	m_RocketAnimationComponent->SetAnimation(m_RightAnimName);
 	m_RocketAnimationComponent->Play(m_RightAnimName);
 
 
-	if (Engine::Input::IsKeyPressed(FATON_KEY_T))
+	if (Engine::Input::IsKeyPressed(FATON_KEY_W))
 	{
-		m_RocketCharacter->Move(0.0f, 0.05f, DeltaTime);
+		m_RocketCharacter->Move(0.0f, 0.045f, DeltaTime);
 	}
-	else if (Engine::Input::IsKeyPressed(FATON_KEY_G))
+	else if (Engine::Input::IsKeyPressed(FATON_KEY_S))
 	{
-		m_RocketCharacter->Move(0.0f, -0.05f, DeltaTime);
+		m_RocketCharacter->Move(0.0f, -0.045f, DeltaTime);
 	}
-	else  if (Engine::Input::IsKeyPressed(FATON_KEY_H))
+	else  if (Engine::Input::IsKeyPressed(FATON_KEY_D))
 	{
-		m_RocketCharacter->Move(0.02f, 0.0f, DeltaTime);
+		m_RocketCharacter->Move(0.025f, 0.0f, DeltaTime);
 		m_RocketAnimationComponent->SetAnimation(m_RightAnimName);
 		m_RocketAnimationComponent->Play(m_RightAnimName);
-
-
+	}
+	else if (Engine::Input::IsKeyPressed(FATON_KEY_A))
+	{
+		m_RocketCharacter->Move(-0.01f, 0.0f, DeltaTime);
+		m_RocketAnimationComponent->SetAnimation(m_RightAnimName);
+		m_RocketAnimationComponent->Play(m_RightAnimName);
 	}
 
+	if (Engine::Input::GamepadIsConnected(0))
+	{
 
+		if (Engine::Input::GamepadGetAxisPosition(0, Engine::Gamepad::Axis::X) > 1)
+		{
+			m_RocketCharacter->Move(0.025f, 0.0f, DeltaTime);
+			m_RocketAnimationComponent->SetAnimation(m_RightAnimName);
+			m_RocketAnimationComponent->Play(m_RightAnimName);
+		}
+		 if (Engine::Input::GamepadGetAxisPosition(0, Engine::Gamepad::Axis::X) < 0)
+		{
+			m_RocketCharacter->Move(-0.01f, 0.0f, DeltaTime);
+			m_RocketAnimationComponent->SetAnimation(m_RightAnimName);
+			m_RocketAnimationComponent->Play(m_RightAnimName);
+		}
+		 if (Engine::Input::GamepadGetAxisPosition(0, Engine::Gamepad::Axis::Y) > 1)
+		{
+			m_RocketCharacter->Move(0.0f, -0.045f, DeltaTime);
+		}
+		 if (Engine::Input::GamepadGetAxisPosition(0, Engine::Gamepad::Axis::Y) < 0)
+		{
+			m_RocketCharacter->Move(0.0f, 0.045f, DeltaTime);
+		}
+	}
 
+	if (m_Time > m_SmokeNextEmitTime)
+	{
+		m_RocketSmokeProps.Position = { m_RocketCharacter->GetSprite()->GetPosition().x,m_RocketCharacter->GetSprite()->GetPosition().y };
+		m_RocketSmokeSystem->Emit(m_RocketSmokeProps);
+		m_SmokeNextEmitTime += m_SmokeEmitInterval;
+	}
+
+	m_RocketSmokeSystem->OnUpdate(DeltaTime);
 
 }
 
@@ -134,8 +192,12 @@ void SpaceArea::Render()
 {
 
 
+	
+	//background->OnRender(*m_Camera);
+	//background1->OnRender(*m_Camera);
+
+
 	//Engine::Renderer2D::DrawRect(*m_Camera, { 10.0f,-8 }, { 1920,1080 }, { 0,0,0,1 });
-
-
+	m_RocketSmokeSystem->OnRender(*m_Camera);
 	m_RocketCharacter->OnRender(*m_Camera);
 }

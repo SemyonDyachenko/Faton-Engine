@@ -93,6 +93,30 @@ namespace Engine
         m_Shader->Unbind();
 	}
 
+	void Renderer2D::DrawLight(Camera2D& camera, Math::Vec2f position, Math::Vec2f size, float rotation, Math::Vec4f color)
+	{
+        std::shared_ptr<Shader> m_Shader = Shader::Create("Shaders/Color/ColorVertexShader.glsl", "Shaders/Color/ColorFragmentShader.glsl");
+
+        Rectangle* m_rect = new Rectangle(position.x, position.y, size.x, size.y);
+
+        glm::mat4 m_Transform = glm::translate(glm::mat4(1.0f), { position.x,position.y,0 })
+            * glm::rotate(glm::mat4(1.0f), rotation, { 0.0f, 0.0f, 1.0f })
+            * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
+       
+
+        m_Shader->Bind();
+
+        m_Shader->SetMat4("ViewProjectionMatrix", camera.GetViewProjectionMatrix());
+
+        m_Shader->SetFloat4("u_Color", { color.x / 255.f,color.y / 255.f,color.z / 255.f,1.0f });
+
+        m_Shader->SetMat4("Transform", m_Transform);
+
+        Render(*m_rect);
+
+        m_Shader->Unbind();
+	}
+
 
 
     void Renderer2D::Render(Engine::Shape& primitive)

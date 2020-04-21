@@ -107,6 +107,11 @@ void SFMLWindow::SetResizable(bool resizable) {
     this->resizable = resizable;
 }
 
+void SFMLWindow::SetMouseCursorVisible(bool visible)
+{
+    window->setMouseCursorVisible(visible);
+}
+
 void SFMLWindow::SetFullscreen(bool is_fullscreen) {
 this->fullscreen = is_fullscreen;
 }

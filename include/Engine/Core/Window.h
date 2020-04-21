@@ -37,6 +37,7 @@ namespace Engine {
 
         //virtual void Update() = 0;
 
+        virtual void SetMouseCursorVisible(bool visible) = 0;
 
         virtual bool PollEvent(Event& event) = 0;
 

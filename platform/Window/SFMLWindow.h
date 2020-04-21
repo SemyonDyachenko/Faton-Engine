@@ -47,6 +47,8 @@ public:
 
     void SetResizable(bool resizable) override;
 
+    void SetMouseCursorVisible(bool visible) override;
+
     inline virtual void* GetNativeWindow() const;
 
     bool PollEvent(Engine::Event & event) override;

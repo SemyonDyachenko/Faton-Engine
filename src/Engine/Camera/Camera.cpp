@@ -63,11 +63,13 @@ namespace Engine{
 			if (Input::IsKeyPressed(FATON_KEY_UP))
 			{
 				ZoomFactor -= ZoomSpeed * DeltaTime;
+				this->SetZoomFactor(ZoomFactor);
 			}
 
 			else if (Input::IsKeyPressed(FATON_KEY_DOWN))
 			{
 				ZoomFactor += ZoomSpeed * DeltaTime;
+				this->SetZoomFactor(ZoomFactor);
 			}
 
 		}
