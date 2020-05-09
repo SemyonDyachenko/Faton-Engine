@@ -3,17 +3,25 @@
 
 
 #include "../../Engine/Engine.h"
-
+#include "../GUI/Widget.h"
 
 class Editor
 {
-private:
-	std::string mapPath;
 public:
-	Editor();
+	Editor(float window_width,float window_height);
 	
 	virtual ~Editor();
-	
+
+
+	void OnUpdate(float deltaTime);
+
+	void OnRender();
+private:
+	void InitWidgets();
+
+	Engine::Camera2D* m_Camera;
+
+	Widget* MapOpenWidget;
 };
 
 

@@ -42,7 +42,11 @@ Application::Application() {
 	RenderCommand::Init();
 
 
-	world = new GameWorld(window->GetWidth() / window->GetHeight());
+	camera = new Engine::Camera3D(glm::vec3(0, 0, -3), 70.0f, (window->GetWidth() / window->GetHeight()), 0.01f, 1000.0f);
+
+	texture = Engine::Texture2D::Create("assets/images/pusheen.png");
+
+	sprite = new Engine::Sprite(0,0,texture);
 }
 
 Application::~Application() {
@@ -62,7 +66,7 @@ void Application::UpdateDeltaTime()
 	deltaTime = new Time(float(time - LastFrameTime) / 1000);
 	LastFrameTime = time;
 
-
+	
 }
 
 
@@ -70,26 +74,8 @@ void Application::OnUpdate() {
 	
 	window->PollEvent(*event);
 
-	//if (!this->states.empty())
-	//{
-	//	this->states.top()->OnUpdate(deltaTime->AsMicroseconds());
-//
-	//	if (this->states.top()->GetQuit())
-//		{
-
-	//		this->states.top()->EndState();
-	//		delete this->states.top();
-	//		this->states.pop();
-	//	}
-	//}
-	//App end
-//	else {
-//		this->window->Close();	
-//	}
-
 
 	
-	world->Update(deltaTime->AsMicroseconds());
 } 
 
 
@@ -97,14 +83,9 @@ void Application::OnUpdate() {
 
 void Application::OnRender() {
 
-	window->Clear({ 255,255,255,1 });
+	window->Clear({ 0,0,0,1 });
 
-
-	//if (!this->states.empty()) {
-	//	this->states.top()->OnRender(window);
-	//}
-
-	world->Render();
+	sprite->OnRender(*camera);
 
 	window->Show();
 }
@@ -115,6 +96,7 @@ void Application::Run() {
 		this->UpdateDeltaTime();
 		OnUpdate();
 		OnRender();
+		
 
     }
 }

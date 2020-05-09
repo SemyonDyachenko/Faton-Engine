@@ -5,6 +5,7 @@
 #include "RocketMainCharacter.h"
 
 #include "../ParticleSystem.h"
+#include "GameEntities/Asteroid.h"
 
 class SpaceArea
 {
@@ -57,6 +58,15 @@ private:
 	ParticleProps m_EngineParticle;
 	ParticleProps m_RocketSmokeProps;
 
+	Asteroid* asteroid; 
+	Engine::MovementComponent* asteroidMovComponent;
+
+	std::vector <Asteroid*> asteroids;
+
+	std::shared_ptr<Engine::Texture2D> asteroidTexture;
+	Engine::Sprite* asteroidSprite;
+
+	int asteroidCount = 10;
 };
 
 

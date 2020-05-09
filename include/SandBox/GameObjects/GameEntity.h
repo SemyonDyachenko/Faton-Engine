@@ -7,9 +7,7 @@
 class GameEntity
 {
 public:
-	GameEntity();
-
-	virtual ~GameEntity();
+	virtual ~GameEntity() = default;
 
 	virtual void Update(float DeltaTime) = 0;
 

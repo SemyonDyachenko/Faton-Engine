@@ -54,7 +54,7 @@ namespace Engine
 		
 		std::shared_ptr<Texture2D>& GetNowFrame()
 		{
-			if (m_Textures[m_CurrentFrame] == NULL)
+			if (m_Textures[static_cast<int>(m_CurrentFrame)] == NULL)
 			{
 				FATON_PRINT("ANIMATION: Textures empty frame");
 			}

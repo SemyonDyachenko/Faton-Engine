@@ -28,9 +28,13 @@ private:
 	std::stack<State*> states;
 	Event *event;
 
-	GameState* gamestate;
+	Engine::Camera3D* camera;
+
 	
-	GameWorld* world;
+	std::shared_ptr<Engine::Texture2D> texture;
+
+
+	Sprite* sprite;
 
     bool IsRunning = true;
 	Time *deltaTime;

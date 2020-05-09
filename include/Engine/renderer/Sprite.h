@@ -18,6 +18,7 @@
 #include "RectangleShape.h"
 #include "Shader.h"
 #include "Drawable2D.h"
+#include "../Camera/Camera3D.h"
 
 
 namespace Engine

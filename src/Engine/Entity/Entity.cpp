@@ -122,6 +122,7 @@ namespace Engine
 			{
 				this->m_MovComponent->Move(x, y, DeltaTime);
 				this->m_Sprite->Move(m_MovComponent->GetVelocity().x, m_MovComponent->GetVelocity().y);
+
 			}
 		}
 
