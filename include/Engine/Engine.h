@@ -44,6 +44,8 @@
 #include "3dRenderer/Mesh.h"
 #include "renderer/Shape.h"
 #include "renderer/TextureHolder.h"
+#include "3dRenderer/TexturedModel.h"
+#include "3dRenderer/Entity3d.h"
 
 //-------Physics Engine --------
 #include "Physics/Collider2D.h"

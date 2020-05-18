@@ -9,7 +9,7 @@ namespace Engine
 {
 
 	
-	class Mesh  
+	class Mesh 
 	{
 
 	public:
@@ -19,11 +19,11 @@ namespace Engine
 
 		virtual ~Mesh();
 
-		virtual void OnRender();
+		void OnRender();
 		
 	private:
 		std::shared_ptr<VertexArray> m_VertexArray;
-
+	
 
 		std::vector<float> m_VertexBuffer;
 		std::vector<unsigned int> m_IndexBuffer;

@@ -33,7 +33,7 @@ Application::Application() {
 	Renderer3D::Init();
 	RenderCommand::Init();
 
-
+	camera = new Camera3D({ 0.0f,0.0f,0.0f }, 70.0f, window->GetWidth() / window->GetHeight(), 0.0f, 1000.f);
 
 
 	float size = 1.0f;
@@ -86,7 +86,12 @@ Application::Application() {
 		// left face
 	};
 
+	mesh = new Mesh(vertices, indices);
+	texture = Texture2D::Create("assets/images/pusheen.png");
 
+	model = new TexturedModel(mesh, texture);
+
+	entity = new Entity3d(model, { 0,0,0.002f, },0.0f,0.0f,0.0f,1.0f);
 
 }
 
@@ -122,7 +127,7 @@ void Application::OnRender() {
 	window->Clear({ 0,0,0,1 });
 
 
-
+	entity->OnRender(*camera);
 
 
 	

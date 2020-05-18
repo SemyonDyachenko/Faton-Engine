@@ -11,6 +11,8 @@
 #include "../States/State.h"
 #include "../States/GameState.h"
 
+
+
 using namespace Engine;
 using namespace Math;
 using namespace Physics;
@@ -28,7 +30,12 @@ private:
 	std::stack<State*> states;
 	Event *event;
 
+	Camera3D* camera;
 
+	Mesh* mesh;
+	std::shared_ptr<Texture2D> texture;
+	TexturedModel* model;
+	Entity3d* entity;
 
 
 

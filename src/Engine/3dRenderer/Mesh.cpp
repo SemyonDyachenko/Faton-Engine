@@ -15,7 +15,7 @@ namespace Engine
 		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 		m_VertexArray->AddIndexBuffer(m_IndexBuffer);
 		
-		
+
 	}
 
 	Mesh::Mesh(const Mesh* mesh)
@@ -34,5 +34,8 @@ namespace Engine
 	{
 		m_VertexArray->GetDrawable()->Bind();
 		m_VertexArray->GetDrawable()->Draw();
+
 	}
+
+
 }
