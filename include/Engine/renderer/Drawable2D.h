@@ -21,17 +21,17 @@ namespace Engine
 
 		bool m_Visible;
 	public:
-		Drawable2D(const Math::Vec2f & position, const Math::Vec2f & size);
+		Drawable2D(const Math::Vec2f& position, const Math::Vec2f& size);
 
 		virtual ~Drawable2D();
 
-		virtual void OnRender(Camera2D & camera) const = 0;
+		virtual void OnRender(Camera2D& camera) const = 0;
 
 		const Math::Vec2f& GetPosition() const;
 
 		const Math::Vec2f& GetSize() const;
 
-		Math::FloatRect & GetBounds();
+		Math::FloatRect& GetBounds();
 
 		std::shared_ptr<Texture2D> GetTexture();
 
@@ -39,15 +39,15 @@ namespace Engine
 
 
 		void SetPosition(const Math::Vec2f& position);
-		
-		void Translate(float x,float y);
-		
+
+		void Translate(float x, float y);
+
 		void SetSize(const Math::Vec2f& size);
 
 		void SetVisible(bool visible);
-		
+
 	};
-	
+
 }
 
 

@@ -26,6 +26,9 @@ void OpenGLRendererAPI::Init3D()
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glDisable(GL_BLEND);
+	glDepthFunc(GL_LESS);
+
+	
 
 
 	glewExperimental = GL_TRUE;

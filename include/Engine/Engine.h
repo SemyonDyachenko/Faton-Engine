@@ -31,6 +31,7 @@
 
 //---------Renderer---------
 #include "renderer/Renderer2D.h"
+#include "3drenderer/Renderer3D.h"
 #include "renderer/RendererAPI.h"
 #include "renderer/Sprite.h"
 #include "renderer/Shader.h"
@@ -39,8 +40,8 @@
 #include "renderer/RectangleShape.h"
 #include "renderer/Drawable.h"
 #include "renderer/Drawable2D.h"
-#include "renderer/Drawable3D.h"
-#include "renderer/Mesh.h"
+#include "3dRenderer/Drawable3D.h"
+#include "3dRenderer/Mesh.h"
 #include "renderer/Shape.h"
 #include "renderer/TextureHolder.h"
 

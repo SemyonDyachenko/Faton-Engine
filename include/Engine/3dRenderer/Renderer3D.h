@@ -5,10 +5,9 @@
 #include "Drawable3D.h"
 
 
-#include "Renderer2D.h"
 
 #include "../Entity/Scene3D.h"
-#include "RendererAPI.h"
+#include "../renderer/RendererAPI.h"
 
 namespace Engine
 {
@@ -23,6 +22,11 @@ namespace Engine
 		static void BeginScene(Entity::Scene3D & scene);
 
 		static void EndScene();
+
+		static void DrawCube(Camera3D& camera, Math::Vec3f& position, float width);
+		static void DrawCube(Camera3D& camera, Math::Vec3f& position, float width,Math::Color3f & color);
+		static void DrawCube(Camera3D& camera, Math::Vec3f& position, float width,float rotation,Math::Color3f & color);
+
 		
 		static void Render(Drawable3D& drawable3d);
 		

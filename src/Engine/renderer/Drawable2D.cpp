@@ -5,7 +5,7 @@
 namespace Engine
 {
 
-	Drawable2D::Drawable2D(const Math::Vec2f & position, const Math::Vec2f & size) : m_Visible(true), m_Texture(nullptr), bounds(position.x, position.y, size.x, size.y)
+	Drawable2D::Drawable2D(const Math::Vec2f& position, const Math::Vec2f& size) : m_Visible(true), m_Texture(nullptr), bounds(position.x, position.y, size.x, size.y)
 	{
 
 

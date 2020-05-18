@@ -28,19 +28,14 @@ private:
 	std::stack<State*> states;
 	Event *event;
 
-	Engine::Camera3D* camera;
-
-	
-	std::shared_ptr<Engine::Texture2D> texture;
 
 
-	Sprite* sprite;
+
 
     bool IsRunning = true;
 	Time *deltaTime;
 	float LastFrameTime;
 	
-	void InitAPI();
 	void InitWindow();
 	void InitStates();
 

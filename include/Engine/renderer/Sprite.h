@@ -18,7 +18,6 @@
 #include "RectangleShape.h"
 #include "Shader.h"
 #include "Drawable2D.h"
-#include "../Camera/Camera3D.h"
 
 
 namespace Engine
@@ -27,18 +26,18 @@ namespace Engine
 	{
 	public:
 		Sprite(std::shared_ptr<Texture2D> texture);
-		
-		Sprite(float x,float y,std::shared_ptr<Texture2D> texture);
+
+		Sprite(float x, float y, std::shared_ptr<Texture2D> texture);
 
 		void ChangeTexture(std::shared_ptr<Texture2D>& texture);
 
-		void MoveLeft(float time,float speed);
+		void MoveLeft(float time, float speed);
 		void MoveRight(float time, float speed);
-		void MoveUp(float time,float speed);
-		void MoveDown(float time,float speed);
+		void MoveUp(float time, float speed);
+		void MoveDown(float time, float speed);
 
 		void Move(float velocity_x, float velocity_y);
-		
+
 		void TextureRecalculate();
 		void TransformRecalculate();
 

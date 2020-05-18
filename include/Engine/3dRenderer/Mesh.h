@@ -2,14 +2,14 @@
 #define ENGINE_MESH_H
 #include "../Math/Math.h"
 #include "Drawable3D.h"
-#include "VertexArray.h"
+#include "../renderer/VertexArray.h"
 
 
 namespace Engine
 {
 
 	
-	class Mesh : public Drawable3D
+	class Mesh  
 	{
 
 	public:
@@ -19,7 +19,7 @@ namespace Engine
 
 		virtual ~Mesh();
 
-		void OnRender(Camera3D& camera) override;
+		virtual void OnRender();
 		
 	private:
 		std::shared_ptr<VertexArray> m_VertexArray;
