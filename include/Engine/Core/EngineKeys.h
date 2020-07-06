@@ -45,6 +45,7 @@
 #define FATON_KEY_RIGHT 72
 #define FATON_KEY_UP 73
 #define FATON_KEY_DOWN 74
+#define FATON_KEY_SPACE 57
 
 
 #endif //MY_OWN_GAME_ENGINEKEYS_H

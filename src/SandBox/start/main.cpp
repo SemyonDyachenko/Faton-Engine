@@ -5,14 +5,13 @@
 
 
 
+
+
+
 int main()
 {
 
 	auto  *app = new Application();
-
-
-	system("color 02");
-	FATON_PRINT("[ENGINE]:  Engine is work!");
 
 
 	app->Run();

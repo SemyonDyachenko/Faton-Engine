@@ -8,9 +8,9 @@
 
 void Application::InitWindow()
 {
-	this->Win_Width = 1920;
-	this->Win_Height = 1080;
-	this->WinTittle = "Planet Saver";
+	this->Win_Width = 1440;
+	this->Win_Height = 900;
+	this->WinTittle = "Banana Sandbox";
 	this->FullScreen = false;
 	this->FrameRateLimit = 120;
 	this->Vsync = false;
@@ -33,57 +33,55 @@ Application::Application() {
 	Renderer3D::Init();
 	RenderCommand::Init();
 
-	camera = new Camera3D({ 0.0f,0.0f,0.0f }, 70.0f, window->GetWidth() / window->GetHeight(), 0.0f, 1000.f);
+	camera = new Camera3D(window->GetWidth() / window->GetHeight());
 
 
-	float size = 1.0f;
+	float size = 0.5f;
 
-	std::vector<float> vertices = {   // Green
-		-0.5f,0.5f,0,
-		-0.5f,-0.5f,0,
-		0.5f,-0.5f,0,
-		0.5f,0.5f,0,
+	std::vector<float> vertices = {  
+		1,1,-1,
+		1,-1,-1,
+		1,1,1,
+		1,-1,1,
+		-1,1,-1,
+		-1,-1,-1,
+		-1,1,1,
+		-1,-1,1
 
-		-0.5f,0.5f,1,
-		-0.5f,-0.5f,1,
-		0.5f,-0.5f,1,
-		0.5f,0.5f,1,
-
-		0.5f,0.5f,0,
-		0.5f,-0.5f,0,
-		0.5f,-0.5f,1,
-		0.5f,0.5f,1,
-
-		-0.5f,0.5f,0,
-		-0.5f,-0.5f,0,
-		-0.5f,-0.5f,1,
-		-0.5f,0.5f,1,
-
-		-0.5f,0.5f,1,
-		-0.5f,0.5f,0,
-		0.5f,0.5f,0,
-		0.5f,0.5f,1,
-
-		-0.5f,-0.5f,1,
-		-0.5f,-0.5f,0,
-		0.5f,-0.5f,0,
-		0.5f,-0.5f,1,
 	};
 
+	/*-size, -size, -size,
+		  size,  -size, -size,
+		size,  size, -size,
+		  -size, size, -size,
+		  size, -size, size,
+			-size,  -size, size,
+			-size,  size, size,
+			 size, size, size,
+			 -size, -size,  size,
+			 -size, -size, -size,
+			-size,  size, -size,
+			-size,  size,  size,
+			size, -size, -size,
+			size,  -size, size,
+			size,  size,  size,
+			size, size,  -size,
+			-size, -size,  size,
+			size, -size, size,
+			size, -size, -size,
+			-size, -size,  -size,
+			 -size, size,  -size,
+			 size, size, -size,
+			size, size, size,
+			 -size, size,  size,*/
+
 	std::vector<unsigned int> indices = {
-		 0,1,3,   // front face (CCW)
-		 3,1,2,  // right face
-		 4,5,7,// back face
-		 7,5,6,
-		8,9,11,
-		11,9,10,
-		12,13,15,
-		15,13,14,
-		16,17,19,
-		19,17,18,
-		20,21,23,
-		23,21,22
-		// left face
+				1,1,1,5,2,1,7,3,1,3,4,1,
+				4,5,2,3,6,2,7,7,2,8,8,2,
+				8,8,3,7,7,3,5,9,3,6,10,3,
+				6,10,4,2,11,4,4,12,4,8,13,4,
+				2,14,5,1,15,5,3,16,5,4,17,5,
+				6,18,6,5,19,6,1,20,6,2,11,6
 	};
 
 	mesh = new Mesh(vertices, indices);
@@ -91,7 +89,8 @@ Application::Application() {
 
 	model = new TexturedModel(mesh, texture);
 
-	entity = new Entity3d(model, { 0,0,0.002f, },0.0f,0.0f,0.0f,1.0f);
+	entity = new Entity3d(model, { 0,0,-0.1f, },0.0f,0.0f,0.0f,1.0f);
+	
 
 }
 
@@ -116,7 +115,13 @@ void Application::UpdateDeltaTime()
 void Application::OnUpdate() {
 	
 	window->PollEvent(*event);
+
+	camera->OnMove();
 	
+	std::cout << Engine::Input::GetMousePosition().x << std::endl;
+	std::cout << Engine::Input::GetMousePosition().y << std::endl;
+	 
+	camera->OnMouseHandle(Input::GetMousePosition(),deltaTime->AsMicroseconds());
 } 
 
 
@@ -124,7 +129,7 @@ void Application::OnUpdate() {
 
 void Application::OnRender() {
 
-	window->Clear({ 0,0,0,1 });
+	window->Clear({ 138, 221, 237,1 });
 
 
 	entity->OnRender(*camera);

@@ -29,7 +29,7 @@ bool SFMLInput::isButtonPressedImplementation(int button)
 
 Engine::Math::Vector2<float> SFMLInput::GetMousePositionImplementation()
 {
-	return Engine::Math::Vec2f(0,0);
+	return Engine::Math::Vec2f(sf::Mouse::getPosition().x,sf::Mouse::getPosition().y);
 }
 
 float SFMLInput::GetMousePositionXImplementation()

@@ -12,7 +12,7 @@ out vec2 TexCoord;
 void main()
 {
 			
-gl_Position = ViewProjectionMatrix  * Transform * vec4(position,1.0);
+gl_Position = ViewProjectionMatrix * vec4(position,1.0);
 TexCoord = aTexCoord;
 		
 }	

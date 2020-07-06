@@ -16,7 +16,7 @@ namespace Engine
 		
 		m_ViewShader = Shader::Create("Shaders/3D/vertexShader.glsl","Shaders/3D/fragmentShader.glsl");
 
-		m_Transform = glm::translate(glm::mat4(1.0f), { m_Position.x,m_Position.y,m_Position.z }) * scale(glm::mat4(m_ScaleFactor), { 1.0f,1.0f,1.0f }) * glm::rotate(glm::mat4(1.0f), 1.0f, { m_RotatedX,m_RotatedY,m_RotatedZ });
+		m_Transform = glm::translate(glm::mat4(1.0f), { m_Position.x,m_Position.y,m_Position.z }) * scale(glm::mat4(m_ScaleFactor), { 1.0f,1.0f,1.0f });
 	}
 
 
@@ -64,10 +64,14 @@ namespace Engine
 
 		m_ViewShader->Bind();
 
-		m_ViewShader->SetMat4("ViewProjectionMatrix", camera.GetViewProjection());
+		m_ViewShader->SetMat4("ViewProjectionMatrix", camera.GetViewProjectionMatrix());
 
-		m_ViewShader->SetMat4("Transform", m_Transform);
+		m_ViewShader->SetFloat4("m_Color", { 1,0.3,0.6,1 });
+
+		//m_ViewShader->SetMat4("Transform", m_Transform);
 		
+
+		m_Model->GetTexture()->Bind();
 		m_Model->GetMesh().OnRender();
 
 		m_ViewShader->Unbind();
