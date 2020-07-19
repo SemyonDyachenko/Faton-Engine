@@ -44,6 +44,12 @@ namespace Engine {
         virtual void SetTitle(const char * title) = 0;
 
 
+		virtual Math::Vec2f & MapPxlToCoords(const Math::Vec2i & point) = 0;
+
+		virtual Math::Vec2f & CoordsToPxl(const Math::Vec2i & point) = 0;
+
+	
+
         virtual bool isOpen() const = 0;
 
 

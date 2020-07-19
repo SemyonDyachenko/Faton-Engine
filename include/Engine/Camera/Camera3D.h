@@ -54,6 +54,8 @@ namespace Engine
 		glm::vec3 m_LookDirection = {};
 
 		float m_CameraSpeed = 0.05f;
+
+		Math::Vec2f m_MousePos;
 	};
 
 	

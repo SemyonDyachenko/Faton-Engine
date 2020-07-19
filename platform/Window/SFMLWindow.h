@@ -58,7 +58,11 @@ public:
     void Draw(Engine::Sprite& sprite) override;
     void Draw(Engine::Sprite& sprite,Engine::Shader & shader) override;
 
-    
+
+
+	Engine::Math::Vec2f & MapPxlToCoords(const Engine::Math::Vec2i & point) override;
+
+	Engine::Math::Vec2f & CoordsToPxl(const Engine::Math::Vec2i & point) override;
 
 
     void Close() override;

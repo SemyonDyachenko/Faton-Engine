@@ -145,30 +145,34 @@ namespace Engine
 	}
 
 
-	void Camera3D::OnMouseHandle(Math::Vec2f  mousePos, float DeltaTime)
+	void Camera3D::OnMouseHandle(Math::Vec2f mousePos, float DeltaTime)
 	{
-		float mouseDX, mouseDY;
 
-		float lastX = 720, lastY = 450;
+		Math::Vec2f mousedelta = { mousePos.x - m_MousePos.x,mousePos.y - m_MousePos.y };
+		
+		m_MousePos = mousePos;
 
-	
+		Input::SetMousePosition(m_MousePos);
 
-		 mouseDX = lastX - mousePos.x;
-		 mouseDY = lastY - mousePos.y;
-
-
-
-		glm::vec2 mouseDelta{ mouseDX,mouseDY };
-
-		MouseMoved(mouseDelta,DeltaTime);
+		MouseMoved(glm::vec2(mousedelta.x,mousedelta.y),DeltaTime);
 	}
 	
 	void Camera3D::MouseMoved(glm::vec2 delta,float DeltaTime)
 	{
-		m_yaw += 0.001f * (delta.x) * DeltaTime;
-		m_pitch += 0.001f * (delta.y) * DeltaTime;
 
-		m_pitch = glm::clamp<float>(m_pitch, -PI / 2, PI/ 2);
+		m_yaw += delta.x / (1000 - (float)(6 * 1000));
+		m_pitch -= delta.y / (1000 - (float)(3 * 100));
+
+		
+		if (m_pitch >1.5f) {
+			m_pitch = -1.5f;
+		}
+
+		if (m_pitch < -1.5f) {
+			m_pitch = 1.5f;
+		}
+
+		
 
 		UpdateView();
 	}

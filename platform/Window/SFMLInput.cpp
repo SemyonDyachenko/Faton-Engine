@@ -189,3 +189,8 @@ float SFMLInput::GamepadGetAxisPositionImplementation(unsigned int gamepad, Engi
 	}
 }
 
+void SFMLInput::SetMousePositionImplementation(float x, float y)
+{
+	sf::Mouse::setPosition(sf::Vector2i(x, y));
+}
+

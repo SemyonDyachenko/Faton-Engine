@@ -31,6 +31,8 @@ protected:
 	bool GamepadIsButtonPressedInplementation(unsigned int gamepad, unsigned int button) override;
 
 	float GamepadGetAxisPositionImplementation(unsigned int gamepad, Engine::Gamepad::Axis axis) override;
+
+	void SetMousePositionImplementation(float x, float y) override;
 };
 
 

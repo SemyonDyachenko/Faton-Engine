@@ -6,6 +6,8 @@
 
 
 
+
+
 void Application::InitWindow()
 {
 	this->Win_Width = 1440;
@@ -117,9 +119,7 @@ void Application::OnUpdate() {
 	window->PollEvent(*event);
 
 	camera->OnMove();
-	
-	std::cout << Engine::Input::GetMousePosition().x << std::endl;
-	std::cout << Engine::Input::GetMousePosition().y << std::endl;
+
 	 
 	camera->OnMouseHandle(Input::GetMousePosition(),deltaTime->AsMicroseconds());
 } 

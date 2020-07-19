@@ -84,6 +84,16 @@ namespace Engine
             return instance->GetMousePositionYImplementation();
         }
 
+		static void SetMousePosition(float x, float y)
+		{
+			return instance->SetMousePositionImplementation(x, y);
+		}
+
+		static void SetMousePosition(Math::Vec2f & position)
+		{
+			return instance->SetMousePositionImplementation(position.x,position.y);
+		}
+
 		virtual ~Input() = default;
 
     protected:
@@ -97,6 +107,7 @@ namespace Engine
         virtual bool GamepadHasAxisImplementation(unsigned int gamepad, Gamepad::Axis axis) = 0;;
         virtual bool GamepadIsButtonPressedInplementation(unsigned int gamepad, unsigned int button) = 0;
         virtual float GamepadGetAxisPositionImplementation(unsigned int gamepad, Gamepad::Axis axis) = 0;
+		virtual void SetMousePositionImplementation(float x, float y) = 0;
         
 		
 	private:

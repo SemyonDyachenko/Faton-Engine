@@ -125,6 +125,22 @@ void SFMLWindow::Draw(Engine::Sprite &sprite, Engine::Shader &shader) {
 
 }
 
+Engine::Math::Vec2f & SFMLWindow::MapPxlToCoords(const Engine::Math::Vec2i & point)
+{
+	sf::Vector2f sfCoords =window->mapPixelToCoords(sf::Vector2i(point.x,point.y));
+	Engine::Math::Vec2f ftnCoords = Engine::Math::Vec2f(sfCoords.x, sfCoords.y);
+
+	return ftnCoords;
+}
+
+Engine::Math::Vec2f & SFMLWindow::CoordsToPxl(const Engine::Math::Vec2i & point)
+{
+	sf::Vector2i sfCoords = window->mapCoordsToPixel(sf::Vector2f(point.x,point.y));
+	Engine::Math::Vec2f ftnCoords = Engine::Math::Vec2f(sfCoords.x, sfCoords.y);
+
+	return ftnCoords;
+}
+
 void SFMLWindow::Draw(Engine::Sprite &sprite) {
 
 }
