@@ -32,7 +32,7 @@ protected:
 
 	float GamepadGetAxisPositionImplementation(unsigned int gamepad, Engine::Gamepad::Axis axis) override;
 
-	void SetMousePositionImplementation(float x, float y) override;
+	void SetMousePositionImplementation(float x, float y, sf::RenderWindow & window) override;
 };
 
 

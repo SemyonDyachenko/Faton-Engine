@@ -39,6 +39,7 @@ private:
 
 
 
+
     bool IsRunning = true;
 	Time *deltaTime;
 	float LastFrameTime;

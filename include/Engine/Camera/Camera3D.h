@@ -11,6 +11,10 @@
 #include "../Core/Input.h"
 #include "../Core/EngineKeys.h"
 
+#include "../Core/Window.h"
+
+#include <memory>
+
 namespace Engine
 {
 
@@ -23,39 +27,35 @@ namespace Engine
 		
 		virtual ~Camera3D();
 
-		void OnMove();
+		void OnUpdate(float DeltaTime);
 
-		void OnMouseHandle(Math::Vec2f  mousePos, float DeltaTime);
+		void MouseHandle(float x, float y, std::unique_ptr<Window>& window, bool constrainPitch = true);
 
-		void MouseMoved(glm::vec2 delta, float DeltaTime);
+		const glm::mat4 & GetViewProjectionMatrix();
 
-		glm::vec3 GetPosition();
+		const glm::mat4& GetViewMatrix();
+		const glm::mat4& GetProjectionMatrix();
 
-
-		void SetPosition(glm::vec3 position);
-
-
-		glm::mat4 GetViewProjectionMatrix() const;
-
-		glm::mat4 GetViewMatrix() const;
-		glm::mat4 GetPorjectionMatrix() const;
-
-		void UpdateProjection(float aspectRatio);
-		void UpdateView();
+	
 
 	private:
-		glm::mat4	m_ViewMatrix;
-		glm::mat4	m_ProjectionMatrix;
-		glm::vec3	m_position = {};
-		float		m_pitch;
-		float		m_yaw;
-		float		m_roll;
+		glm::vec3 m_cameraPosition;
+		glm::vec3 m_cameraDirection;
+		glm::vec3 m_cameraTarget;
+		glm::vec3 m_up;
+		glm::vec3 m_cameraUp;
+		glm::vec3 m_cameraRight;
+		glm::vec3 m_cameraFront;
 
-		glm::vec3 m_LookDirection = {};
+		float m_yaw;
+		float m_pitch;
+		float m_roll;
+		float m_fov;
+		float m_aspectRatio;
 
-		float m_CameraSpeed = 0.05f;
-
-		Math::Vec2f m_MousePos;
+		glm::mat4 m_viewMatrix;
+		glm::mat4 m_projectionMatrix;
+	
 	};
 
 	

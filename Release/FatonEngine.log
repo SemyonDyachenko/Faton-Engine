@@ -1,0 +1,271 @@
+﻿  Widget.cpp
+  Entity3d.cpp
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\src\Engine\3dRenderer\Entity3d.cpp(70,53): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  Terrain.cpp
+  TexturedModel.cpp
+  LightPoint.cpp
+  Asteroid.cpp
+  Random.cpp
+  ParticleSystem.cpp
+  glText.cpp
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\OpenGL\glText.cpp(94,33): warning C4838: conversion from 'FT_Pos' to 'GLuint' requires a narrowing conversion
+  imgui-SFML.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_widgets.cpp
+  Text.cpp
+  AnimationComponent.cpp
+  RigidBody.cpp
+  World.cpp
+  TextureHolder.cpp
+  Editor.cpp
+  Compiling...
+  stb_image.cpp
+  OpenGLTexture.cpp
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\OpenGL\OpenGLTexture.cpp(45,37): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\OpenGL\OpenGLTexture.cpp(45,29): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  glDrawable.cpp
+  OpenGLRendererAPI.cpp
+  OpenGLShader.cpp
+  OpenGLVertexArray.cpp
+  SFMLInput.cpp
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLInput.cpp(33,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLInput.cpp(33,53): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLInput.cpp(38,33): warning C4244: 'return': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLInput.cpp(43,33): warning C4244: 'return': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLInput.cpp(195,41): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLInput.cpp(195,38): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+  SFMLRendererAPI.cpp
+  GLFWWindow.cpp
+  SFMLWindow.cpp
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLWindow.cpp(68,56): warning C4244: 'argument': conversion from 'T' to 'sf::Uint8', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLWindow.cpp(68,44): warning C4244: 'argument': conversion from 'T' to 'sf::Uint8', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLWindow.cpp(68,34): warning C4244: 'argument': conversion from 'T' to 'sf::Uint8', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLWindow.cpp(143,77): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLWindow.cpp(143,69): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLWindow.cpp(144,74): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\platform\Window\SFMLWindow.cpp(144,62): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  Camera.cpp
+  Camera3D.cpp
+  ResourceHolder.cpp
+  Engine.cpp
+  MovementComponent.cpp
+  Entity.cpp
+  Scene3D.cpp
+  AppEvent.cpp
+  Scene2D.cpp
+  OBJLoader.cpp
+  Compiling...
+  BoxCollider2D.cpp
+  Collider2D.cpp
+  Collision.cpp
+  Drawable.cpp
+  Drawable2D.cpp
+  Drawable3D.cpp
+  Mesh.cpp
+  RectangleShape.cpp
+  Renderer2D.cpp
+  Renderer3D.cpp
+  RendererAPI.cpp
+  Shader.cpp
+  Sprite.cpp
+  Texture.cpp
+  VertexArray.cpp
+  Script.cpp
+  GameEntity.cpp
+  GameLevel.cpp
+  GameWorld.cpp
+  LevelPoint.cpp
+  Compiling...
+  MainCharacter.cpp
+  RocketMainCharacter.cpp
+  Space.cpp
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\src\SandBox\GameObjects\Space.cpp(100,111): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\src\SandBox\GameObjects\Space.cpp(136,35): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\src\SandBox\GameObjects\Space.cpp(140,36): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  Application.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\cemch\source\repos\FatonEngine\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  main.cpp
+  Player.cpp
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\src\SandBox\start\Player.cpp(53,40): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\cemch\source\repos\FatonEngine\FatonEngine\src\SandBox\start\Player.cpp(75,40): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  GameState.cpp
+  MainMenuState.cpp
+  PauseMenu.cpp
+  SettingsState.cpp
+  State.cpp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+Entity3d.obj : error LNK2001: unresolved external symbol "public: struct glm::mat<4,4,float,0> const & __thiscall Engine::Camera3D::GetViewProjectionMatrix(void)" (?GetViewProjectionMatrix@Camera3D@Engine@@QAEABU?$mat@$03$03M$0A@@glm@@XZ)
+glText.obj : error LNK2001: unresolved external symbol _FT_New_Face
+glText.obj : error LNK2001: unresolved external symbol _FT_Done_FreeType
+glText.obj : error LNK2001: unresolved external symbol _FT_Done_Face
+glText.obj : error LNK2001: unresolved external symbol _FT_Init_FreeType
+glText.obj : error LNK2001: unresolved external symbol _FT_Load_Char
+glText.obj : error LNK2001: unresolved external symbol _FT_Set_Pixel_Sizes
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: float __thiscall sf::Time::asSeconds(void)const " (__imp_?asSeconds@Time@sf@@QBEMXZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static float __cdecl sf::Joystick::getAxisPosition(unsigned int,enum sf::Joystick::Axis)" (__imp_?getAxisPosition@Joystick@sf@@SAMIW4Axis@12@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Joystick::isButtonPressed(unsigned int,unsigned int)" (__imp_?isButtonPressed@Joystick@sf@@SA_NII@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Joystick::isConnected(unsigned int)" (__imp_?isConnected@Joystick@sf@@SA_NI@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: unsigned int __thiscall sf::Texture::getNativeHandle(void)const " (__imp_?getNativeHandle@Texture@sf@@QBEIXZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Texture::update(unsigned char const *)" (__imp_?update@Texture@sf@@QAEXPBE@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Vector2<unsigned int> __thiscall sf::Texture::getSize(void)const " (__imp_?getSize@Texture@sf@@QBE?AV?$Vector2@I@2@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Texture::create(unsigned int,unsigned int)" (__imp_?create@Texture@sf@@QAE_NII@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Texture::~Texture(void)" (__imp_??1Texture@sf@@QAE@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Texture::Texture(void)" (__imp_??0Texture@sf@@QAE@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Cursor::loadFromSystem(enum sf::Cursor::Type)" (__imp_?loadFromSystem@Cursor@sf@@QAE_NW4Type@12@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Cursor::~Cursor(void)" (__imp_??1Cursor@sf@@QAE@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Cursor::Cursor(void)" (__imp_??0Cursor@sf@@QAE@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Window::hasFocus(void)const " (__imp_?hasFocus@Window@sf@@QBE_NXZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::setMouseCursor(class sf::Cursor const &)" (__imp_?setMouseCursor@Window@sf@@QAEXABVCursor@2@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::setMouseCursorVisible(bool)" (__imp_?setMouseCursorVisible@Window@sf@@QAEX_N@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::RenderTarget::resetGLStates(void)" (__imp_?resetGLStates@RenderTarget@sf@@QAEXXZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class std::basic_string<unsigned char,struct std::char_traits<unsigned char>,class std::allocator<unsigned char> > __thiscall sf::String::toUtf8(void)const " (__imp_?toUtf8@String@sf@@QBE?AV?$basic_string@EU?$char_traits@E@std@@V?$allocator@E@2@@std@@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(void)" (__imp_??0String@sf@@QAE@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(class sf::String const &)" (__imp_??0String@sf@@QAE@ABV01@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static void __cdecl sf::Clipboard::setString(class sf::String const &)" (__imp_?setString@Clipboard@sf@@SAXABVString@2@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::String __cdecl sf::Clipboard::getString(void)" (__imp_?getString@Clipboard@sf@@SA?AVString@2@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Vector2<int> __cdecl sf::Touch::getPosition(unsigned int,class sf::Window const &)" (__imp_?getPosition@Touch@sf@@SA?AV?$Vector2@H@2@IABVWindow@2@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Touch::isDown(unsigned int)" (__imp_?isDown@Touch@sf@@SA_NI@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Rect<float> __thiscall sf::Sprite::getGlobalBounds(void)const " (__imp_?getGlobalBounds@Sprite@sf@@QBE?AV?$Rect@M@2@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Rect<int> const & __thiscall sf::Sprite::getTextureRect(void)const " (__imp_?getTextureRect@Sprite@sf@@QBEABV?$Rect@H@2@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Texture const * __thiscall sf::Sprite::getTexture(void)const " (__imp_?getTexture@Sprite@sf@@QBEPBVTexture@2@XZ)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static void __cdecl sf::Mouse::setPosition(class sf::Vector2<int> const &)" (__imp_?setPosition@Mouse@sf@@SAXABV?$Vector2@H@2@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Vector2<int> __cdecl sf::Mouse::getPosition(class sf::Window const &)" (__imp_?getPosition@Mouse@sf@@SA?AV?$Vector2@H@2@ABVWindow@2@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Mouse::isButtonPressed(enum sf::Mouse::Button)" (__imp_?isButtonPressed@Mouse@sf@@SA_NW4Button@12@@Z)
+imgui-SFML.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ)
+SFMLInput.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Joystick::hasAxis(unsigned int,enum sf::Joystick::Axis)" (__imp_?hasAxis@Joystick@sf@@SA_NIW4Axis@12@@Z)
+SFMLInput.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static unsigned int __cdecl sf::Joystick::getButtonCount(unsigned int)" (__imp_?getButtonCount@Joystick@sf@@SAII@Z)
+SFMLInput.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static bool __cdecl sf::Keyboard::isKeyPressed(enum sf::Keyboard::Key)" (__imp_?isKeyPressed@Keyboard@sf@@SA_NW4Key@12@@Z)
+SFMLInput.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static void __cdecl sf::Mouse::setPosition(class sf::Vector2<int> const &,class sf::Window const &)" (__imp_?setPosition@Mouse@sf@@SAXABV?$Vector2@H@2@ABVWindow@2@@Z)
+SFMLInput.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class sf::Vector2<int> __cdecl sf::Mouse::getPosition(void)" (__imp_?getPosition@Mouse@sf@@SA?AV?$Vector2@H@2@XZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual void __thiscall sf::RenderWindow::onResize(void)" (__imp_?onResize@RenderWindow@sf@@MAEXXZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) protected: virtual void __thiscall sf::RenderWindow::onCreate(void)" (__imp_?onCreate@RenderWindow@sf@@MAEXXZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual bool __thiscall sf::RenderWindow::setActive(bool)" (__imp_?setActive@RenderWindow@sf@@UAE_N_N@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual class sf::Vector2<unsigned int> __thiscall sf::RenderWindow::getSize(void)const " (__imp_?getSize@RenderWindow@sf@@UBE?AV?$Vector2@I@2@XZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UAE@XZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Color::Color(unsigned char,unsigned char,unsigned char,unsigned char)" (__imp_??0Color@sf@@QAE@EEEE@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::display(void)" (__imp_?display@Window@sf@@QAEXXZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::setFramerateLimit(unsigned int)" (__imp_?setFramerateLimit@Window@sf@@QAEXI@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::setVerticalSyncEnabled(bool)" (__imp_?setVerticalSyncEnabled@Window@sf@@QAEX_N@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Window::pollEvent(class sf::Event &)" (__imp_?pollEvent@Window@sf@@QAE_NAAVEvent@2@@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Window::isOpen(void)const " (__imp_?isOpen@Window@sf@@QBE_NXZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::close(void)" (__imp_?close@Window@sf@@QAEXXZ)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Vector2<int> __thiscall sf::RenderTarget::mapCoordsToPixel(class sf::Vector2<float> const &)const " (__imp_?mapCoordsToPixel@RenderTarget@sf@@QBE?AV?$Vector2@H@2@ABV?$Vector2@M@2@@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class sf::Vector2<float> __thiscall sf::RenderTarget::mapPixelToCoords(class sf::Vector2<int> const &)const " (__imp_?mapPixelToCoords@RenderTarget@sf@@QBE?AV?$Vector2@M@2@ABV?$Vector2@H@2@@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::RenderTarget::clear(class sf::Color const &)" (__imp_?clear@RenderTarget@sf@@QAEXABVColor@2@@Z)
+    Hint on symbols that are defined and could potentially match:
+      "__declspec(dllimport) public: void __thiscall std::basic_ios<char,struct std::char_traits<char> >::clear(int,bool)" (__imp_?clear@?$basic_ios@DU?$char_traits@D@std@@@std@@QAEXH_N@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::locale const &)" (__imp_??0String@sf@@QAE@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVlocale@3@@Z)
+SFMLWindow.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QAE@III@Z)
+C:\Users\cemch\source\repos\FatonEngine\Release\FatonEngine.exe : fatal error LNK1120: 61 unresolved externals

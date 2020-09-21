@@ -5,6 +5,7 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include "SFMLInput.h"
+#include "../../include/Engine/Core/Window.h"
 
 
 std::unique_ptr<Engine::Input> Engine::Input::instance = std::make_unique<SFMLInput>();
@@ -189,8 +190,8 @@ float SFMLInput::GamepadGetAxisPositionImplementation(unsigned int gamepad, Engi
 	}
 }
 
-void SFMLInput::SetMousePositionImplementation(float x, float y)
+void SFMLInput::SetMousePositionImplementation(float x, float y, sf::RenderWindow & window)
 {
-	sf::Mouse::setPosition(sf::Vector2i(x, y));
+	sf::Mouse::setPosition(sf::Vector2i(x, y),window);
 }
 

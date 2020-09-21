@@ -125,6 +125,11 @@ void SFMLWindow::Draw(Engine::Sprite &sprite, Engine::Shader &shader) {
 
 }
 
+sf::RenderWindow & SFMLWindow::GetNativeWindow()
+{
+	return *this->window;
+}
+
 Engine::Math::Vec2f & SFMLWindow::MapPxlToCoords(const Engine::Math::Vec2i & point)
 {
 	sf::Vector2f sfCoords =window->mapPixelToCoords(sf::Vector2i(point.x,point.y));

@@ -4,6 +4,7 @@
 
 #include <map>
 #include "../renderer/Texture.h"
+#include <string>
 
 namespace Engine
 {

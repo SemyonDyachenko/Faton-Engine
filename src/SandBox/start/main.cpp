@@ -6,15 +6,13 @@
 
 
 
-
-
 int main()
 {
 
-	auto  *app = new Application();
-
+	auto* app = new Application();
 
 	app->Run();
+	
 
 
 	return 0;

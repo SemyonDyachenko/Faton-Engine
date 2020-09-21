@@ -8,173 +8,114 @@ namespace Engine
 {
 
 
+
 	Camera3D::Camera3D(float aspectRatio)
 	{
-		m_ProjectionMatrix = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 1000.f);
-
+		m_cameraPosition = glm::vec3(0.0f, 0.0f, 0.0f);
+		m_cameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);
+		m_cameraDirection = glm::normalize(m_cameraPosition - m_cameraTarget);
+		m_cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+		m_up = glm::vec3(0.0f, 1.0f, 0.0f);
+		m_cameraRight = glm::normalize(glm::cross(m_up, m_cameraDirection));
+		m_cameraUp = glm::cross(m_cameraDirection, m_cameraRight);
+		
+		m_yaw = -90.f;
 		m_roll = 0.0f;
 		m_pitch = 0.0f;
-		m_yaw = 0.0f;
+		m_aspectRatio = aspectRatio;
+		m_fov = 45.0f;
 
-		m_position = { 0.0f,0.0f,0.0f };
-		m_LookDirection = {};
+		m_projectionMatrix = glm::perspective(glm::radians(m_fov), aspectRatio, 0.1f, 100.f);
+		m_viewMatrix =glm::lookAt(m_cameraDirection,m_cameraPosition+m_cameraFront, m_cameraUp);
 
-		m_ViewMatrix = {};
-
-		
 	}
 
 	Camera3D::~Camera3D()
 	{
 	}
 
-	void Camera3D::OnMove()
+	void Camera3D::OnUpdate(float DeltaTime)
 	{
-		float dx = 0;
-		float dy = 0;
-		float dz = 0;
+		m_cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+		m_cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
-		glm::mat2 rotate {
-			cos(m_yaw), -sin(m_yaw),
-			sin(m_yaw),cos(m_yaw)
-		}; 
 
-		glm::vec2 f(0.0, 1.0);
-		f = f * rotate;
 
-		if (Input::IsKeyPressed(FATON_KEY_W)) 
-		{
-			dz -= f.y;
-			dx -= f.x;
+		if (Input::IsKeyPressed(FATON_KEY_W)) {
+			m_cameraPosition += 0.005f * DeltaTime * m_cameraFront;
+			
 		}
-		else if (Input::IsKeyPressed(FATON_KEY_S))
-		{
-			dz += f.y;
-			dx += f.x;
+		else if (Input::IsKeyPressed(FATON_KEY_S)) {
+			m_cameraPosition -= 0.005f * DeltaTime * m_cameraFront;
 		}
-		else if (Input::IsKeyPressed(FATON_KEY_A))
-		{
-			dz += f.x;
-			dx += -f.y;
+		else if (Input::IsKeyPressed(FATON_KEY_A)) {
+			m_cameraPosition -= glm::normalize(glm::cross(m_cameraFront, m_cameraUp)) * 0.005f * DeltaTime;
 		}
-		else if (Input::IsKeyPressed(FATON_KEY_D)) 
-		{
-			dz -= f.x;
-			dx -= -f.y;
-		}
-		else if (Input::IsKeyPressed(FATON_KEY_SPACE))
-		{
-			dy += 1;
-		}
-		else if (Input::IsKeyPressed(FATON_KEY_LSHIFT))
-		{
-			dy -= 1;
+		else if (Input::IsKeyPressed(FATON_KEY_D)) {
+			m_cameraPosition += glm::normalize(glm::cross(m_cameraFront, m_cameraUp)) * 0.005f * DeltaTime;
 		}
 
-		glm::mat4 mat = GetViewMatrix();
-		glm::vec3 forward(mat[0][2], mat[1][2], mat[2][2]);
-		glm::vec3 strafe(mat[0][0], mat[1][0], mat[2][0]);
-
-	
-		m_position.x += dx * m_CameraSpeed;
-		m_position.z += dz * m_CameraSpeed;
-		m_position.y += dy * m_CameraSpeed;
-
-		UpdateView();
-	}
-
-	glm::vec3 Camera3D::GetPosition()
-	{
-		return m_position;
-	}
-
-	
-
-	void Camera3D::SetPosition(glm::vec3 position)
-	{
-		m_position = position;
-		UpdateView();
-	}
-
-	glm::mat4 Camera3D::GetViewMatrix() const 
-	{
-		return m_ViewMatrix;
-	}
-
-	glm::mat4 Camera3D::GetPorjectionMatrix() const
-	{
-		return m_ProjectionMatrix;
-	}
-
-
-	glm::mat4 Camera3D::GetViewProjectionMatrix() const
-	{
-		return m_ProjectionMatrix * m_ViewMatrix;
-	}
-
-	void Camera3D::UpdateView()
-	{
-
-		glm::mat4 matRoll = glm::mat4(1.0f); //identity matrix; 
-		glm::mat4 matPitch = glm::mat4(1.0f);//identity matrix
-		glm::mat4 matYaw = glm::mat4(1.0f);  //identity matrix
-
-		// roll, pitch and yaw
-		matRoll = glm::rotate(matRoll, m_roll, glm::vec3(0.0f, 0.0f, 1.0f));
-		matPitch = glm::rotate(matPitch, m_pitch, glm::vec3(1.0f, 0.0f, 0.0f));
-		matYaw = glm::rotate(matYaw, m_yaw, glm::vec3(0.0f, 1.0f, 0.0f));
-
-		glm::mat4 rotate = matRoll * matPitch * matYaw;
-
-		glm::mat4 translate = glm::mat4(1.0f);
-		translate = glm::translate(translate, -m_position);
-
-		m_ViewMatrix = rotate * translate;
-
-		// Work out Look Vector
-		glm::mat4 inverseView = glm::inverse(m_ViewMatrix);
-
-		m_LookDirection.x = inverseView[2][0];
-		m_LookDirection.y = inverseView[2][1];
-		m_LookDirection.z = inverseView[2][2];
-	}
-
-	void Camera3D::UpdateProjection(float aspectRatio)
-	{
-		m_ProjectionMatrix = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 1000.0f);
-	}
-
-
-	void Camera3D::OnMouseHandle(Math::Vec2f mousePos, float DeltaTime)
-	{
-
-		Math::Vec2f mousedelta = { mousePos.x - m_MousePos.x,mousePos.y - m_MousePos.y };
-		
-		m_MousePos = mousePos;
-
-		Input::SetMousePosition(m_MousePos);
-
-		MouseMoved(glm::vec2(mousedelta.x,mousedelta.y),DeltaTime);
-	}
-	
-	void Camera3D::MouseMoved(glm::vec2 delta,float DeltaTime)
-	{
-
-		m_yaw += delta.x / (1000 - (float)(6 * 1000));
-		m_pitch -= delta.y / (1000 - (float)(3 * 100));
-
-		
-		if (m_pitch >1.5f) {
-			m_pitch = -1.5f;
-		}
-
-		if (m_pitch < -1.5f) {
-			m_pitch = 1.5f;
-		}
 
 		
 
-		UpdateView();
+		m_viewMatrix = glm::lookAt(m_cameraPosition, m_cameraPosition + m_cameraFront, m_cameraUp);
+	}
+
+	void Camera3D::MouseHandle(float x, float y, std::unique_ptr<Window>& window, bool constrainPitch)
+	{
+		float lastX = window->GetWidth() / 2;
+		float lastY = window->GetHeight() / 2;
+
+		float xoffset = x - lastX;
+		float yoffset = lastY - y;
+
+		float sensitivity = 0.01f;
+		xoffset *= sensitivity;
+		yoffset *= sensitivity;
+		lastX = x;
+		lastY = y;
+
+
+		m_yaw += xoffset;
+		m_pitch += yoffset;
+
+		// Make sure that when pitch is out of bounds, screen doesn't get flipped
+		if (m_pitch > 89.0f)
+		{
+			m_pitch = 89.0f;
+		}
+		if (m_pitch < -89.0f)
+		{
+			m_pitch = -89.0f;
+		}
+
+		glm::vec3 front;
+		front.x = cos(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
+		front.y = sin(glm::radians(m_pitch));
+		front.z = sin(glm::radians(m_yaw)) * cos(glm::radians(m_pitch));
+		m_cameraFront = glm::normalize(front);
+		// Also re-calculate the Right and Up vector
+		m_cameraRight = glm::normalize(glm::cross(m_cameraFront, m_up));  // Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+		m_cameraUp = glm::normalize(glm::cross(m_cameraRight, m_cameraFront));
+
+		m_viewMatrix = glm::lookAt(m_cameraPosition, m_cameraPosition + m_cameraFront, m_cameraUp);
+	}
+
+	
+
+	const glm::mat4& Camera3D::GetViewProjectionMatrix()
+	{
+		return m_viewMatrix * m_projectionMatrix;
+	}
+
+	const glm::mat4& Camera3D::GetViewMatrix()
+	{
+		return m_viewMatrix;
+	}
+
+	const glm::mat4& Camera3D::GetProjectionMatrix()
+	{
+		return m_projectionMatrix;
 	}
 
 }

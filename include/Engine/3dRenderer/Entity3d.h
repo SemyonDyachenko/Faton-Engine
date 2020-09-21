@@ -30,6 +30,8 @@ namespace Engine
 
 		void TransformRecalculate();
 
+		//void AddComponent(Component* component);
+
 	private:
 		TexturedModel* m_Model;
 		Math::Vec3f m_Position;
@@ -38,6 +40,8 @@ namespace Engine
 
 		std::shared_ptr<Shader> m_ViewShader;
 		glm::mat4 m_Transform;
+
+		//std::map<Component,std::string> m_Component;
 	};
 
 

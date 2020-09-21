@@ -17,7 +17,6 @@ void Application::InitWindow()
 	this->FrameRateLimit = 120;
 	this->Vsync = false;
 	this->window = Window::Create(static_cast<float>(Win_Width),static_cast<float>(Win_Height), WinTittle);
-	this->window->SetFullscreen(FullScreen);
 	this->window->SetVerticalSync(Vsync);
 	this->window->SetResizable(false);
 	this->window->ChangeFrameRateLimit(FrameRateLimit);
@@ -32,15 +31,17 @@ void Application::InitStates()
 Application::Application() {
 	this->InitWindow();
 	this->InitStates();
+	Renderer2D::Init();
 	Renderer3D::Init();
 	RenderCommand::Init();
 
 	camera = new Camera3D(window->GetWidth() / window->GetHeight());
 
 
+
 	float size = 0.5f;
 
-	std::vector<float> vertices = {  
+	std::vector<float> vertices = {
 		1,1,-1,
 		1,-1,-1,
 		1,1,1,
@@ -52,30 +53,6 @@ Application::Application() {
 
 	};
 
-	/*-size, -size, -size,
-		  size,  -size, -size,
-		size,  size, -size,
-		  -size, size, -size,
-		  size, -size, size,
-			-size,  -size, size,
-			-size,  size, size,
-			 size, size, size,
-			 -size, -size,  size,
-			 -size, -size, -size,
-			-size,  size, -size,
-			-size,  size,  size,
-			size, -size, -size,
-			size,  -size, size,
-			size,  size,  size,
-			size, size,  -size,
-			-size, -size,  size,
-			size, -size, size,
-			size, -size, -size,
-			-size, -size,  -size,
-			 -size, size,  -size,
-			 size, size, -size,
-			size, size, size,
-			 -size, size,  size,*/
 
 	std::vector<unsigned int> indices = {
 				1,1,1,5,2,1,7,3,1,3,4,1,
@@ -91,8 +68,8 @@ Application::Application() {
 
 	model = new TexturedModel(mesh, texture);
 
-	entity = new Entity3d(model, { 0,0,-0.1f, },0.0f,0.0f,0.0f,1.0f);
-	
+	entity = new Entity3d(model, { 0,0,-0.1f, }, 0.0f, 0.0f, 0.0f, 1.0f);
+
 
 }
 
@@ -109,7 +86,10 @@ void Application::UpdateDeltaTime()
 	deltaTime = new Time(float(time - LastFrameTime) / 1000);
 	LastFrameTime = time;
 
+	camera->OnUpdate(deltaTime->AsMicroseconds());
 
+
+	camera->MouseHandle(Engine::Input::GetMousePosition().x,Engine::Input::GetMousePosition().y,window);
 	
 }
 
@@ -118,10 +98,9 @@ void Application::OnUpdate() {
 	
 	window->PollEvent(*event);
 
-	camera->OnMove();
 
-	 
-	camera->OnMouseHandle(Input::GetMousePosition(),deltaTime->AsMicroseconds());
+
+
 } 
 
 

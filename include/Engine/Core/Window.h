@@ -5,10 +5,11 @@
 #ifndef MY_OWN_GAME_WINDOW_H
 #define MY_OWN_GAME_WINDOW_H
 
+#include <SFML/Graphics/RenderWindow.hpp>
 #include "../Events/Event.h"
 #include "../renderer/Sprite.h"
 #include "Core.h"
-#include "../renderer/Shader.h"
+//#include "../renderer/Shader.h"
 
 
 #include <memory>
@@ -49,6 +50,7 @@ namespace Engine {
 		virtual Math::Vec2f & CoordsToPxl(const Math::Vec2i & point) = 0;
 
 	
+		virtual sf::RenderWindow & GetNativeWindow() = 0;
 
         virtual bool isOpen() const = 0;
 

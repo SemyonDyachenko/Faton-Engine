@@ -58,6 +58,7 @@ public:
     void Draw(Engine::Sprite& sprite) override;
     void Draw(Engine::Sprite& sprite,Engine::Shader & shader) override;
 
+	sf::RenderWindow & GetNativeWindow() override;
 
 
 	Engine::Math::Vec2f & MapPxlToCoords(const Engine::Math::Vec2i & point) override;

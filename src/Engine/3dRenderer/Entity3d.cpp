@@ -34,6 +34,7 @@ namespace Engine
 		m_RotatedZ += deltaZ;
 	}
 
+
 	TexturedModel& Entity3d::GetModel() const
 	{
 		return *m_Model;
@@ -64,7 +65,8 @@ namespace Engine
 
 		m_ViewShader->Bind();
 
-		m_ViewShader->SetMat4("ViewProjectionMatrix", camera.GetViewProjectionMatrix());
+		m_ViewShader->SetMat4("viewMatrix", camera.GetViewMatrix());
+		m_ViewShader->SetMat4("projectionMatrix", camera.GetProjectionMatrix());
 
 		m_ViewShader->SetFloat4("m_Color", { 1,0.3,0.6,1 });
 

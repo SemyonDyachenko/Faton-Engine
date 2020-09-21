@@ -5,11 +5,14 @@
 #ifndef MY_OWN_GAME_INPUT_H
 #define MY_OWN_GAME_INPUT_H
 
-#include <memory>
 #include "../Math/Vector2.hpp"
+#include <memory>
+#include <SFML/Graphics/RenderWindow.hpp>
+
 
 namespace Engine
 {
+
 
     enum {Count = 8,ButtonCount = 32,AxisCount =8};
 
@@ -29,6 +32,7 @@ namespace Engine
   
     protected:
         Input() = default;
+		
 
   
     public:
@@ -84,14 +88,14 @@ namespace Engine
             return instance->GetMousePositionYImplementation();
         }
 
-		static void SetMousePosition(float x, float y)
+		static void SetMousePosition(float x, float y, sf::RenderWindow & window)
 		{
-			return instance->SetMousePositionImplementation(x, y);
+			return instance->SetMousePositionImplementation(x, y,window);
 		}
 
-		static void SetMousePosition(Math::Vec2f & position)
+		static void SetMousePosition(Math::Vec2f & position, sf::RenderWindow & window)
 		{
-			return instance->SetMousePositionImplementation(position.x,position.y);
+			return instance->SetMousePositionImplementation(position.x,position.y,window);
 		}
 
 		virtual ~Input() = default;
@@ -107,7 +111,7 @@ namespace Engine
         virtual bool GamepadHasAxisImplementation(unsigned int gamepad, Gamepad::Axis axis) = 0;;
         virtual bool GamepadIsButtonPressedInplementation(unsigned int gamepad, unsigned int button) = 0;
         virtual float GamepadGetAxisPositionImplementation(unsigned int gamepad, Gamepad::Axis axis) = 0;
-		virtual void SetMousePositionImplementation(float x, float y) = 0;
+		virtual void SetMousePositionImplementation(float x, float y, sf::RenderWindow & window) = 0;
         
 		
 	private:

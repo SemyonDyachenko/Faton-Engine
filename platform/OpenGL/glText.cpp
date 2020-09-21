@@ -5,9 +5,6 @@
 #include <iostream>
 
 #include <glm/gtc/matrix_transform.hpp>
-#include <ft2build.h>
-#include FT_FREETYPE_H
-
 
 glText::glText(GLuint width, GLuint height)
 {
@@ -42,7 +39,7 @@ void glText::Load(std::string font, GLuint fontSize)
    
     this->Characters.clear();
 
-    FT_Library ft;
+  /*  FT_Library ft;
     if (FT_Init_FreeType(&ft)) 
         std::cout << "ERROR::FREETYPE: Could not init FreeType Library" << std::endl;
 
@@ -98,14 +95,14 @@ void glText::Load(std::string font, GLuint fontSize)
     glBindTexture(GL_TEXTURE_2D, 0);
     // Destroy FreeType once we're finished
     FT_Done_Face(face);
-    FT_Done_FreeType(ft);
+    FT_Done_FreeType(ft);*/
 }
 
 void glText::RenderText(const glm::mat4& projection,std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
 
     // Activate corresponding render state	
-    this->TextShader->Bind();
+  /*  this->TextShader->Bind();
     this->TextShader->SetFloat3("textColor", Engine::Math::Vec3f(color.x,color.y,color.z));
     if (!m_IsStatic)
     {
@@ -149,7 +146,7 @@ void glText::RenderText(const glm::mat4& projection,std::string text, GLfloat x,
     };
     TextShader->Unbind();
     glBindVertexArray(0);
-    glBindTexture(GL_TEXTURE_2D, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);*/
 }
 std::unique_ptr<Engine::Text> Engine::Text::Create(unsigned int width, unsigned int height)
 {
